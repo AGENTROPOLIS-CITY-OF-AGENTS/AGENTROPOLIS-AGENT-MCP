@@ -1,0 +1,72 @@
+{
+  "id": "deepseek-v4-flash-0731-nous-portal",
+  "version": "0.1.0",
+  "layer": "infrastructure",
+  "district": "NEURO",
+  "role": "high-volume fast worker and bounded terminal builder",
+  "provider": "nous-portal",
+  "upstream_provider": "novita-labs",
+  "protocol": "openai-compatible",
+  "model": {
+    "requested_alias": "DeepSeek-V4-Flash-0731",
+    "portal_catalog_name": "DeepSeek: DeepSeek V4 Flash",
+    "resolve_at_runtime": true
+  },
+  "capabilities": [
+    "text.generate",
+    "code.generate",
+    "code.review.draft",
+    "tool.plan",
+    "structured.extract",
+    "terminal.task.bounded"
+  ],
+  "authority": "draft-and-bounded-execution-only",
+  "promotion": {
+    "status": "operator-reported-active",
+    "discount_claim": "90-percent-off-for-seven-days",
+    "benchmark_claim": "reported-to-beat-Fable-5-on-Terminal-Bench-2.1-at-over-1000x-lower-comparable-task-cost",
+    "verified_expires_at": null,
+    "require_runtime_price_check": true,
+    "do_not_hardcode_as_permanent_default": true
+  },
+  "routing": {
+    "prefer_for": [
+      "high-volume-low-risk-code-drafts",
+      "repo-triage",
+      "test-generation",
+      "content-variant-generation",
+      "gameplay-scripting-drafts",
+      "fashion-catalog-enrichment",
+      "creator-pipeline-scaffolding"
+    ],
+    "exclude_without_escalation": [
+      "credential-handling",
+      "wallet-signing",
+      "production-deployment",
+      "destructive-file-operations",
+      "regulated-decisions",
+      "security-critical-final-approval"
+    ]
+  },
+  "receipts": {
+    "required": true,
+    "fields": [
+      "provider",
+      "resolved_model_id",
+      "portal_price_snapshot",
+      "promotion_observed_at",
+      "task_class",
+      "risk_class",
+      "input_token_count",
+      "output_token_count",
+      "latency_ms",
+      "validation_result",
+      "human_approval"
+    ]
+  },
+  "secrets": {
+    "api_key_env": "NOUS_API_KEY",
+    "base_url_env": "NOUS_API_BASE_URL",
+    "never_commit_credentials": true
+  }
+}
