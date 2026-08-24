@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentropolis.example/schemas/agentropolis-spawn-request.schema.json",
+  "title": "Agentropolis Spawn Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "source",
+    "requested_role",
+    "authority",
+    "execution_mode"
+  ],
+  "properties": {
+    "schema": {
+      "const": "agentropolis.spawn-request.v1"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "canonical_ref", "owner_or_steward", "rights_state"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {
+          "enum": ["repository", "application", "service", "protocol", "community", "dataset", "district_candidate", "other"]
+        },
+        "canonical_ref": {"type": "string", "minLength": 1},
+        "owner_or_steward": {"type": "string", "minLength": 1},
+        "rights_state": {
+          "enum": ["verified", "restricted", "unknown", "not_applicable"]
+        },
+        "provenance_ref": {"type": ["string", "null"]}
+      }
+    },
+    "requested_role": {
+      "enum": ["district", "building", "floor", "rail", "skill", "adapter", "service", "citizen", "application"]
+    },
+    "target_district": {"type": ["string", "null"]},
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requestor", "source_mutation_allowed", "public_release_allowed"],
+      "properties": {
+        "requestor": {"type": "string", "minLength": 1},
+        "source_mutation_allowed": {"type": "boolean"},
+        "public_release_allowed": {"type": "boolean"},
+        "authority_receipt": {"type": ["string", "null"]}
+      }
+    },
+    "execution_mode": {
+      "enum": ["PLAN", "DRY_RUN", "CANARY", "LIVE"]
+    },
+    "spatial": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "orthographic_overview": {"type": "boolean", "default": true},
+        "cinematic_path_requested": {"type": "boolean", "default": false},
+        "webgl_baseline": {"type": "boolean", "const": true},
+        "reduced_motion_fallback": {"type": "boolean", "default": true},
+        "no_webgl_fallback": {"type": "boolean", "default": true}
+      }
+    },
+    "provider_requirements": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    }
+  }
+}
