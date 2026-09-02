@@ -1,0 +1,24 @@
+apcp_version: 1
+status: ENROLLED_NOT_VERIFIED
+organization: AGENTROPOLIS-CITY-OF-AGENTS
+repo: AGENTROPOLIS-AGENT-MCP
+priority: tier-0
+role: agent-tool-protocol
+fleet:
+  census_complete: false
+  claims_mapped: false
+  architecture_reviewed: false
+  aegis_reviewed: false
+  sentinel_verified: false
+outcomes:
+  architecture: PENDING
+  assurance: PENDING
+required_focus:
+  - tool-permission-boundaries
+  - mcp-capability-escalation
+  - poisoned-tool-output
+  - authority-intersection
+  - receipts
+notes:
+  - Enrollment is not compliance.
+  - MCP capability growth requires revalidation.
