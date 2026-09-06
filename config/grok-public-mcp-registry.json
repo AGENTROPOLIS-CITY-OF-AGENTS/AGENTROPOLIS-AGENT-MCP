@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "generated_on": "2026-09-06",
+  "purpose": "Source registry for the AGENTROPOLIS Grok build. Only public MCP-bearing surfaces confirmed from AGENTROPOLIS-CITY-OF-AGENTS and wiredchaos are listed as first-party entries.",
+  "security_rule": "Discovery does not grant authority. Every live invocation must pass Identity -> Mandate -> Policy -> Tool Permission -> Execution -> Receipt -> Audit.",
+  "first_party_public_mcps": [
+    {"id":"agentropolis-grid","owner":"AGENTROPOLIS-CITY-OF-AGENTS","repository":"AGENTROPOLIS-AGENT-MCP","url":"https://github.com/AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-AGENT-MCP","kind":"deployed-mcp-capability-membrane","transport":"streamable-http","status":"public","authority":"read-only public tool plane","capabilities":["front-desk routing","district discovery","risk assessment","capability map","deployment manifest","J-SPACE cognitive commons","cognitive council assembly plans","Mind Vault contract","topology","thermodynamics and drift","memory evolution","skill development","observatory snapshot"]},
+    {"id":"parallax-spatial-mcp","owner":"AGENTROPOLIS-CITY-OF-AGENTS","repository":"AGENTROPOLIS-PARALLAX-SPATIAL-MCP","url":"https://github.com/AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-PARALLAX-SPATIAL-MCP","kind":"spatial-mcp-runtime-protocol","status":"public","authority":"bounded spatial operations with capture, verification and receipt","capabilities":["world graph inspection","bounded scene operations","capture","verification","receipts","procedural Three.js world adapters","governed video reconstruction capability"]},
+    {"id":"atlas-mcp","owner":"AGENTROPOLIS-CITY-OF-AGENTS","repository":"AGENTROPOLIS-ATLAS","path":"services/atlas-mcp","url":"https://github.com/AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-ATLAS","kind":"geospatial-mcp-gateway","status":"public","authority":"Phase 001 read-only spatial intelligence","capabilities":["geocode","reverse geocode","nearby search","routing","distance matrices","map layers","ATG spatial receipts"]},
+    {"id":"asimov-robotics-mcp","owner":"wiredchaos","repository":"AGENTROPOLIS-ASIMOV","path":"mcp","url":"https://github.com/wiredchaos/AGENTROPOLIS-ASIMOV","kind":"robotics-mcp-control-surface","status":"public","authority":"request-based physical action through policy and human approval gates","capabilities":["robot registry","capability discovery and requests","safety preflight","e-stop and remote shutdown requests","simulation","deployment approval flow","maintenance logging","ROS 2 and simulator adapter targets"]},
+    {"id":"offgrid-mcp-registry","owner":"wiredchaos","repository":"AGENTROPOLIS-OFFGRID-PUB","path":"mcp/mcp-config.json","url":"https://github.com/wiredchaos/AGENTROPOLIS-OFFGRID-PUB","kind":"public-mcp-node-registry","status":"public","authority":"RANGER-whitelisted off-grid node configuration","capabilities":["filesystem","memory","fetch","git","sequential thinking","optional Supabase"]}
+  ],
+  "offgrid_upstream_dependencies": [
+    {"id":"filesystem","package":"@modelcontextprotocol/server-filesystem","source":"https://github.com/modelcontextprotocol/servers"},
+    {"id":"memory","package":"@modelcontextprotocol/server-memory","source":"https://github.com/modelcontextprotocol/servers"},
+    {"id":"fetch","package":"@modelcontextprotocol/server-fetch","source":"https://github.com/modelcontextprotocol/servers"},
+    {"id":"git","package":"mcp-server-git","source":"https://github.com/modelcontextprotocol/servers"},
+    {"id":"sequential-thinking","package":"@modelcontextprotocol/server-sequential-thinking","source":"https://github.com/modelcontextprotocol/servers"},
+    {"id":"supabase","package":"@supabase/mcp-server-supabase@latest","source":"https://github.com/supabase/mcp-server-supabase","optional":true}
+  ],
+  "grok_surface_rules": {
+    "show_each_first_party_mcp": true,
+    "group_by_district": true,
+    "display_runtime_state": ["LIVE","AVAILABLE","PLANNED","OFFLINE"],
+    "never_present_repository_presence_as_live_runtime": true,
+    "show_capabilities_before_connection": true,
+    "require_receipt_for_live_tool_result": true,
+    "hide_secrets_tokens_and_private_endpoints": true,
+    "default_execution_mode": "read-only-or-request-only",
+    "mutation_requires": ["identity","mandate","policy","tool_permission","human_or_governed_approval","receipt","audit"]
+  }
+}
