@@ -1,32 +1,204 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "generated_on": "2026-09-06",
   "purpose": "Source registry for the AGENTROPOLIS Grok build. Only public MCP-bearing surfaces confirmed from AGENTROPOLIS-CITY-OF-AGENTS and wiredchaos are listed as first-party entries.",
-  "security_rule": "Discovery does not grant authority. Every live invocation must pass Identity -> Mandate -> Policy -> Tool Permission -> Execution -> Receipt -> Audit.",
+  "security_rule": "Discovery does not grant authority. Every live invocation must pass Identity -> Mandate -> Policy -> Tool Permission -> Human or Governed Approval -> Execution -> Receipt -> Audit.",
   "first_party_public_mcps": [
-    {"id":"agentropolis-grid","owner":"AGENTROPOLIS-CITY-OF-AGENTS","repository":"AGENTROPOLIS-AGENT-MCP","url":"https://github.com/AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-AGENT-MCP","kind":"deployed-mcp-capability-membrane","transport":"streamable-http","status":"public","authority":"read-only public tool plane","capabilities":["front-desk routing","district discovery","risk assessment","capability map","deployment manifest","J-SPACE cognitive commons","cognitive council assembly plans","Mind Vault contract","topology","thermodynamics and drift","memory evolution","skill development","observatory snapshot"]},
-    {"id":"parallax-spatial-mcp","owner":"AGENTROPOLIS-CITY-OF-AGENTS","repository":"AGENTROPOLIS-PARALLAX-SPATIAL-MCP","url":"https://github.com/AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-PARALLAX-SPATIAL-MCP","kind":"spatial-mcp-runtime-protocol","status":"public","authority":"bounded spatial operations with capture, verification and receipt","capabilities":["world graph inspection","bounded scene operations","capture","verification","receipts","procedural Three.js world adapters","governed video reconstruction capability"]},
-    {"id":"atlas-mcp","owner":"AGENTROPOLIS-CITY-OF-AGENTS","repository":"AGENTROPOLIS-ATLAS","path":"services/atlas-mcp","url":"https://github.com/AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-ATLAS","kind":"geospatial-mcp-gateway","status":"public","authority":"Phase 001 read-only spatial intelligence","capabilities":["geocode","reverse geocode","nearby search","routing","distance matrices","map layers","ATG spatial receipts"]},
-    {"id":"asimov-robotics-mcp","owner":"wiredchaos","repository":"AGENTROPOLIS-ASIMOV","path":"mcp","url":"https://github.com/wiredchaos/AGENTROPOLIS-ASIMOV","kind":"robotics-mcp-control-surface","status":"public","authority":"request-based physical action through policy and human approval gates","capabilities":["robot registry","capability discovery and requests","safety preflight","e-stop and remote shutdown requests","simulation","deployment approval flow","maintenance logging","ROS 2 and simulator adapter targets"]},
-    {"id":"offgrid-mcp-registry","owner":"wiredchaos","repository":"AGENTROPOLIS-OFFGRID-PUB","path":"mcp/mcp-config.json","url":"https://github.com/wiredchaos/AGENTROPOLIS-OFFGRID-PUB","kind":"public-mcp-node-registry","status":"public","authority":"RANGER-whitelisted off-grid node configuration","capabilities":["filesystem","memory","fetch","git","sequential thinking","optional Supabase"]}
+    {
+      "id": "agentropolis-grid",
+      "owner": "AGENTROPOLIS-CITY-OF-AGENTS",
+      "repository": "AGENTROPOLIS-AGENT-MCP",
+      "url": "https://github.com/AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-AGENT-MCP",
+      "kind": "deployed-mcp-capability-membrane",
+      "transport": "streamable-http",
+      "status": "public",
+      "district": "INTELLIGENCE_GRID",
+      "runtime_state": "AVAILABLE",
+      "authority": "read-only public tool plane",
+      "capabilities": [
+        "front-desk routing",
+        "district discovery",
+        "risk assessment",
+        "capability map",
+        "deployment manifest",
+        "J-SPACE cognitive commons",
+        "cognitive council assembly plans",
+        "Mind Vault contract",
+        "topology",
+        "thermodynamics and drift",
+        "memory evolution",
+        "skill development",
+        "observatory snapshot"
+      ]
+    },
+    {
+      "id": "parallax-spatial-mcp",
+      "owner": "AGENTROPOLIS-CITY-OF-AGENTS",
+      "repository": "AGENTROPOLIS-PARALLAX-SPATIAL-MCP",
+      "url": "https://github.com/AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-PARALLAX-SPATIAL-MCP",
+      "kind": "spatial-mcp-runtime-protocol",
+      "status": "public",
+      "district": "INTELLIGENCE_GRID",
+      "runtime_state": "AVAILABLE",
+      "authority": "bounded spatial operations with capture, verification and receipt",
+      "capabilities": [
+        "world graph inspection",
+        "bounded scene operations",
+        "capture",
+        "verification",
+        "receipts",
+        "procedural Three.js world adapters",
+        "governed video reconstruction capability"
+      ]
+    },
+    {
+      "id": "atlas-mcp",
+      "owner": "AGENTROPOLIS-CITY-OF-AGENTS",
+      "repository": "AGENTROPOLIS-ATLAS",
+      "path": "services/atlas-mcp",
+      "url": "https://github.com/AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-ATLAS",
+      "kind": "geospatial-mcp-gateway",
+      "status": "public",
+      "district": "INTELLIGENCE_GRID",
+      "runtime_state": "AVAILABLE",
+      "authority": "Phase 001 read-only spatial intelligence",
+      "capabilities": [
+        "geocode",
+        "reverse geocode",
+        "nearby search",
+        "routing",
+        "distance matrices",
+        "map layers",
+        "ATG spatial receipts"
+      ]
+    },
+    {
+      "id": "asimov-robotics-mcp",
+      "owner": "wiredchaos",
+      "repository": "AGENTROPOLIS-ASIMOV",
+      "path": "mcp",
+      "url": "https://github.com/wiredchaos/AGENTROPOLIS-ASIMOV",
+      "kind": "robotics-mcp-control-surface",
+      "status": "public",
+      "district": "INTELLIGENCE_GRID",
+      "runtime_state": "AVAILABLE",
+      "authority": "request-based physical action through policy and human approval gates",
+      "capabilities": [
+        "robot registry",
+        "capability discovery and requests",
+        "safety preflight",
+        "e-stop and remote shutdown requests",
+        "simulation",
+        "deployment approval flow",
+        "maintenance logging",
+        "ROS 2 and simulator adapter targets"
+      ]
+    },
+    {
+      "id": "offgrid-mcp-registry",
+      "owner": "wiredchaos",
+      "repository": "AGENTROPOLIS-OFFGRID-PUB",
+      "path": "mcp/mcp-config.json",
+      "url": "https://github.com/wiredchaos/AGENTROPOLIS-OFFGRID-PUB",
+      "kind": "public-mcp-node-registry",
+      "status": "public",
+      "district": "INTELLIGENCE_GRID",
+      "runtime_state": "AVAILABLE",
+      "authority": "RANGER-whitelisted off-grid node configuration",
+      "capabilities": [
+        "filesystem",
+        "memory",
+        "fetch",
+        "git",
+        "sequential thinking",
+        "optional Supabase"
+      ]
+    }
   ],
   "offgrid_upstream_dependencies": [
-    {"id":"filesystem","package":"@modelcontextprotocol/server-filesystem","source":"https://github.com/modelcontextprotocol/servers"},
-    {"id":"memory","package":"@modelcontextprotocol/server-memory","source":"https://github.com/modelcontextprotocol/servers"},
-    {"id":"fetch","package":"@modelcontextprotocol/server-fetch","source":"https://github.com/modelcontextprotocol/servers"},
-    {"id":"git","package":"mcp-server-git","source":"https://github.com/modelcontextprotocol/servers"},
-    {"id":"sequential-thinking","package":"@modelcontextprotocol/server-sequential-thinking","source":"https://github.com/modelcontextprotocol/servers"},
-    {"id":"supabase","package":"@supabase/mcp-server-supabase@latest","source":"https://github.com/supabase/mcp-server-supabase","optional":true}
+    {
+      "id": "filesystem",
+      "ecosystem": "npm",
+      "name": "@modelcontextprotocol/server-filesystem",
+      "specifier": "@modelcontextprotocol/server-filesystem",
+      "runner": "npx",
+      "source": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem"
+    },
+    {
+      "id": "memory",
+      "ecosystem": "npm",
+      "name": "@modelcontextprotocol/server-memory",
+      "specifier": "@modelcontextprotocol/server-memory",
+      "runner": "npx",
+      "source": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory"
+    },
+    {
+      "id": "fetch",
+      "ecosystem": "pypi",
+      "name": "mcp-server-fetch",
+      "specifier": "mcp-server-fetch",
+      "runner": "uvx",
+      "source": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch"
+    },
+    {
+      "id": "git",
+      "ecosystem": "pypi",
+      "name": "mcp-server-git",
+      "specifier": "mcp-server-git",
+      "runner": "uvx",
+      "source": "https://github.com/modelcontextprotocol/servers/tree/main/src/git"
+    },
+    {
+      "id": "sequential-thinking",
+      "ecosystem": "npm",
+      "name": "@modelcontextprotocol/server-sequential-thinking",
+      "specifier": "@modelcontextprotocol/server-sequential-thinking",
+      "runner": "npx",
+      "source": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking"
+    },
+    {
+      "id": "supabase",
+      "ecosystem": "npm",
+      "name": "@supabase/mcp-server-supabase",
+      "version": "latest",
+      "specifier": "@supabase/mcp-server-supabase@latest",
+      "runner": "npx",
+      "source": "https://github.com/supabase/mcp",
+      "optional": true
+    }
   ],
   "grok_surface_rules": {
     "show_each_first_party_mcp": true,
     "group_by_district": true,
-    "display_runtime_state": ["LIVE","AVAILABLE","PLANNED","OFFLINE"],
+    "districtless_infrastructure_value": "INTELLIGENCE_GRID",
+    "district_assignment_rule": "Use a verified canonical district id when ownership is established; otherwise represent cross-district or districtless infrastructure as INTELLIGENCE_GRID.",
+    "display_runtime_state": [
+      "LIVE",
+      "AVAILABLE",
+      "PLANNED",
+      "OFFLINE"
+    ],
+    "runtime_state_semantics": {
+      "LIVE": "Runtime is currently verified reachable and usable by evidence recorded outside repository presence alone.",
+      "AVAILABLE": "Public capability or implementation is available, but a live runtime is not currently proven by this registry.",
+      "PLANNED": "Capability is intentionally planned but not yet available for use.",
+      "OFFLINE": "A previously known runtime is intentionally or observably unavailable."
+    },
     "never_present_repository_presence_as_live_runtime": true,
+    "runtime_evidence_required_for_live": true,
     "show_capabilities_before_connection": true,
     "require_receipt_for_live_tool_result": true,
     "hide_secrets_tokens_and_private_endpoints": true,
     "default_execution_mode": "read-only-or-request-only",
-    "mutation_requires": ["identity","mandate","policy","tool_permission","human_or_governed_approval","receipt","audit"]
+    "mutation_requires": [
+      "identity",
+      "mandate",
+      "policy",
+      "tool_permission",
+      "human_or_governed_approval",
+      "execution",
+      "receipt",
+      "audit"
+    ]
   }
 }
