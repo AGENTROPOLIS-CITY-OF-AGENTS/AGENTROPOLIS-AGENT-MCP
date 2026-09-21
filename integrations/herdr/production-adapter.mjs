@@ -1,5 +1,6 @@
 import { HerdrAdapter } from './adapter.mjs';
 import { assertManagedHerdrSession, verifyManagedHerdrSession } from './session-context.mjs';
+import { verifyOmarchyHerdrEvidence } from './omarchy-host-profile.mjs';
 
 export class GovernedHerdrRuntime {
   constructor(options = {}) {
@@ -21,6 +22,16 @@ export class GovernedHerdrRuntime {
 
   verifyContext() {
     return verifyManagedHerdrSession({ runner: this.adapter.runner, env: this.env });
+  }
+
+  verifyOmarchyHost(machineProfile, missionId, options = {}) {
+    return verifyOmarchyHerdrEvidence({
+      runner: this.adapter.runner,
+      env: this.env,
+      machineProfile,
+      missionId,
+      ...options
+    });
   }
 
   promptAgent(agentName, prompt, options = {}) {
