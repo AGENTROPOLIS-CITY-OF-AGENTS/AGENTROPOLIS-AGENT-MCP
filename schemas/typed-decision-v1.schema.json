@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentropolis.local/schemas/typed-decision-v1.schema.json",
+  "title": "AGENTROPOLIS Typed Decision Request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_version", "request_id", "provider_profile", "state", "questions", "policy"],
+  "properties": {
+    "contract_version": { "const": "decision.v1" },
+    "request_id": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "provider_profile": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "state": {},
+    "questions": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 255,
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "instructions", "criteria"],
+            "properties": {
+              "type": { "const": "choice" },
+              "instructions": { "type": "string", "minLength": 1 },
+              "criteria": {
+                "type": "object",
+                "minProperties": 2,
+                "maxProperties": 255,
+                "additionalProperties": { "type": ["string", "null"] }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "instructions", "criteria"],
+            "properties": {
+              "type": { "const": "score" },
+              "instructions": { "type": "string", "minLength": 1 },
+              "criteria": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 10,
+                "items": { "type": "string", "minLength": 1 }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "instructions"],
+            "properties": {
+              "type": { "const": "noul" },
+              "instructions": { "type": "string", "minLength": 1 },
+              "criteria": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "true": { "type": "string" },
+                  "false": { "type": "string" }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "sensitive_data"],
+      "properties": {
+        "authority": { "const": "advisory_only" },
+        "max_latency_ms": { "type": "integer", "minimum": 1 },
+        "max_cost_micro_usd": { "type": "integer", "minimum": 0 },
+        "sensitive_data": { "const": false }
+      }
+    }
+  }
+}
