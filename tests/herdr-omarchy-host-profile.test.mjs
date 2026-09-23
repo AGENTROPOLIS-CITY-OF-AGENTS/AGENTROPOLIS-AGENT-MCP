@@ -1,6 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { verifyOmarchyHerdrEvidence } from '../integrations/herdr/omarchy-host-profile.mjs';
+import { makeIssuer, signProfile } from './fixtures/utility-grid-attestation.mjs';
+
+const utilityGrid = makeIssuer();
+const trustedIssuers = utilityGrid.trustedIssuers;
+const attest = (profile) => signProfile(profile, utilityGrid);
 
 const now = new Date('2026-09-21T04:00:00.000Z');
 const env = {
@@ -36,7 +41,8 @@ test('builds bounded Omarchy HERDR evidence from a fresh verified machine profil
   const evidence = verifyOmarchyHerdrEvidence({
     runner,
     env,
-    machineProfile,
+    machineProfile: attest(machineProfile),
+    trustedIssuers,
     missionId: 'hermes-mission-arc-1',
     now
   });
@@ -54,7 +60,8 @@ test('fails closed for quarantined machine profile', () => {
     () => verifyOmarchyHerdrEvidence({
       runner,
       env,
-      machineProfile: { ...machineProfile, trust_state: 'quarantined' },
+      machineProfile: attest({ ...machineProfile, trust_state: 'quarantined' }),
+      trustedIssuers,
       missionId: 'hermes-mission-arc-1',
       now
     }),
@@ -67,7 +74,8 @@ test('fails closed for stale machine verification', () => {
     () => verifyOmarchyHerdrEvidence({
       runner,
       env,
-      machineProfile: { ...machineProfile, last_verified_at: '2026-09-20T20:00:00.000Z' },
+      machineProfile: attest({ ...machineProfile, last_verified_at: '2026-09-20T20:00:00.000Z' }),
+      trustedIssuers,
       missionId: 'hermes-mission-arc-1',
       now
     }),
@@ -85,7 +93,8 @@ test('fails closed when HERDR pane does not match managed context', () => {
     () => verifyOmarchyHerdrEvidence({
       runner: mismatchRunner,
       env,
-      machineProfile,
+      machineProfile: attest(machineProfile),
+      trustedIssuers,
       missionId: 'hermes-mission-arc-1',
       now
     }),
