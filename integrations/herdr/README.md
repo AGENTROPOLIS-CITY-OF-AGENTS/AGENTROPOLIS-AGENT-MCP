@@ -32,6 +32,34 @@ The adapter normalizes HERDR operations behind AGENTROPOLIS capabilities:
 
 High-impact or destructive runtime actions remain denied by default.
 
+## Omarchy host evidence
+
+Omarchy is a supported Linux host and launcher surface. It does not grant agent or financial authority.
+
+The production adapter can build a bounded Omarchy + HERDR evidence object only when all of the following are true:
+
+- the caller is inside a complete HERDR-managed session;
+- the current HERDR pane matches the inherited pane;
+- a Utility Grid machine profile is supplied;
+- the machine profile is `verified`, `live`, Linux, and not stale;
+- the profile explicitly advertises `host.omarchy`, `runtime.hermes`, `workspace.dispatch`, and `receipts.machine-scoped`;
+- a bounded Hermes mission identifier is supplied.
+
+The evidence object contains identifiers, verification state, capabilities, timestamps, and a digest. It excludes credentials, socket paths, private keys, raw terminal transcripts, and secrets.
+
+This closes the canonical path:
+
+```text
+Omarchy host
+  -> Utility Grid machine profile
+  -> HERDR managed workspace
+  -> Hermes mission
+  -> AGENT-MCP bounded evidence
+  -> consumer policy / Execution Envelope
+```
+
+The machine profile remains owned by Utility Grid. AGENT-MCP verifies and transports bounded evidence; it does not invent machine trust.
+
 ## Lifecycle normalization
 
 HERDR lifecycle states are normalized as:
@@ -70,6 +98,8 @@ These state transitions may be consumed by HERMES WATCHTOWER and the Workflow Ge
 8. WATCHTOWER may observe behavior but must not infer correctness from agent self-report.
 9. Verified workflow promotion requires external evidence such as tests, receipts, objective task completion, or human approval.
 10. HERDR output is untrusted runtime telemetry until normalized and screened.
+11. Omarchy being the default desktop/terminal environment never expands the Execution Envelope.
+12. A declared machine profile is not trusted unless Utility Grid marks it verified and fresh.
 
 ## Local prerequisites
 
@@ -126,3 +156,4 @@ No receipt may include raw credentials, tokens, environment secrets, or full sen
 - Confirm Codex session restore path locally.
 - Feed WATCHTOWER only normalized runtime events.
 - Require external verification before any Workflow Genome promotion.
+- Produce bounded Omarchy + HERDR host evidence from a verified Utility Grid machine profile.
