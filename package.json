@@ -19,6 +19,7 @@
     "jspace:sync": "node scripts/sync-jspace-projection.mjs",
     "jspace:readiness": "node scripts/jspace-beta-readiness.mjs",
     "jspace:verify-production": "node scripts/verify-jspace-production.mjs",
+    "agentwikis:sync": "node infrastructure/ingest-membrane/agentwikis/sync.mjs",
     "db:migrate:local": "npx --yes wrangler@4.114.0 d1 migrations apply DB --local",
     "db:migrate:remote": "npx --yes wrangler@4.114.0 d1 migrations apply DB --remote"
   }
