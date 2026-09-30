@@ -1,12 +1,13 @@
 # AGENTROPOLIS Agent MCP Model Council Routing
 
-This MCP kit should not bind every agent to one model. It should expose a provider-aware routing layer where HERMES can select the right intelligence lane for each tool call.
+This MCP kit should not bind every agent to one model. It should expose a provider-aware routing layer where HERMES can select the right approved intelligence lane for each tool call.
 
 ## MCP Routing Lanes
 
 | MCP Lane | Model Candidates | Use |
 | --- | --- | --- |
-| Planner | `deepreinforce-ai/Ornith-1.0-35B`, `deepreinforce-ai/Ornith-1.0-35B-FP8` | multi-step planning, agent routing, workflow decomposition |
+| Planner Baseline | `deepreinforce-ai/Ornith-1.0-35B`, `deepreinforce-ai/Ornith-1.0-35B-FP8` | multi-step planning, agent routing, workflow decomposition |
+| Planner Challenger | `Ornith-1.5-35B-A3B` profiles after provenance + BE evaluation | next-generation planner/tool-orchestration trials; never auto-promoted |
 | Builder | `moonshotai/Kimi-K2.7-Code`, `Qwen/Qwen3-Coder-30B-A3B-Instruct` | code, repo edits, MCP scaffolds, implementation tasks |
 | Fast Worker | `deepseek-ai/DeepSeek-V4-Flash` | summaries, tagging, extraction, small tool tasks |
 | Native Low-Bit Local Worker | `fermionresearch/Neutrino-8B`, Neutrino 0.6B draft model | private local summaries, extraction, classification, triage, bounded planning, offline fallback |
@@ -16,6 +17,30 @@ This MCP kit should not bind every agent to one model. It should expose a provid
 | Council Review | `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4` | high-stakes review before elevated actions |
 | Lightweight / Fallback | `google/gemma-4-31B-it`, `google/gemma-4-26B-A4B-it`, `meta-llama/Llama-3.1-8B-Instruct`, `openai/gpt-oss-20b` | cheap fallback, local-ish tasks, constrained execution |
 | Open OSS | `openai/gpt-oss-120b`, `openai/gpt-oss-20b` | open-weight compatible assistant/reasoning fallback |
+
+## R0B0T Model Watch Rule
+
+R0B0T Model Watch is a candidate-intelligence source, not an MCP authority and not a production approval system.
+
+```text
+R0B0T signal
+  -> provenance / WATCH
+  -> 54-T effective-capability review
+  -> BE evaluation
+  -> Quantization Torque analysis
+  -> Model Exchange lane tournament
+  -> approved bounded profile or rejection
+```
+
+The evidence object should bind model/checkpoint + quantization + runtime + hardware + context + KV-cache policy + task/eval metrics. A model name alone is not a routable production profile.
+
+Long-context truth rule:
+
+```text
+configured context capacity != occupied context validated under load
+```
+
+External benchmark claims remain WATCH/EVALUATION until reproduced or explicitly accepted by policy. They must never silently replace an approved Planner profile.
 
 ## NaraRouter Experimental Volume Rule
 
@@ -85,7 +110,7 @@ Operational requirements:
 - record hardware, backend, package version, artifact hash, sampling settings, and evaluation results in the receipt
 - escalate to a larger BYOH or governed BYOK lane when quality, context, or confidence is insufficient
 
-Canonical city policy: `wiredchaos/agentropolis/docs/NEUTRINO_NATIVE_LOW_BIT_MODEL_LANE.md`.
+Canonical city policy: `AGENTROPOLIS-CITY-OF-AGENTS/agentropolis/docs/NEUTRINO_NATIVE_LOW_BIT_MODEL_LANE.md`.
 
 ## Local Frontier / BYOK Cloud Rule
 
@@ -113,8 +138,10 @@ See `docs/local-frontier-model-lane.md` for the full lane policy.
 MCP request
   -> classify task
   -> score risk
-  -> select model lane
+  -> select approved model/runtime profile
   -> check tool authority
+  -> governed execution interface
+       -> optional Claw/NemoClaw adapter when selected
   -> execute
   -> validate output
   -> log receipt
@@ -149,10 +176,15 @@ wallet / credential / production mutation
 
 ## Canon
 
-HERMES is the router.
-NemoClaw is the builder and governed execution checkpoint.
+HERMES is the router/orchestrator.
+BE is the evaluator.
+ASBE is the Agentic Studios backend, not the model evaluator.
+54-T governs effective capability and execution boundaries.
+Quantization Torque governs compute, precision, memory, and context pressure against evidence-backed quality floors.
+NemoClaw/Claw-class infrastructure is an optional governed execution/security adapter, not a mandatory sovereign dependency.
 Nemotron is the research council.
 The MCP kit is the tool lane, not the mayor.
 Neutrino is a compact local worker candidate, not unrestricted authority.
 Local frontier models are optional brains, not required infrastructure.
 NaraRouter is optional free-capacity routing, not required infrastructure.
+R0B0T Model Watch is an evidence feeder, not a promotion authority.
