@@ -2,10 +2,55 @@ import jspaceWorker from './jspace-index.js';
 import { executeGovernedDryRun, createDryRunReceipt } from './dry-run-executor.js';
 import { listOpsEvents, opsSupervisionEnabled } from './ops-supervisor.js';
 import { canaryReadiness } from './canary-admission.js';
+import { buildSpawnPlan } from './spawn-plan.js';
 
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/api/spawn/plan') {
+      if (request.method !== 'POST') {
+        return json({ error: { code: 'METHOD_NOT_ALLOWED', message: 'The spawn plan endpoint accepts POST only.' } }, 405, {
+          allow: 'POST',
+        });
+      }
+
+      const maxBytes = positive(env.MAX_REQUEST_BYTES, 131072);
+      const text = await request.text();
+      if (new TextEncoder().encode(text).byteLength > maxBytes) {
+        return json({ error: { code: 'REQUEST_TOO_LARGE', message: 'Request body exceeds the configured limit.' } }, 413);
+      }
+      if (!(request.headers.get('content-type') || '').toLowerCase().includes('application/json')) {
+        return json({ error: { code: 'UNSUPPORTED_MEDIA_TYPE', message: 'Request body must use application/json.' } }, 415);
+      }
+
+      let envelope;
+      try {
+        envelope = text ? JSON.parse(text) : {};
+      } catch {
+        return json({ error: { code: 'INVALID_JSON', message: 'Request body must contain valid JSON.' } }, 400);
+      }
+
+      try {
+        const plan = buildSpawnPlan(envelope, {
+          serviceVersion: env.SERVICE_VERSION || null,
+          executionMode: env.EXECUTION_MODE || 'AUTHORIZATION_ONLY',
+        });
+        return json({
+          ...plan,
+          invocation_performed: false,
+          deployment_performed: false,
+          source_mutation_performed: false,
+        });
+      } catch (error) {
+        return json({
+          error: {
+            code: error?.code || 'INVALID_SPAWN_REQUEST',
+            message: error instanceof Error ? error.message : 'Spawn request is invalid.',
+          },
+        }, error?.status || 400);
+      }
+    }
 
     if (url.pathname === '/api/execution/canary/readiness') {
       if (request.method !== 'GET') {
