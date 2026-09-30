@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "agentropolis-project-spawn-tool-contract",
+  "version": "1.0.0",
+  "tool": {
+    "name": "plan_agentropolis_project_spawn",
+    "authority": "READ_ONLY",
+    "purpose": "Return a bounded Agentropolis project-spawn plan without mutating repositories, deployments, permissions, wallets, or canon."
+  },
+  "input": {
+    "required": ["projectName", "source"],
+    "optional": ["projectId", "sourceType", "targetDistrict", "spatialClass", "license", "provenance"]
+  },
+  "output": {
+    "schema": "agentropolis.project-spawn.v1",
+    "state": "PLANNED",
+    "handoff": [
+      "DOCKING_DISTRICT",
+      "CONSTRUCTION_DISTRICT",
+      "AGENTROPOLIS_CREATOR_CORE",
+      "HERMES",
+      "HERMES_CITY",
+      "BE"
+    ],
+    "scene": {
+      "schema": "agentropolis.spatial-scene.v1",
+      "engine": "threejs",
+      "overviewCamera": "orthographic",
+      "cinematicCamera": "perspective_optional",
+      "baseline": "webgl",
+      "webgpu": "optional",
+      "dedicatedGpuRequired": false,
+      "reducedMotion": "static-viewpoints",
+      "noWebGL": "html"
+    }
+  },
+  "execution_boundary": {
+    "repositoryMutation": "NO_PUBLIC_AUTHORITY",
+    "deployment": "NO_PUBLIC_AUTHORITY",
+    "publishing": "HUMAN_APPROVAL_REQUIRED",
+    "wallet": "NO_PUBLIC_AUTHORITY",
+    "payment": "NO_PUBLIC_AUTHORITY",
+    "destructive": "NO_PUBLIC_AUTHORITY",
+    "executionCorridor": "SEPARATE_AUTHENTICATED_CORRIDOR"
+  },
+  "verification": {
+    "evaluator": "BE",
+    "receiptSchema": "agentropolis.be.scene-receipt.v1"
+  }
+}

@@ -1,14 +1,36 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "id": "construction-vision-operator-policy",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "provider_neutral": true,
   "preferred_candidate": "Kimi K3",
   "ownership": {
-    "construction_package": "wiredchaos/AGENTROPOLIS-CREATOR",
-    "orchestration": "wiredchaos/ASBE",
+    "construction_package": "AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-CREATOR-CORE",
+    "orchestration": "CONSTRUCTION_DISTRICT",
     "dispatch": "HERMES",
-    "authority": "wiredchaos/AGENTROPOLIS-AGENT-MCP"
+    "authority": "AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-AGENT-MCP",
+    "evaluator": "BE"
+  },
+  "project_spawn": {
+    "schema": "agentropolis.project-spawn.v1",
+    "intake": "DOCKING_DISTRICT",
+    "construction": "CONSTRUCTION_DISTRICT",
+    "creator": "AGENTROPOLIS_CREATOR_CORE",
+    "preview": "HERMES_CITY",
+    "evaluation": "BE",
+    "public_mcp_mode": "READ_ONLY_PLAN",
+    "execution_corridor": "SEPARATE_AUTHENTICATED_CORRIDOR",
+    "spatial": {
+      "scene_schema": "agentropolis.spatial-scene.v1",
+      "engine": "threejs",
+      "overview_camera": "orthographic",
+      "cinematic_camera": "perspective_optional",
+      "baseline": "webgl",
+      "webgpu": "optional",
+      "dedicated_gpu_required": false,
+      "reduced_motion": "static-viewpoints",
+      "no_webgl": "html"
+    }
   },
   "modes": {
     "INSPECT": {
@@ -105,30 +127,12 @@
         "publish_build"
       ]
     },
-    "unity_mcp": {
-      "state": "evaluate",
-      "default_mode": "INSPECT"
-    },
-    "godot_mcp": {
-      "state": "evaluate",
-      "default_mode": "INSPECT"
-    },
-    "playcanvas_webxr": {
-      "state": "evaluate",
-      "default_mode": "INSPECT"
-    },
-    "react_three_fiber_threejs": {
-      "state": "aligned",
-      "default_mode": "PROPOSE"
-    },
-    "supersplat_3dgs": {
-      "state": "evaluate",
-      "default_mode": "INSPECT"
-    },
-    "openusd": {
-      "state": "evaluate",
-      "default_mode": "VALIDATE"
-    }
+    "unity_mcp": { "state": "evaluate", "default_mode": "INSPECT" },
+    "godot_mcp": { "state": "evaluate", "default_mode": "INSPECT" },
+    "playcanvas_webxr": { "state": "evaluate", "default_mode": "INSPECT" },
+    "react_three_fiber_threejs": { "state": "aligned", "default_mode": "PROPOSE" },
+    "supersplat_3dgs": { "state": "evaluate", "default_mode": "INSPECT" },
+    "openusd": { "state": "evaluate", "default_mode": "VALIDATE" }
   },
   "candidate_producers": {
     "tools": [
@@ -167,6 +171,10 @@
     "medium_and_high_risk_actions_require_reversible_diff",
     "production_mutation_requires_approval",
     "public_publish_requires_human_approval",
-    "every_execution_requires_receipt"
+    "every_execution_requires_receipt",
+    "be_is_general_spawn_evaluator",
+    "asbe_is_entertainment_scoped_not_general_construction_orchestration",
+    "public_mcp_spawn_planning_is_read_only",
+    "spawned_projects_do_not_become_city_dependencies"
   ]
 }
