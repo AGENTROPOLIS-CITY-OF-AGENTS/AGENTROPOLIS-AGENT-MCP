@@ -1,0 +1,20 @@
+version: 1
+project: example-wikivault
+authority:
+  default: analyze
+sources:
+  github:
+    repositories: []
+  browser:
+    enabled: false
+    allowed_domains: []
+    mode: observe
+limits:
+  max_file_bytes: 10000000
+  max_browser_pages: 25
+outputs:
+  portable_vault: ./wikivault-export
+policies:
+  follow_symlinks: false
+  publish_default: deny
+  secret_handling: quarantine

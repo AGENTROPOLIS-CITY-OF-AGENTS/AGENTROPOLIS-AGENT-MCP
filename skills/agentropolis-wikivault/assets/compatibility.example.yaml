@@ -1,0 +1,14 @@
+project: agentropolis-wikivault
+interfaces:
+  agentskills: true
+  mcp_stdio: true
+  mcp_streamable_http: true
+  cli: true
+  rest: true
+runtimes:
+  hermes: compatibility-target
+  openclaw: compatibility-target
+  codex: compatibility-target
+  claude-code: compatibility-target
+  chatgpt: compatibility-target
+  generic-mcp: supported-interface

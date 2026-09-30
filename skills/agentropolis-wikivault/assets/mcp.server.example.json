@@ -1,0 +1,7 @@
+{
+  "name": "agentropolis-wikivault",
+  "transport": "streamable-http",
+  "url": "https://YOUR-WIKIVAULT-HOST/mcp",
+  "authority": "observe+analyze",
+  "writeDefault": "deny"
+}

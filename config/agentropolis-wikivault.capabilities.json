@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "service": "agentropolis-wikivault",
+  "ownership": "AGENTROPOLIS",
+  "authority": {
+    "default": ["OBSERVE", "ANALYZE"],
+    "write_default": "DENY",
+    "human_approval_required": true
+  },
+  "interfaces": {
+    "agentskills": true,
+    "mcp_stdio": "target",
+    "mcp_streamable_http": "target",
+    "cli": true,
+    "rest": "target"
+  },
+  "source_adapters": {
+    "local_files": "implemented",
+    "github": "planned",
+    "browser_evidence": "planned",
+    "xrpl": "planned",
+    "generic_ledger": "planned"
+  },
+  "outputs": [
+    "evidence.jsonl",
+    "entities.jsonl",
+    "relationships.jsonl",
+    "conflicts.jsonl",
+    "review-queue.jsonl",
+    "retrieval-chunks.jsonl",
+    "provenance.jsonl",
+    "manifest.json",
+    "checksums.json"
+  ],
+  "canon_states": [
+    "LOCKED_CANON",
+    "ACTIVE_CANON",
+    "PROVISIONAL",
+    "CONCEPT",
+    "DEPRECATED",
+    "SUPERSEDED",
+    "CONTRADICTED",
+    "UNKNOWN"
+  ],
+  "evidence_states": [
+    "PLANNED",
+    "IMPLEMENTED",
+    "DEPLOYED",
+    "OBSERVED",
+    "VERIFIED",
+    "UNVERIFIED"
+  ],
+  "runtime_targets": {
+    "hermes": "compatibility_target",
+    "openclaw": "compatibility_target",
+    "codex": "compatibility_target",
+    "claude_code": "compatibility_target",
+    "chatgpt": "compatibility_target",
+    "generic_mcp": "supported_interface"
+  }
+}
