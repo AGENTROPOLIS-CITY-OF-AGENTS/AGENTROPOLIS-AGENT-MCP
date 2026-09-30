@@ -1,0 +1,96 @@
+{
+  "id": "minimax-h3-media-execution",
+  "version": "0.1.0",
+  "layer": "infrastructure",
+  "district": "789-STUDIOS",
+  "role": "bounded multimodal audiovisual generation and editing worker",
+  "provider": "minimax",
+  "protocol": "asynchronous-media-api",
+  "model": {
+    "requested_alias": "MiniMax-H3",
+    "resolve_at_runtime": true,
+    "weights_status": "unverified",
+    "api_status": "operator-reported-available"
+  },
+  "capabilities": [
+    "video.generate.text",
+    "video.generate.image",
+    "video.generate.first-last-frame",
+    "video.generate.references",
+    "video.edit.multimodal",
+    "video.status",
+    "video.retrieve"
+  ],
+  "input_contract": {
+    "max_reference_images": 9,
+    "max_reference_videos": 3,
+    "max_reference_audio_clips": 3,
+    "max_mixed_files": 12,
+    "max_prompt_characters": 7000,
+    "reference_audio_requires_visual_reference": true,
+    "reference_video_total_seconds_max": 15,
+    "reference_audio_total_seconds_max": 15
+  },
+  "output_contract": {
+    "duration_seconds_min": 4,
+    "duration_seconds_max": 15,
+    "resolutions": ["768P", "2K"],
+    "native_audio": "stereo",
+    "queue_required": true
+  },
+  "authority": "media-generation-only",
+  "routing": {
+    "prefer_for": [
+      "character-reference-video",
+      "product-showcase-video",
+      "game-cinematic-prototype",
+      "fashion-lookbook-motion",
+      "music-visualizer",
+      "short-form-serial-scene",
+      "ui-motion-demonstration"
+    ],
+    "exclude_without_escalation": [
+      "unauthorized-face-cloning",
+      "unauthorized-voice-cloning",
+      "uncleared-commercial-assets",
+      "automatic-publication",
+      "identity-sensitive-output-without-human-review"
+    ]
+  },
+  "job_lifecycle": [
+    "submit",
+    "persist-task-id",
+    "poll-with-backoff",
+    "retrieve",
+    "hash-output",
+    "quality-review",
+    "rights-review",
+    "human-approval",
+    "distribution-handoff"
+  ],
+  "receipts": {
+    "required": true,
+    "fields": [
+      "provider",
+      "resolved_model_id",
+      "mandate_id",
+      "asset_manifest_hash",
+      "prompt_hash",
+      "reference_roles",
+      "duration_seconds",
+      "resolution",
+      "task_id",
+      "output_hash",
+      "rights_status",
+      "identity_consent_status",
+      "quality_review",
+      "human_approval",
+      "distribution_channels"
+    ]
+  },
+  "secrets": {
+    "api_key_env": "MINIMAX_API_KEY",
+    "base_url_env": "MINIMAX_API_BASE_URL",
+    "never_commit_credentials": true
+  }
+}
