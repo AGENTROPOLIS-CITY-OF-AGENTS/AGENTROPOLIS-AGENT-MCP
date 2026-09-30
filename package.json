@@ -20,6 +20,10 @@
     "jspace:readiness": "node scripts/jspace-beta-readiness.mjs",
     "jspace:verify-production": "node scripts/verify-jspace-production.mjs",
     "db:migrate:local": "npx --yes wrangler@4.114.0 d1 migrations apply DB --local",
-    "db:migrate:remote": "npx --yes wrangler@4.114.0 d1 migrations apply DB --remote"
+    "db:migrate:remote": "npx --yes wrangler@4.114.0 d1 migrations apply DB --remote",
+    "21st:login": "npx @21st-dev/cli@latest login",
+    "21st:search": "npx @21st-dev/cli@latest search",
+    "21st:install-skill": "npx @21st-dev/cli@latest install-skill",
+    "21st:init:codex": "npx @21st-dev/cli@latest init --client codex"
   }
 }
