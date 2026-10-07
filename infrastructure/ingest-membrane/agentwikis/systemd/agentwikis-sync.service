@@ -1,0 +1,19 @@
+[Unit]
+Description=Agentropolis Agent Wikis -> WikiVault ingest
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/agentropolis/AGENTROPOLIS-AGENT-MCP
+EnvironmentFile=%h/.config/agentropolis/agentwikis.env
+ExecStart=/usr/bin/env node infrastructure/ingest-membrane/agentwikis/sync.mjs
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.agentropolis/wikivault
+UMask=0077
+
+[Install]
+WantedBy=default.target
