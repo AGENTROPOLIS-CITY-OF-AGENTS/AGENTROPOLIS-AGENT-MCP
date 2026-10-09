@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "id": "agentropolis.browser-fleet",
+  "status": "not-activated",
+  "default_authority": "deny",
+  "public_worker_ceiling": "read_only",
+  "capabilities": [
+    "browser.research",
+    "browser.observe",
+    "browser.receipt_lookup"
+  ],
+  "actions_disabled": [
+    "browser.execute",
+    "browser.authenticate",
+    "browser.wallet_sign",
+    "browser.publish",
+    "browser.purchase",
+    "browser.profile_import"
+  ],
+  "required_gate_refs": [
+    "ATG:WEB_ACTION:BROWSER_FLEET",
+    "54T:containment-attestation-v1",
+    "AEGIS:IRON_GATE"
+  ],
+  "secrets_in_public_worker": false,
+  "receipt_required": true,
+  "enabled": false
+}
