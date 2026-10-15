@@ -1,0 +1,13 @@
+[Unit]
+Description=Continuously refresh Agent Wikis mirror for WikiVault
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=15m
+AccuracySec=1m
+RandomizedDelaySec=30s
+Persistent=true
+Unit=agentwikis-sync.service
+
+[Install]
+WantedBy=timers.target
