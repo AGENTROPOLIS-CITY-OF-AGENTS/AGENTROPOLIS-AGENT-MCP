@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGENTROPOLIS WikiVault"
+  short_description: "Refine repos and files into governed, provenance-backed knowledge."
+  brand_color: "#111111"
