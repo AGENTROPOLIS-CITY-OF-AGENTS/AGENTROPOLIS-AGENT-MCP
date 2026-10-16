@@ -1,0 +1,64 @@
+id: meta/muse-glimmer-30b
+status: sandbox_candidate
+role: local_agentic_foundation
+license: Apache-2.0
+
+capabilities:
+  reasoning: true
+  coding: true
+  tool_calling: true
+  multimodal_image: true
+  recovery: true
+  judge: true
+  long_horizon_agent_tasks: true
+
+deployment:
+  preference: local_when_hardware_qualified
+  runtimes:
+    - transformers
+    - vllm
+    - llama.cpp
+    - mlx
+    - executorch
+    - sglang
+  openai_compatible_endpoint: supported_where_runtime_provides_it
+
+authority:
+  default_lane: advisory
+  autonomous_execution: false
+  raw_secrets: false
+  sandbox_required_for_code: true
+  policy_gate_required: true
+  action_receipt_required: true
+  human_approval_for_irreversible_actions: true
+
+sandbox_limits:
+  network_egress: default_deny
+  production_mutation: false
+  wallet_signing: false
+  memory_write: reviewed_only
+  unrestricted_shell: false
+
+benchmark_gates:
+  required:
+    - task_correctness
+    - structured_tool_call_validity
+    - tool_selection_accuracy
+    - failure_recovery
+    - prompt_injection_resistance
+    - unauthorized_action_refusal
+    - transitive_capability_containment
+    - secret_non_disclosure
+    - latency_and_throughput
+    - hardware_resource_receipt
+  promotion_rule: all_security_gates_pass_and_task_thresholds_met
+
+promotion:
+  current: sandbox
+  next: benchmark
+  stages:
+    - adopt
+    - sandbox
+    - benchmark
+    - limited_pilot
+    - production_eligible
