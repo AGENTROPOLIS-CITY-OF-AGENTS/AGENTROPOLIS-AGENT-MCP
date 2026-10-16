@@ -1,0 +1,110 @@
+schema_version: 0.1.0
+name: agentropolis-gridkit
+display_name: AGENTROPOLIS GRIDKIT
+layer: infrastructure
+system_role: portable-governed-agent-harness
+canonical_surface: AGENTROPOLIS-AGENT-MCP
+
+principles:
+  - skills-first
+  - runtime-portable
+  - authority-is-runtime-constrained
+  - learning-proposes-governance-promotes
+  - receipts-for-consequential-work
+  - bounded-district-collectives
+  - provenance-before-canon
+
+surfaces:
+  agents:
+    status: scaffold
+    starter_roles:
+      - planner
+      - architect
+      - builder
+      - verifier
+      - security-reviewer
+      - researcher
+      - memory-curator
+      - district-steward
+      - incident-responder
+      - router
+  skills:
+    protocol: CHAOS_SKILL
+    lifecycle: [candidate, quarantine, evaluated, approved, active, stale, archived]
+  commands:
+    role: compatibility-and-ergonomic-entry-points
+  hooks:
+    role: local-enforcement-validation-and-learning-events
+  policies:
+    authority_system: AEGIS
+  receipts:
+    audit_system: SENTINEL-6
+  memory:
+    role: continuity-provenance-and-pattern-learning
+  collectives:
+    role: bounded-district-coordination
+  mcp:
+    membrane: AGENTROPOLIS-AGENT-MCP
+  collaboration:
+    substrate: BUZZ
+
+runtime_targets:
+  - hermes
+  - codex
+  - claude-code
+  - nemoclaw
+  - nemotron
+  - botbae
+  - opencode
+  - cursor
+  - gemini
+
+learning:
+  sources:
+    - approved-session-summaries
+    - git-history
+    - diffs
+    - issues
+    - pull-requests
+    - test-failures
+    - operator-corrections
+  outputs:
+    - candidate-skill
+    - candidate-rule
+    - candidate-agent-pattern
+    - anti-pattern
+  auto_promote: false
+  provenance_required: true
+  evaluation_required: true
+  human_approval_for_registry_promotion: true
+
+collective_cell:
+  required_fields:
+    - district
+    - mandate_id
+    - operator_or_governor
+    - allowed_agents
+    - allowed_skills
+    - allowed_tools
+    - expiry
+    - budget
+    - evidence_policy
+    - receipt_policy
+  forbidden:
+    - self_permission_escalation
+    - hidden_communication_channel
+    - autonomous_canon_mutation
+    - autonomous_skill_promotion
+    - unauthorized_publish
+    - unauthorized_payment
+    - unauthorized_wallet_signing
+    - unauthorized_production_deploy
+
+corridor:
+  - identity
+  - mandate
+  - policy
+  - tool_permission
+  - execution
+  - receipt
+  - audit
