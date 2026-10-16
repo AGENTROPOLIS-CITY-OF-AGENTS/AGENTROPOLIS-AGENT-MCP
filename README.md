@@ -176,3 +176,30 @@ Operator receipt APIs always require this encrypted Worker secret. Set `MCP_AUTH
 - Canonical preview data is never presented as live telemetry.
 - Hidden chain-of-thought and private model activations are never exposed.
 - Agent progression remains human governed; self-promotion is disabled.
+
+
+## Omarchy workstation adapter
+
+AGENTROPOLIS can treat Omarchy as a governed local operator/developer workstation through the existing HERDR integration.
+
+The workstation path is:
+
+```text
+Omarchy host
+  -> HERDR workspace
+  -> AGENTROPOLIS-AGENT-MCP local capability membrane
+  -> Builder Commons Local Dock
+  -> Hermes / Codex / approved workers
+  -> Execution Envelope / policy / verification / receipt
+```
+
+Omarchy does not grant authority. The workstation adapter exposes descriptive machine/workspace capability and bounded local execution only through explicit capabilities.
+
+Implemented support:
+- authority-free Omarchy machine profile
+- quarantine/verified/degraded/revoked trust state
+- live/offline/stale connectivity state
+- safe Builder Commons projection that excludes credential references
+- compute advertisement only when the profile is both verified and live
+
+See `integrations/herdr/omarchy-profile.mjs` and `docs/OMARCHY_WORKSTATION_ADAPTER.md`.
