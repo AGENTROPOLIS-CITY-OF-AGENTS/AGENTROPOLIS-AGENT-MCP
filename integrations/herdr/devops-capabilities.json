@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "adapter": "herdr-devops",
+  "provider": "herdr",
+  "mode": "governed-local-devops",
+  "capabilities": [
+    {"name":"git.status","risk":"read_only","default":"allow_local_bounded"},
+    {"name":"git.diff","risk":"read_only","default":"allow_local_bounded"},
+    {"name":"git.log","risk":"read_only","default":"allow_local_bounded"},
+    {"name":"worktree.list","risk":"read_only","default":"allow_local"},
+    {"name":"worktree.inspect","risk":"read_only","default":"allow_local_bounded"},
+    {"name":"worktree.create","risk":"scoped_write","default":"approval_or_policy_gate"},
+    {"name":"worktree.cleanup","risk":"scoped_write","default":"approval_or_policy_gate"},
+    {"name":"branch.inspect","risk":"read_only","default":"allow_local_bounded"},
+    {"name":"branch.create","risk":"scoped_write","default":"approval_or_policy_gate"},
+    {"name":"branch.switch","risk":"scoped_write","default":"approval_or_policy_gate"},
+    {"name":"review.diff","risk":"read_only","default":"allow_local_bounded"},
+    {"name":"review.status","risk":"read_only","default":"allow_local"},
+    {"name":"review.request","risk":"execution","default":"approval_or_policy_gate"},
+    {"name":"review.comment","risk":"external_write","default":"approval_or_policy_gate"},
+    {"name":"review.apply_comment","risk":"execution","default":"approval_or_policy_gate"},
+    {"name":"review.verify","risk":"execution","default":"approval_or_policy_gate"},
+    {"name":"pr.inspect","risk":"read_only","default":"allow_local_bounded"},
+    {"name":"pr.prepare","risk":"scoped_write","default":"approval_or_policy_gate"},
+    {"name":"pr.open","risk":"external_write","default":"approval_or_policy_gate"}
+  ],
+  "denied_by_default": [
+    "pr.merge",
+    "release.publish",
+    "production.deploy",
+    "git.push.force",
+    "git.reset.hard.unscoped",
+    "worktree.delete.foreign",
+    "runtime.shell.unbounded",
+    "runtime.secret.read"
+  ],
+  "requirements": {
+    "mandate_required_for_mutation": true,
+    "execution_envelope_required_for_mutation": true,
+    "repository_scope_required": true,
+    "worktree_scope_required_for_agent_changes": true,
+    "receipts_required": true,
+    "external_verification_required_for_success": true
+  }
+}
