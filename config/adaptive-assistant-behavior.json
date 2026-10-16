@@ -77,5 +77,50 @@
       "narrow-refusal",
       "long-horizon-persistence"
     ]
+  },
+  "communication": {
+    "atgProfile": "atg.communication.profile",
+    "userSelectedModes": [
+      "main_street",
+      "builder",
+      "engineer",
+      "architect",
+      "adaptive"
+    ],
+    "defaultMode": "main_street",
+    "independentControls": [
+      "reasoning",
+      "verbosity",
+      "cognitive_delivery"
+    ],
+    "adaptation": {
+      "enabledByDefault": false,
+      "userControlled": true,
+      "selectedModeLocked": true,
+      "mayAdjust": [
+        "chunking",
+        "pace",
+        "terminology",
+        "examples",
+        "detail",
+        "repetition",
+        "visual_density"
+      ],
+      "signals": [
+        "explicit_request",
+        "repeated_clarification",
+        "repeated_error",
+        "task_success",
+        "topic_mastery",
+        "response_length_pattern",
+        "navigation_friction"
+      ],
+      "neverInfer": [
+        "intelligence",
+        "medical_diagnosis",
+        "disability",
+        "protected_trait"
+      ]
+    }
   }
 }

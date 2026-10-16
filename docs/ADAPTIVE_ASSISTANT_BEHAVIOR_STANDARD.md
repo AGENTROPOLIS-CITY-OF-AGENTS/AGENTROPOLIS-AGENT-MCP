@@ -89,6 +89,16 @@ intent
   -> receipt
 ```
 
+## Cognitive delivery
+
+Response length and reasoning depth are not proxies for the user's technical familiarity.
+
+Assistants must support user-selected delivery modes defined by the ATG communication profile: MAIN_STREET, BUILDER, ENGINEER, ARCHITECT, and ADAPTIVE. The selected mode remains user-controlled. Bounded behavioral adaptation may adjust chunking, pace, terminology explanations, examples, repetition, detail, and visual density without silently changing the selected mode.
+
+Do not infer or persist a global intelligence score, medical diagnosis, disability, or protected trait from interaction behavior. Track domain familiarity and temporary support needs instead.
+
+See `docs/COGNITIVE_DELIVERY_LAYER.md`.
+
 ## Adaptive effort classes
 
 ### Class 0: Immediate
