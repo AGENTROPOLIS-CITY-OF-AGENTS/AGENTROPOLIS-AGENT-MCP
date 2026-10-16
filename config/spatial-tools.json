@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "namespace": "spatial",
+  "tools": [
+    {
+      "name": "query_scene",
+      "description": "Read governed WORLD GRID scene context and source-backed spatial observations.",
+      "risk": "read_only",
+      "requires": ["provenance"]
+    },
+    {
+      "name": "focus_entity",
+      "description": "Change presentation focus to a non-person spatial entity.",
+      "risk": "presentation"
+    },
+    {
+      "name": "set_quantization",
+      "description": "Change WORLD GRID intelligence resolution from Q0 ORBIT through Q5 OBJECT.",
+      "risk": "presentation"
+    },
+    {
+      "name": "serialize_scene",
+      "description": "Create a portable scene capsule containing view state and evidence references.",
+      "risk": "read_only"
+    },
+    {
+      "name": "request_action_from_evidence",
+      "description": "Send spatial evidence back to ATG for plan compilation. This tool never executes the requested action.",
+      "risk": "compile_only",
+      "requires": ["mandate", "execution_envelope", "aegis_gate"],
+      "grantsExecutionAuthority": false
+    }
+  ],
+  "prohibited": [
+    "named_person_search",
+    "face_recognition",
+    "biometric_identification",
+    "individual_person_tracking"
+  ]
+}
