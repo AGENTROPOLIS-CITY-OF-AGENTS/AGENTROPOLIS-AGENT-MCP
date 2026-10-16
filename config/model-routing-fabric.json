@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "name": "AGENTROPOLIS_MODEL_ROUTING_FABRIC",
+  "owner": "AGENTROPOLIS-AGENT-MCP",
+  "sovereign_router": "agentropolis",
+  "policy": {
+    "default_mode": "cheapest_capable",
+    "frontier_escalation": true,
+    "local_first_when_private": true,
+    "human_approval_for_high_risk": true,
+    "self_escalation": false,
+    "raw_secret_access": false
+  },
+  "routing_dimensions": [
+    "capability",
+    "quality",
+    "latency",
+    "cost",
+    "privacy",
+    "context_window",
+    "hardware_fit",
+    "tool_authority",
+    "risk"
+  ],
+  "tiers": {
+    "worker": {
+      "examples": ["nvidia-nemotron-3.5-lightning"],
+      "allowed": ["classification", "extraction", "summarization", "code_review", "tool_planning", "security_triage", "routine_agent_turns"],
+      "execution_authority": "bounded"
+    },
+    "specialist": {
+      "allowed": ["coding", "vision", "research", "domain_reasoning"],
+      "execution_authority": "bounded"
+    },
+    "frontier": {
+      "allowed": ["complex_planning", "architecture", "ambiguous_reasoning", "deep_debugging"],
+      "execution_authority": "advisory_until_policy_gate"
+    },
+    "judge": {
+      "allowed": ["verification", "high_risk_review", "escalation_decision"],
+      "execution_authority": "no_direct_side_effects"
+    }
+  },
+  "adapters": {
+    "switchyard": {
+      "status": "experimental",
+      "required": false,
+      "role": "optional_routing_adapter",
+      "feature_flag": "MODEL_ROUTER_SWITCHYARD_ENABLED",
+      "fallback": "native_policy_router"
+    },
+    "hermes": {
+      "status": "supported",
+      "required": false,
+      "role": "agent_orchestration_adapter"
+    },
+    "nvidia_nim": {
+      "status": "supported",
+      "required": false,
+      "role": "provider_adapter"
+    },
+    "ollama": {
+      "status": "supported",
+      "required": false,
+      "role": "local_provider_adapter"
+    },
+    "openai_compatible": {
+      "status": "supported",
+      "required": false,
+      "role": "generic_provider_adapter"
+    }
+  },
+  "receipt": {
+    "required_fields": [
+      "task_id",
+      "route_reason",
+      "selected_tier",
+      "selected_provider",
+      "selected_model",
+      "risk_score",
+      "policy_decision",
+      "latency_ms",
+      "input_tokens",
+      "output_tokens",
+      "estimated_cost",
+      "escalations",
+      "timestamp"
+    ]
+  }
+}
