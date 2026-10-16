@@ -29,6 +29,14 @@ The source deliberately marks the historical 200+ mind roster as **rehydration r
 
 See [`docs/JSPACE_WIKIVAULT_COGNITIVE_COMMONS.md`](docs/JSPACE_WIKIVAULT_COGNITIVE_COMMONS.md).
 
+## NEURO workstyle presentation adapter
+
+This repository now includes a tested, non-authority-bearing adapter for the recovered NEURO workstyle modes **ARCHITECT, SPARK, ANCHOR, and PHANTOM**.
+
+It consumes `ATG:COGNITION` as a presentation/workflow preference only. It never grants tools, widens mandates, changes policy, or participates in employment decisions.
+
+See [`docs/NEURO_WORKSTYLE_PRESENTATION_ROUTING.md`](docs/NEURO_WORKSTYLE_PRESENTATION_ROUTING.md) and [`src/neuro-workstyle.js`](src/neuro-workstyle.js).
+
 ## Agentropolis 3D + Intelligence Observatory
 
 The GitHub Pages surface in `github-pages/3d/` is the integrated liquid-glass 3D city and HERMES docking terminal.
