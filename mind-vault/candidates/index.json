@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "authority": "CANDIDATE_DISCOVERY_ONLY",
+  "version": "2026-10-08",
+  "note": "A candidate entry is not canonical Mind Vault membership and does not activate runtime routing.",
+  "candidates": [
+    {
+      "id": "people/arthur-hayes",
+      "name": "Arthur Hayes",
+      "lens": "Macro Liquidity & Crypto Derivatives",
+      "file": "mind-vault/candidates/arthur-hayes.json",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "routing_state": "NOT_ACTIVE",
+      "source_ids": [
+        "hayes-reality-test-2026-06-08",
+        "hayes-same-same-2026-08-24",
+        "hayes-atencion-2026-09-02"
+      ]
+    }
+  ]
+}

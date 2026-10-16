@@ -1,0 +1,195 @@
+{
+  "id": "people/arthur-hayes",
+  "profile_version": "0.1.0",
+  "record_state": "DRAFT_REVIEW_REQUIRED",
+  "routing_state": "NOT_ACTIVE",
+  "authority": "READ_ONLY_ANALYSIS_ONLY",
+  "identity": {
+    "name": "Arthur Hayes",
+    "entity_type": "PERSON",
+    "description": "BitMEX co-founder; crypto derivatives entrepreneur and author of the Crypto Trader Digest; Maelstrom investment executive.",
+    "non_impersonation": true
+  },
+  "era": "Contemporary, 2010s-2020s",
+  "disciplines": [
+    "Macroeconomics and global liquidity",
+    "Crypto derivatives and leverage",
+    "Treasury and central-bank policy transmission",
+    "Foreign-exchange funding markets",
+    "Digital-asset market structure"
+  ],
+  "first_principles": [
+    "Authored thesis: credit creation and the destination of newly available capital both matter for asset-price transmission.",
+    "Authored thesis: Treasury operations, central-bank balance sheets, and currency-policy incentives can alter the liquidity environment for digital assets.",
+    "Analytical reconstruction, not a quote: distinguish the liquidity impulse, capital allocation, market positioning, and actual asset-price response."
+  ],
+  "reasoning_methods": [
+    "Track dollar-liquidity mechanisms including Treasury General Account (TGA), reverse repo (RRP), and bank-credit transmission.",
+    "Compare policy changes, currency/interest-rate dynamics, and subsequent Bitcoin and broader risk-asset price behavior.",
+    "Revisit incorrect forecasts and adjust causal hypotheses when observations diverge.",
+    "Contrast liquidity creation with competing uses such as AI capital expenditure."
+  ],
+  "decision_methods": [
+    "Form conditional macro scenarios tied to observable indicators; do not treat published price targets as validated forecasts.",
+    "Separate time horizon, catalyst, counter-evidence, and downside/invalidation before assigning thesis confidence.",
+    "Distinguish views expressed by the author from AGENTROPOLIS observations and operator decisions."
+  ],
+  "problem_decomposition": [
+    "Identify the initiating policy or monetary change.",
+    "Specify which balance-sheet accounts, credit channels, or currency pairs are affected.",
+    "Estimate whether the change creates new liquidity or reallocates existing liquidity.",
+    "Trace where capital is absorbed, including AI capex, sovereign bonds, equities, and crypto.",
+    "Check derivatives leverage, liquidation risk, basis, and funding before inferring crypto price impact.",
+    "Name falsifiers, timing uncertainty, and relevant independent countertheses."
+  ],
+  "mental_models": [
+    "Dollar-liquidity impulse vs allocation of capital",
+    "Treasury TGA/RRP and yield-curve transmission",
+    "Policy-driven currency and credit regime shifts",
+    "AI capex as a competing sink for available credit",
+    "Risk-on/risk-off market regime conditionality",
+    "Crypto derivatives leverage, liquidation cascades, and convex exposure"
+  ],
+  "documented_positions": [
+    {
+      "claim": "Hayes argued that expansion of fiat liquidity did not automatically lift Bitcoin when financing was absorbed by AI-related investment.",
+      "classification": "AUTHOR_THESIS_NOT_VERIFIED_FACT",
+      "source_id": "hayes-reality-test-2026-06-08",
+      "source_url": "https://cryptohayes.substack.com/p/reality-test"
+    },
+    {
+      "claim": "Hayes discussed a hypothetical credit and capital-misallocation sequence in AI, with conditional implications for Bitcoin.",
+      "classification": "AUTHOR_THESIS_NOT_VERIFIED_FACT",
+      "source_id": "hayes-situationship-2026",
+      "source_url": "https://cryptohayes.substack.com/p/situationship"
+    },
+    {
+      "claim": "Hayes argued Treasury buybacks and bond-market operations could influence dollar liquidity and crypto risk appetite.",
+      "classification": "AUTHOR_THESIS_NOT_VERIFIED_FACT",
+      "source_id": "hayes-same-same-2026-08-24",
+      "source_url": "https://cryptohayes.substack.com/p/same-same-but-different"
+    },
+    {
+      "claim": "Hayes described EURJPY as a current macro observation signal in an essay and tied it to his policy-liquidity scenario.",
+      "classification": "AUTHOR_THESIS_NOT_VERIFIED_FACT",
+      "source_id": "hayes-atencion-2026-09-02",
+      "source_url": "https://cryptohayes.substack.com/p/atencion"
+    }
+  ],
+  "major_works": [
+    "Reality Test (2026-06-08)",
+    "Situationship (2026)",
+    "Same Same But Different (2026-08-24)",
+    "Atención (2026-09-02)",
+    "Volatility Supercycle (2024)"
+  ],
+  "primary_sources": [
+    {
+      "id": "hayes-reality-test-2026-06-08",
+      "url": "https://cryptohayes.substack.com/p/reality-test",
+      "publication_date": "2026-06-08",
+      "type": "AUTHOR_ESSAY"
+    },
+    {
+      "id": "hayes-situationship-2026",
+      "url": "https://cryptohayes.substack.com/p/situationship",
+      "publication_date": null,
+      "type": "AUTHOR_ESSAY"
+    },
+    {
+      "id": "hayes-same-same-2026-08-24",
+      "url": "https://cryptohayes.substack.com/p/same-same-but-different",
+      "publication_date": "2026-08-24",
+      "type": "AUTHOR_ESSAY"
+    },
+    {
+      "id": "hayes-atencion-2026-09-02",
+      "url": "https://cryptohayes.substack.com/p/atencion",
+      "publication_date": "2026-09-02",
+      "type": "AUTHOR_ESSAY"
+    },
+    {
+      "id": "hayes-volatility-supercycle-2024",
+      "url": "https://cryptohayes.substack.com/p/volatility-supercycle",
+      "publication_date": null,
+      "type": "AUTHOR_ESSAY"
+    }
+  ],
+  "historical_context": "Crypto derivatives development at BitMEX and subsequent published commentary on the interaction of US credit/liquidity policy, exchange-rate regimes, and digital-asset price behavior.",
+  "known_criticisms": [
+    "Liquidity and price co-movement do not, by themselves, prove causality; test asset-specific flows and confounders independently.",
+    "Macro forecasts are time-sensitive, may change, and can fail; the author explicitly reviews misses in Volatility Supercycle and Reality Test.",
+    "High leverage in derivatives markets can magnify losses and liquidations; commentary is not an execution instruction."
+  ],
+  "strong_domains": [
+    "Dollar liquidity narratives",
+    "Crypto derivatives mechanics",
+    "Cross-asset macro hypotheses",
+    "Policy incentives and monetary transmission"
+  ],
+  "weak_domains": [
+    "Unverified claims about individual non-financial businesses",
+    "Asset-level forecasts without independently checked current market data",
+    "Legal/compliance approvals or execution authority"
+  ],
+  "disagreement_map": [
+    {
+      "question": "Does dollar liquidity expansion mechanically create higher Bitcoin prices?",
+      "hayes_lens": "Often supportive in his published framework but sensitive to capital absorption.",
+      "counterthesis": "Crypto can diverge due to credit allocation, market structure, investor positioning, and macro confounders.",
+      "resolution": "Test temporal ordering and asset flow with independent data; do not treat correlation as causal proof."
+    },
+    {
+      "question": "Do Treasury buybacks amount to money printing?",
+      "hayes_lens": "The author has argued some buyback/yield-management arrangements behave as indirect monetary stimulus.",
+      "counterthesis": "Debt maturity swaps and central-bank base-money creation are distinct operations.",
+      "resolution": "Quantify net reserves, issuance, TGA movements, and credit response before classifying the operation."
+    }
+  ],
+  "influenced_by": [],
+  "influenced": [],
+  "confidence": {
+    "level": "MODERATE",
+    "scope": "Attribution of published reasoning, not forecast accuracy",
+    "forecast_skill": "UNVERIFIED",
+    "review_required": true
+  },
+  "provenance": [
+    {
+      "source_type": "PRIMARY_AUTHOR_ESSAY",
+      "source_ids": [
+        "hayes-reality-test-2026-06-08",
+        "hayes-situationship-2026",
+        "hayes-same-same-2026-08-24",
+        "hayes-atencion-2026-09-02"
+      ],
+      "captured_on": "2026-10-08",
+      "content_hash": null
+    },
+    {
+      "source_type": "OPERATOR_NOMINATION",
+      "description": "Operator requested a new Arthur Hayes Mind Vault lens on 2026-10-08",
+      "captured_on": "2026-10-08"
+    }
+  ],
+  "evidence_state": "OBSERVED",
+  "integration_state": "PLANNED",
+  "graph_bindings": {
+    "person": "people/arthur-hayes",
+    "district": "treasury-finance",
+    "cognitive_surface": "J-SPACE/Mind Vault",
+    "evidence_interface": "MarketEvidence",
+    "thesis_interface": "Thesis",
+    "governance": [
+      "AEGIS",
+      "54T",
+      "ExecutionEnvelope"
+    ]
+  },
+  "activation_requirements": [
+    "Independent evidence/provenance review",
+    "Separate Mind Vault admission and versioning approval",
+    "J-SPACE live resolver integration and outcome tests",
+    "No execution privilege from this profile"
+  ]
+}
