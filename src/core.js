@@ -5,8 +5,10 @@ import {
   mindVaultContract,
   wikivaultJspaceBridge
 } from "./jspace.js";
+import { SIMULATION_TOOLS, simulationRuntimeProfile, validateSimulationArguments } from "./simulation.js";
 
 export { assembleCognitiveCouncil, jspaceManifest, mindVaultContract, wikivaultJspaceBridge } from "./jspace.js";
+export { runSimulationScenario, simulationRuntimeProfile } from "./simulation.js";
 
 export const PROTOCOL_VERSION = "2025-06-18";
 
@@ -17,7 +19,7 @@ export const DISTRICTS = [
   { name: "789 STUDIOS", domain: "media, production, and storytelling", role: "Production institution", authority: "READ_ONLY", terms: ["media", "ott", "studio", "story", "production", "show", "broadcast"] },
   { name: "NEURA", domain: "finance, tax, trust, and wallet safety", role: "Financial safety institution", authority: "READ_ONLY", terms: ["wallet", "tax", "finance", "client portal", "invoice", "legal", "payment"] },
   { name: "NTRU", domain: "cryptography, privacy, and verification", role: "Trust institution", authority: "READ_ONLY", terms: ["privacy", "verify", "cryptography", "proof", "signature", "trust"] },
-  { name: "CHAOSPHERE", domain: "games, worlds, and simulations", role: "Simulation institution", authority: "READ_ONLY", terms: ["game", "world", "simulation", "arena", "boardforge", "play"] },
+  { name: "CHAOSPHERE", domain: "games, worlds, and simulations", role: "Simulation institution", authority: "READ_ONLY", terms: ["game", "world", "simulation", "scenario", "forecast", "stress test", "arena", "boardforge", "play"] },
   { name: "ECHO", domain: "lore, canon, and archival memory", role: "Canon institution", authority: "READ_ONLY", terms: ["lore", "canon", "archive", "timeline", "story bible", "memory", "wikivault", "obsidian", "gbrain", "llm-wiki", "mind vault"] },
   { name: "FEN", domain: "XRPL and VAULT33 execution planning", role: "Chain-specific institution", authority: "READ_ONLY", terms: ["vault33", "vrg33589", "xrpl", "xrp", "fen", "589"] }
 ];
@@ -113,18 +115,19 @@ const CORE_TOOLS = [
   }
 ];
 
-export const TOOLS = [...CORE_TOOLS, ...JSPACE_TOOLS];
+export const TOOLS = [...CORE_TOOLS, ...SIMULATION_TOOLS, ...JSPACE_TOOLS];
 
 export function capabilityMap() {
   return {
     identity: "Agentropolis Intelligence Grid",
     layers: {
-      infrastructure: ["Agent Runtime", "Memory Layer", "WikiVault", "Obsidian Node Vault", "llm-wiki Retrieval", "gbrain Ontology", "J-SPACE INFINITY Cognitive Commons", "Mind Vault", "Skill Registry", "Dispatch Protocol", "MCP Capability Membrane", "Receipt Ledger"],
+      infrastructure: ["Agent Runtime", "Memory Layer", "WikiVault", "Obsidian Node Vault", "llm-wiki Retrieval", "gbrain Ontology", "J-SPACE INFINITY Cognitive Commons", "Mind Vault", "Simulation Grid", "Skill Registry", "Dispatch Protocol", "MCP Capability Membrane", "Receipt Ledger"],
       districts: DISTRICTS.map(({ name, domain, role, authority }) => ({ name, domain, role, authority })),
       applications: ["Command Atrium", "District dashboards", "Creator surfaces", "Wallet safety tools", "Media surfaces", "Games and simulations"]
     },
-    governedFlow: ["Identity", "Mandate", "Evidence", "Deliberate", "Plan", "Policy Gate", "Execute", "Receipt", "Audit", "Outcome Feedback"],
-    authorityBoundary: { public: "READ_ONLY", wallet: "NO_AUTHORITY", payment: "NO_AUTHORITY", publish: "NO_AUTHORITY", destructive: "NO_AUTHORITY", selfEscalation: false }
+    governedFlow: ["Identity", "Mandate", "Evidence", "Deliberate", "Plan", "Simulation", "Policy Gate", "Execute", "Receipt", "Audit", "Outcome Feedback", "Calibration"],
+    simulation: simulationRuntimeProfile(),
+    authorityBoundary: { public: "READ_ONLY", simulation: "ADVISORY_ONLY", wallet: "NO_AUTHORITY", payment: "NO_AUTHORITY", publish: "NO_AUTHORITY", destructive: "NO_AUTHORITY", selfEscalation: false }
   };
 }
 
@@ -140,8 +143,8 @@ export function deploymentManifest(env) {
     authentication: env.MCP_AUTH_MODE || "public-read",
     publicAuthority: "READ_ONLY",
     tools: TOOLS.map(({ name, title, description, annotations }) => ({ name, title, description, annotations })),
-    endpoints: { health: "/health", manifest: "/.well-known/mcp.json", tools: "/api/tools", districts: "/api/districts", receipts: "/api/receipts" },
-    security: ["origin_allowlist", "host_consistency", "body_limit", "rate_limit", "input_validation", "hashed_receipts", "operator_only_receipt_api", "wikivault_provenance", "no_hidden_cot_exposure"]
+    endpoints: { health: "/health", manifest: "/.well-known/mcp.json", tools: "/api/tools", districts: "/api/districts", simulationProfile: "/api/simulation/profile", simulationRun: "/api/simulation/run", receipts: "/api/receipts" },
+    security: ["origin_allowlist", "host_consistency", "body_limit", "rate_limit", "input_validation", "hashed_receipts", "simulation_epistemic_labeling", "simulation_advisory_only", "operator_only_receipt_api", "wikivault_provenance", "no_hidden_cot_exposure"]
   };
 }
 
@@ -158,6 +161,7 @@ export function validateArguments(tool, args) {
     if (args.externalImpact !== undefined && !["none", "reversible", "irreversible"].includes(args.externalImpact)) return "invalid externalImpact";
     for (const key of ["walletAction", "paymentAction", "publishAction", "destructiveAction"]) if (args[key] !== undefined && typeof args[key] !== "boolean") return `${key} must be boolean`;
   }
+  if (tool.name === "run_simulation_scenario") return validateSimulationArguments(args);
   if (tool.name === "assemble_cognitive_council") {
     if (typeof args.problem !== "string" || !args.problem.trim() || args.problem.length > 8000) return "problem must be a non-empty string up to 8,000 characters";
     if (args.councilSize !== undefined && (!Number.isInteger(args.councilSize) || args.councilSize < 3 || args.councilSize > 12)) return "councilSize must be an integer from 3 to 12";

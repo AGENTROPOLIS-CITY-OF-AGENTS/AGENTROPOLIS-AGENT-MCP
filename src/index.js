@@ -1,4 +1,4 @@
-import { DISTRICTS, PROTOCOL_VERSION, TOOLS, assessRisk, capabilityMap, deploymentManifest, routeFrontDesk, validateArguments } from "./core.js";
+import { DISTRICTS, PROTOCOL_VERSION, TOOLS, assessRisk, capabilityMap, deploymentManifest, routeFrontDesk, runSimulationScenario, simulationRuntimeProfile, validateArguments } from "./core.js";
 
 const MCP_PATHS = new Set(["/mcp", "/mcp/"]);
 let schemaReady;
@@ -15,6 +15,8 @@ export default {
       if (url.pathname === "/api/districts" && request.method === "GET") return respond(json({ count: DISTRICTS.length, districts: DISTRICTS.map(({ terms, ...d }) => d) }), request, env, requestId);
       if (url.pathname === "/api/route" && request.method === "POST") return respond(await routeApi(request, env, requestId), request, env, requestId);
       if (url.pathname === "/api/risk" && request.method === "POST") return respond(await riskApi(request, env, requestId), request, env, requestId);
+      if (url.pathname === "/api/simulation/profile" && request.method === "GET") return respond(json(simulationRuntimeProfile()), request, env, requestId);
+      if (url.pathname === "/api/simulation/run" && request.method === "POST") return respond(await simulationApi(request, env, requestId), request, env, requestId);
       if (url.pathname === "/api/receipts" && request.method === "GET") return respond(await listReceipts(request, env), request, env, requestId);
       if (url.pathname.startsWith("/api/receipts/") && request.method === "GET") return respond(await getReceipt(request, env, url.pathname), request, env, requestId);
       if (MCP_PATHS.has(url.pathname)) return respond(await mcp(request, env, requestId), request, env, requestId);
@@ -30,24 +32,14 @@ export default {
 
 async function mcp(request, env, requestId) {
   if (!["POST", "GET", "DELETE"].includes(request.method)) return errorJson(405, "METHOD_NOT_ALLOWED", "The MCP endpoint accepts POST, GET, and DELETE.");
-  const guard = requestGuard(request, env);
-  if (guard) return guard;
-  const auth = authorizeMcp(request, env);
-  if (auth) return auth;
-  const rate = await rateLimit(request, env);
-  if (!rate.allowed) return errorJson(429, "RATE_LIMITED", "Request limit exceeded.");
+  const guard = requestGuard(request, env); if (guard) return guard;
+  const auth = authorizeMcp(request, env); if (auth) return auth;
+  const rate = await rateLimit(request, env); if (!rate.allowed) return errorJson(429, "RATE_LIMITED", "Request limit exceeded.");
   if (request.method !== "POST") return errorJson(405, "STATELESS_TRANSPORT", "This deployment uses stateless POST requests only.");
   const message = await readJson(request, env);
   if (!message || message.jsonrpc !== "2.0" || typeof message.method !== "string") return rpcError(message?.id ?? null, -32600, "Invalid Request");
   if (message.id === undefined) return new Response(null, { status: 202 });
-  if (message.method === "initialize") {
-    return rpcResult(message.id, {
-      protocolVersion: PROTOCOL_VERSION,
-      capabilities: { tools: { listChanged: false } },
-      serverInfo: { name: "Agentropolis MCP Capability Membrane", version: env.SERVICE_VERSION || "1.0.0" },
-      instructions: "Use these tools to route, inspect, map, and assess. This server has READ_ONLY authority and cannot sign, pay, publish, delete, mutate permissions, or self-escalate."
-    });
-  }
+  if (message.method === "initialize") return rpcResult(message.id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: { name: "Agentropolis MCP Capability Membrane", version: env.SERVICE_VERSION || "1.0.0" }, instructions: "Use these tools to route, inspect, map, assess, and run bounded advisory simulations. Simulation output is synthetic and never grants execution authority." });
   if (message.method === "ping") return rpcResult(message.id, {});
   if (message.method === "tools/list") return rpcResult(message.id, { tools: TOOLS });
   if (message.method === "tools/call") {
@@ -75,6 +67,8 @@ async function executeTool(name, args, env, requestId, identity) {
   } else if (name === "assess_mcp_request_risk") output = { assessment: assessRisk(args) };
   else if (name === "get_agentropolis_capability_map") output = { capabilityMap: capabilityMap() };
   else if (name === "get_cloudflare_deployment_manifest") output = { deployment: deploymentManifest(env) };
+  else if (name === "get_simulation_runtime_profile") output = { simulation: simulationRuntimeProfile() };
+  else if (name === "run_simulation_scenario") output = { simulation: runSimulationScenario(args) };
   else throw Object.assign(new Error("Unknown tool"), { status: 400, code: "UNKNOWN_TOOL" });
   const receipt = await writeReceipt(env, { requestId, toolName: name, actorType: identity.actorType, actorIdHash: identity.actorIdHash, input: args, output, durationMs: Date.now() - started });
   return { output: { ...output, receipt }, receipt };
@@ -102,9 +96,21 @@ async function riskApi(request, env, requestId) {
   return json(result.output);
 }
 
+async function simulationApi(request, env, requestId) {
+  const guard = requestGuard(request, env); if (guard) return guard;
+  const rate = await rateLimit(request, env); if (!rate.allowed) return errorJson(429, "RATE_LIMITED", "Request limit exceeded.");
+  const body = await readJson(request, env);
+  const tool = TOOLS.find((t) => t.name === "run_simulation_scenario");
+  const problem = validateArguments(tool, body);
+  if (problem) return errorJson(400, "INVALID_SIMULATION_INPUT", problem);
+  const identity = await actorIdentity(request, env);
+  const result = await executeTool("run_simulation_scenario", body, env, requestId, identity);
+  return json(result.output);
+}
+
 async function health(env, requestId) {
-  try { await ensureSchema(env.DB); await env.DB.prepare("SELECT 1 AS ok").first(); return json({ status: "ok", service: "agentropolis-agent-mcp", version: env.SERVICE_VERSION, environment: env.ENVIRONMENT, requestId, checks: { worker: "ok", assets: "bound", d1: "ok" }, timestamp: new Date().toISOString() }); }
-  catch { return json({ status: "degraded", service: "agentropolis-agent-mcp", requestId, checks: { worker: "ok", assets: "bound", d1: "degraded" }, timestamp: new Date().toISOString() }, 503); }
+  try { await ensureSchema(env.DB); await env.DB.prepare("SELECT 1 AS ok").first(); return json({ status: "ok", service: "agentropolis-agent-mcp", version: env.SERVICE_VERSION, environment: env.ENVIRONMENT, requestId, checks: { worker: "ok", assets: "bound", d1: "ok", simulation: "bounded" }, timestamp: new Date().toISOString() }); }
+  catch { return json({ status: "degraded", service: "agentropolis-agent-mcp", requestId, checks: { worker: "ok", assets: "bound", d1: "degraded", simulation: "bounded" }, timestamp: new Date().toISOString() }, 503); }
 }
 
 async function listReceipts(request, env) {
@@ -131,8 +137,7 @@ async function writeReceipt(env, data) {
     const createdAt = new Date().toISOString();
     const inputHash = await sha256(stable(data.input));
     const outputHash = await sha256(stable(data.output));
-    await env.DB.prepare("INSERT INTO execution_receipts (id,request_id,tool_name,tool_version,actor_type,actor_id_hash,authority_decision,input_hash,output_hash,status,duration_ms,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)")
-      .bind(receipt.id, data.requestId, data.toolName, "1.0.0", data.actorType, data.actorIdHash, "ALLOW_READ_ONLY", inputHash, outputHash, "success", data.durationMs, createdAt).run();
+    await env.DB.prepare("INSERT INTO execution_receipts (id,request_id,tool_name,tool_version,actor_type,actor_id_hash,authority_decision,input_hash,output_hash,status,duration_ms,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)").bind(receipt.id, data.requestId, data.toolName, "1.0.0", data.actorType, data.actorIdHash, "ALLOW_READ_ONLY", inputHash, outputHash, "success", data.durationMs, createdAt).run();
     receipt.persisted = true;
   } catch (error) { console.warn(JSON.stringify({ event: "receipt_persistence_failed", receiptId: receipt.id, message: error instanceof Error ? error.message : "unknown" })); }
   return receipt;
