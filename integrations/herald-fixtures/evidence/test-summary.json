@@ -1,0 +1,43 @@
+{
+  "schema_version": "herald.fixture.test-summary.v1",
+  "observed_at": "2026-10-17T01:05:22.552656+00:00",
+  "runtime": "v24.19.0",
+  "owner_base_commit": "254e2ed593e5e251533ff1f9a9f422b302223285",
+  "checks": [
+    {
+      "name": "fixture",
+      "command": "node --permission --allow-fs-read=/workspace/herald-phase1 --test --test-isolation=none --test-reporter=tap tests/herald-fixtures.test.mjs",
+      "tests": 101,
+      "pass": 101,
+      "fail": 0,
+      "skipped": 0,
+      "artifact": "fixture-tests.tap",
+      "sha256": "b81ca590497b2a3c4eeb4efc75399ff9003d5ac3ba5e7e7c489296830d1688e1"
+    },
+    {
+      "name": "regression",
+      "command": "node --test --test-isolation=none --test-reporter=tap tests/*.test.mjs",
+      "tests": 211,
+      "pass": 211,
+      "fail": 0,
+      "skipped": 0,
+      "artifact": "regression-tests.tap",
+      "sha256": "1bb7501c5ef5017c2bf24c0221efa768e9cc21b6c58e0b6d49929d2315b29d6d"
+    }
+  ],
+  "additional_checks": {
+    "npm run validate": "PASS",
+    "npm test": "PASS; default per-file reporting, 23 files",
+    "baseline_content": "216 remote Git blob hashes verified; no existing tracked file changes"
+  },
+  "not_run": [
+    "Herald/Electron/Hermes",
+    "npm ci or package installation",
+    "local deploy:dry download",
+    "production MCP/AEGIS/54T/VERITY",
+    "live credentials",
+    "live authority transport",
+    "independent review"
+  ],
+  "operational_certification": "NONE"
+}

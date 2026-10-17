@@ -1,0 +1,612 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:agentropolis:herald-fixtures:contracts:v1",
+  "$defs": {
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "mode",
+        "route",
+        "herald_commit",
+        "evaluation_time",
+        "principal",
+        "profile",
+        "session",
+        "mandate",
+        "capability",
+        "action",
+        "action_digest",
+        "target",
+        "policy_revision",
+        "capability_epoch",
+        "lease",
+        "expires_at",
+        "budget",
+        "occurrence_id",
+        "approval"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "herald.fixture.request.v1"
+        },
+        "mode": {
+          "const": "fixture-only"
+        },
+        "route": {
+          "const": "fixture"
+        },
+        "herald_commit": {
+          "const": "04fba92585165d7407bc639efc8408b15217cd37"
+        },
+        "evaluation_time": {
+          "const": "2026-10-17T00:00:00Z"
+        },
+        "principal": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "profile": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "session": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "mandate": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "capability": {
+          "enum": [
+            "herald.fixture.document.read",
+            "herald.fixture.files.plan"
+          ]
+        },
+        "action": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "operation",
+            "target",
+            "destination",
+            "max_bytes"
+          ],
+          "properties": {
+            "operation": {
+              "enum": [
+                "read_document",
+                "plan_move",
+                "plan_copy",
+                "plan_mkdir"
+              ]
+            },
+            "target": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^fixture://(?:documents|workspace)/[a-z0-9_-]+\\.txt$"
+            },
+            "destination": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100,
+                  "pattern": "^fixture://(?:documents|workspace)/[a-z0-9_-]+\\.txt$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "max_bytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4096
+            }
+          }
+        },
+        "action_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "target": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^fixture://(?:documents|workspace)/[a-z0-9_-]+\\.txt$"
+        },
+        "policy_revision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "capability_epoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "lease": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "subject",
+            "profile",
+            "session",
+            "mandate",
+            "capability",
+            "target",
+            "policy_revision",
+            "capability_epoch",
+            "status",
+            "expires_at"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "subject": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "profile": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "session": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "mandate": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "capability": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "target": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^fixture://(?:documents|workspace)/[a-z0-9_-]+\\.txt$"
+            },
+            "policy_revision": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "capability_epoch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "status": {
+              "enum": [
+                "active",
+                "expired",
+                "revoked"
+              ]
+            },
+            "expires_at": {
+              "type": "string",
+              "pattern": "^2026-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+            }
+          }
+        },
+        "expires_at": {
+          "type": "string",
+          "pattern": "^2026-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        },
+        "budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "limit_units",
+            "requested_units",
+            "unit"
+          ],
+          "properties": {
+            "limit_units": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "requested_units": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "unit": {
+              "const": "fixture-units"
+            }
+          }
+        },
+        "occurrence_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "approval": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "request_digest",
+                "status",
+                "expires_at"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9_.:-]+$"
+                },
+                "request_digest": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "status": {
+                  "enum": [
+                    "approved",
+                    "pending",
+                    "denied"
+                  ]
+                },
+                "expires_at": {
+                  "type": "string",
+                  "pattern": "^2026-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "verdict",
+        "reason_code",
+        "source",
+        "execution_authorized",
+        "invocation_performed",
+        "request_digest",
+        "binding_digest",
+        "binding",
+        "evidence_status"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "herald.fixture.decision.v1"
+        },
+        "verdict": {
+          "enum": [
+            "ALLOW",
+            "ASK",
+            "DENY"
+          ]
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "source": {
+          "enum": [
+            "committed-test-transcript",
+            "fixture-boundary"
+          ]
+        },
+        "execution_authorized": {
+          "const": false
+        },
+        "invocation_performed": {
+          "const": false
+        },
+        "request_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "binding_digest": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "binding": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/request"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_status": {
+          "enum": [
+            "memory-only",
+            "unavailable"
+          ]
+        }
+      }
+    },
+    "denial_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "receipt_id",
+        "request_digest",
+        "decision_digest",
+        "reason_code",
+        "execution_authorized",
+        "invocation_performed",
+        "evidence_status"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "herald.fixture.denial-receipt.v1"
+        },
+        "receipt_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "request_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "decision_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "execution_authorized": {
+          "const": false
+        },
+        "invocation_performed": {
+          "const": false
+        },
+        "evidence_status": {
+          "const": "memory-only"
+        }
+      }
+    },
+    "observation_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "receipt_id",
+        "request_digest",
+        "decision_digest",
+        "reason_code",
+        "execution_authorized",
+        "invocation_performed",
+        "evidence_status"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "herald.fixture.observation-receipt.v1"
+        },
+        "receipt_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "request_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "decision_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "execution_authorized": {
+          "const": false
+        },
+        "invocation_performed": {
+          "const": false
+        },
+        "evidence_status": {
+          "const": "memory-only"
+        }
+      }
+    },
+    "review_packet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "classification",
+        "review_status",
+        "baseline",
+        "herald_commit",
+        "decision",
+        "receipt",
+        "preview",
+        "limitations"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "herald.fixture.review-packet.v1"
+        },
+        "classification": {
+          "const": "synthetic-public"
+        },
+        "review_status": {
+          "const": "NOT_INDEPENDENTLY_REVIEWED"
+        },
+        "baseline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "HERMES-CITY",
+            "AGENTROPOLIS-AGENT-MCP",
+            "AGENTROPOLIS-AEGIS-ASSURANCE",
+            "AGENTROPOLIS-54T"
+          ],
+          "properties": {
+            "HERMES-CITY": {
+              "const": "25e727aad42ec01ec011ff1f4b0c6ff494b9d5b2"
+            },
+            "AGENTROPOLIS-AGENT-MCP": {
+              "const": "254e2ed593e5e251533ff1f9a9f422b302223285"
+            },
+            "AGENTROPOLIS-AEGIS-ASSURANCE": {
+              "const": "e89c9ee156f9bc6921c0a65896c602adedc6b239"
+            },
+            "AGENTROPOLIS-54T": {
+              "const": "a92ac15c926288eb9b93b4d0eb9daae09772efb2"
+            }
+          }
+        },
+        "herald_commit": {
+          "const": "04fba92585165d7407bc639efc8408b15217cd37"
+        },
+        "decision": {
+          "$ref": "#/$defs/decision"
+        },
+        "receipt": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/denial_receipt"
+            },
+            {
+              "$ref": "#/$defs/observation_receipt"
+            }
+          ]
+        },
+        "preview": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "text",
+                "operations"
+              ],
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "document",
+                    "file-plan"
+                  ]
+                },
+                "text": {
+                  "type": "string",
+                  "maxLength": 4096
+                },
+                "operations": {
+                  "type": "array",
+                  "maxItems": 1,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "operation",
+                      "target",
+                      "destination",
+                      "max_bytes"
+                    ],
+                    "properties": {
+                      "operation": {
+                        "enum": [
+                          "read_document",
+                          "plan_move",
+                          "plan_copy",
+                          "plan_mkdir"
+                        ]
+                      },
+                      "target": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "pattern": "^fixture://(?:documents|workspace)/[a-z0-9_-]+\\.txt$"
+                      },
+                      "destination": {
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "maxLength": 100,
+                            "pattern": "^fixture://(?:documents|workspace)/[a-z0-9_-]+\\.txt$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "max_bytes": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4096
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "limitations": {
+          "const": [
+            "FIXTURE_ONLY",
+            "NO_EXECUTION_AUTHORITY",
+            "MEMORY_ONLY_EVIDENCE",
+            "NO_OPERATIONAL_CERTIFICATION"
+          ]
+        }
+      }
+    }
+  }
+}

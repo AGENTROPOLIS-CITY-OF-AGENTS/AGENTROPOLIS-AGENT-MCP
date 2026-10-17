@@ -1,0 +1,1 @@
+{"event":"authorization_receipt_persistence_failed","receiptId":"auth_22901dac-6998-41d7-acb9-39ae6de34b52","message":"D1 binding unavailable"}

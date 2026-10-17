@@ -1,0 +1,16 @@
+{
+  "schema_version": "herald.fixture.baseline.v1",
+  "audit_date": "2026-10-16",
+  "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+  "governance_revisions": {
+    "HERMES-CITY": "25e727aad42ec01ec011ff1f4b0c6ff494b9d5b2",
+    "AGENTROPOLIS-AGENT-MCP": "254e2ed593e5e251533ff1f9a9f422b302223285",
+    "AGENTROPOLIS-AEGIS-ASSURANCE": "e89c9ee156f9bc6921c0a65896c602adedc6b239",
+    "AGENTROPOLIS-54T": "a92ac15c926288eb9b93b4d0eb9daae09772efb2"
+  },
+  "catalog_sha256": "22fe4b8eae38e193802cd2fc23953554e3a6dbe42c6a8315046396afcb26bd2a",
+  "contract_sha256": "bccec98dbe7ed7ffc94314d58277e124082c5b68cda72d72f62659f51149938c",
+  "owner_repository": "AGENTROPOLIS-CITY-OF-AGENTS/AGENTROPOLIS-AGENT-MCP",
+  "phase": "fixture-only",
+  "authority": "none"
+}

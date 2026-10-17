@@ -1,0 +1,35 @@
+
+> agentropolis-agent-mcp@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ tests/canary-admission.test.mjs (67.857781ms)
+✔ tests/cloudflare-deploy.test.mjs (34.802457ms)
+✔ tests/core.test.mjs (38.353839ms)
+✔ tests/dry-run-authority-hardening.test.mjs (48.075541ms)
+✔ tests/dry-run-http-route.test.mjs (72.360191ms)
+✔ tests/dry-run-ops-supervision.test.mjs (63.050586ms)
+✔ tests/execution-corridor.test.mjs (83.069015ms)
+✔ tests/execution-governor.test.mjs (48.038461ms)
+✔ tests/herald-fixtures.test.mjs (190.126526ms)
+✔ tests/herdr-adapter.test.mjs (59.978155ms)
+✔ tests/herdr-beta-canary.test.mjs (62.6153ms)
+✔ tests/herdr-production-adapter.test.mjs (48.744102ms)
+✔ tests/herdr-session-context.test.mjs (43.049835ms)
+✔ tests/hermes-dispatch.test.mjs (52.782432ms)
+✔ tests/jspace-neural.test.mjs (60.604011ms)
+✔ tests/jspace-projection.test.mjs (39.044933ms)
+✔ tests/jspace-release-gates.test.mjs (34.544671ms)
+✔ tests/jspace.test.mjs (38.388531ms)
+✔ tests/observatory-hardening.test.mjs (39.725ms)
+✔ tests/observatory.test.mjs (49.176829ms)
+✔ tests/ops-supervisor.test.mjs (43.761728ms)
+✔ tests/provider-readiness-registry.test.mjs (49.594553ms)
+✔ tests/wikivault-jspace-adapter.test.mjs (41.10227ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 461.934008

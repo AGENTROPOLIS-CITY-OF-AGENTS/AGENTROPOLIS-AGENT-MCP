@@ -1,0 +1,6 @@
+
+> agentropolis-agent-mcp@1.0.0 validate
+> node scripts/validate-deployment.mjs && node scripts/validate-pre-canary.mjs
+
+Deployment validation passed: 35 required files, execution beta wrapper, authoritative DRY_RUN, record-level JSpace projection API, governed WikiVault adapter, 4 observatory views, 4 J-Space API views, Neural Fabric beta, 6 D1 tables.
+Pre-CANARY validation passed: readiness-only endpoint, D1 admission ledger, human approval, cost envelope, authoritative one-job gate, CANARY unarmed.
