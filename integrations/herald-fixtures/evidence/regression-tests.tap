@@ -1,0 +1,1277 @@
+TAP version 13
+# Subtest: production defaults expose readiness only and cannot arm CANARY
+ok 1 - production defaults expose readiness only and cannot arm CANARY
+  ---
+  duration_ms: 1.418632
+  type: 'test'
+  ...
+# Subtest: CANARY admission requires explicit human approval and budget envelope
+ok 2 - CANARY admission requires explicit human approval and budget envelope
+  ---
+  duration_ms: 0.211466
+  type: 'test'
+  ...
+# Subtest: CANARY admission is D1-backed and enforces an authoritative one-job ceiling
+ok 3 - CANARY admission is D1-backed and enforces an authoritative one-job ceiling
+  ---
+  duration_ms: 0.707278
+  type: 'test'
+  ...
+# Subtest: CANARY readiness endpoint is authenticated and non-invoking
+ok 4 - CANARY readiness endpoint is authenticated and non-invoking
+  ---
+  duration_ms: 14.606458
+  type: 'test'
+  ...
+# Subtest: production deploy is gated by sealed Cloudflare credentials
+ok 5 - production deploy is gated by sealed Cloudflare credentials
+  ---
+  duration_ms: 0.221691
+  type: 'test'
+  ...
+# Subtest: production deploy validates, migrates, deploys, then verifies public JSpace endpoints
+ok 6 - production deploy validates, migrates, deploys, then verifies public JSpace endpoints
+  ---
+  duration_ms: 0.090916
+  type: 'test'
+  ...
+# Subtest: semantic production canary verifies authority receipts state etag and freshness
+ok 7 - semantic production canary verifies authority receipts state etag and freshness
+  ---
+  duration_ms: 0.214471
+  type: 'test'
+  ...
+# Subtest: wrangler advertises the record-level projection beta service version
+ok 8 - wrangler advertises the record-level projection beta service version
+  ---
+  duration_ms: 0.054802
+  type: 'test'
+  ...
+# Subtest: registers nine read-only core and J-Space tools
+ok 9 - registers nine read-only core and J-Space tools
+  ---
+  duration_ms: 0.088712
+  type: 'test'
+  ...
+# Subtest: routes Cloudflare MCP work to CHAOS CODE
+ok 10 - routes Cloudflare MCP work to CHAOS CODE
+  ---
+  duration_ms: 0.238928
+  type: 'test'
+  ...
+# Subtest: routes WikiVault memory work to ECHO
+ok 11 - routes WikiVault memory work to ECHO
+  ---
+  duration_ms: 0.091667
+  type: 'test'
+  ...
+# Subtest: triggers credential safety slowdown
+ok 12 - triggers credential safety slowdown
+  ---
+  duration_ms: 0.081652
+  type: 'test'
+  ...
+# Subtest: blocks irreversible and destructive work
+ok 13 - blocks irreversible and destructive work
+  ---
+  duration_ms: 0.103765
+  type: 'test'
+  ...
+# Subtest: validates tool arguments
+ok 14 - validates tool arguments
+  ---
+  duration_ms: 0.180259
+  type: 'test'
+  ...
+# Subtest: capability map preserves three layers and J-Space infrastructure
+ok 15 - capability map preserves three layers and J-Space infrastructure
+  ---
+  duration_ms: 0.486768
+  type: 'test'
+  ...
+# Subtest: dry run ignores forged caller receipt contents and resolves authoritative D1 receipt by ID
+ok 16 - dry run ignores forged caller receipt contents and resolves authoritative D1 receipt by ID
+  ---
+  duration_ms: 6.513753
+  type: 'test'
+  ...
+# Subtest: dry run denies receipt IDs that do not exist in the authoritative store
+ok 17 - dry run denies receipt IDs that do not exist in the authoritative store
+  ---
+  duration_ms: 0.637153
+  type: 'test'
+  ...
+# Subtest: dry run binds the complete authorization-relevant input hash
+ok 18 - dry run binds the complete authorization-relevant input hash
+  ---
+  duration_ms: 0.739876
+  type: 'test'
+  ...
+# Subtest: execution corridor kill switch denies previously issued dry-run receipts immediately
+ok 19 - execution corridor kill switch denies previously issued dry-run receipts immediately
+  ---
+  duration_ms: 0.542591
+  type: 'test'
+  ...
+# Subtest: HERMES-CITY dry-run projection carries authoritative receipt, runtime and deterministic timestamp
+ok 20 - HERMES-CITY dry-run projection carries authoritative receipt, runtime and deterministic timestamp
+  ---
+  duration_ms: 1.959691
+  type: 'test'
+  ...
+# Subtest: dry-run HTTP route rejects anonymous callers
+ok 21 - dry-run HTTP route rejects anonymous callers
+  ---
+  duration_ms: 0.544784
+  type: 'test'
+  ...
+# Subtest: dry-run HTTP route resolves authoritative D1 receipt and never invokes provider
+ok 22 - dry-run HTTP route resolves authoritative D1 receipt and never invokes provider
+  ---
+  duration_ms: 1.275148
+  type: 'test'
+  ...
+{"event":"http_response","requestId":"230d5d62-44f1-417c-ad3e-407785d578c3","method":"POST","path":"/mcp","status":200}
+# Subtest: accepted DRY_RUN emits a receipt-backed OPS event without provider invocation
+ok 23 - accepted DRY_RUN emits a receipt-backed OPS event without provider invocation
+  ---
+  duration_ms: 0.751664
+  type: 'test'
+  ...
+# Subtest: public MCP remains read-only while authorization is separate
+ok 24 - public MCP remains read-only while authorization is separate
+  ---
+  duration_ms: 2.973487
+  type: 'test'
+  ...
+# Subtest: authorization requires operator auth and corridor enablement
+ok 25 - authorization requires operator auth and corridor enablement
+  ---
+  duration_ms: 10.361038
+  type: 'test'
+  ...
+# Subtest: AUTHORIZATION_ONLY is the fail-closed default for absent and invalid modes
+ok 26 - AUTHORIZATION_ONLY is the fail-closed default for absent and invalid modes
+  ---
+  duration_ms: 0.106018
+  type: 'test'
+  ...
+# Subtest: valid operator authorization persists only safe receipt fields
+ok 27 - valid operator authorization persists only safe receipt fields
+  ---
+  duration_ms: 0.851384
+  type: 'test'
+  ...
+# Subtest: authorization receipts are time-bounded, revocable, and job/provider/runtime/capability scoped
+ok 28 - authorization receipts are time-bounded, revocable, and job/provider/runtime/capability scoped
+  ---
+  duration_ms: 0.527168
+  type: 'test'
+  ...
+# Subtest: DRY_RUN performs no provider invocation and AUTHORIZATION_ONLY blocks it
+ok 29 - DRY_RUN performs no provider invocation and AUTHORIZATION_ONLY blocks it
+  ---
+  duration_ms: 0.610984
+  type: 'test'
+  ...
+# Subtest: CANARY enforces explicit provider/runtime, job, and budget controls
+ok 30 - CANARY enforces explicit provider/runtime, job, and budget controls
+  ---
+  duration_ms: 0.874768
+  type: 'test'
+  ...
+# Subtest: LIVE cannot activate without an explicit separate enablement
+ok 31 - LIVE cannot activate without an explicit separate enablement
+  ---
+  duration_ms: 0.42781
+  type: 'test'
+  ...
+# Subtest: high risk approval and critical dual control remain fail-closed
+ok 32 - high risk approval and critical dual control remain fail-closed
+  ---
+  duration_ms: 0.739837
+  type: 'test'
+  ...
+# Subtest: OPS events and HERMES-CITY projection expose safe operational state only
+ok 33 - OPS events and HERMES-CITY projection expose safe operational state only
+  ---
+  duration_ms: 0.126639
+  type: 'test'
+  ...
+# Subtest: allows a fully attested medium-risk execution request without invoking a provider
+ok 34 - allows a fully attested medium-risk execution request without invoking a provider
+  ---
+  duration_ms: 0.436834
+  type: 'test'
+  ...
+# Subtest: fails closed when 54-T evidence is absent
+ok 35 - fails closed when 54-T evidence is absent
+  ---
+  duration_ms: 0.264556
+  type: 'test'
+  ...
+# Subtest: rejects raw secrets in capability handles
+ok 36 - rejects raw secrets in capability handles
+  ---
+  duration_ms: 0.08056
+  type: 'test'
+  ...
+# Subtest: requires human approval for high-risk execution
+ok 37 - requires human approval for high-risk execution
+  ---
+  duration_ms: 0.24127
+  type: 'test'
+  ...
+# Subtest: requires dual control for critical execution
+ok 38 - requires dual control for critical execution
+  ---
+  duration_ms: 0.245657
+  type: 'test'
+  ...
+# Subtest: allows critical execution only with dual control when every hard gate passes
+ok 39 - allows critical execution only with dual control when every hard gate passes
+  ---
+  duration_ms: 0.262853
+  type: 'test'
+  ...
+# Subtest: enforces provider, capability, runtime, and budget policy ceilings
+ok 40 - enforces provider, capability, runtime, and budget policy ceilings
+  ---
+  duration_ms: 0.286169
+  type: 'test'
+  ...
+# Subtest: request validation requires provenance and capability handle
+ok 41 - request validation requires provenance and capability handle
+  ---
+  duration_ms: 0.085778
+  type: 'test'
+  ...
+# Subtest: transcript/bounded_document_read: preserve ALLOW, never authorize execution
+ok 42 - transcript/bounded_document_read: preserve ALLOW, never authorize execution
+  ---
+  duration_ms: 3.555047
+  type: 'test'
+  ...
+# Subtest: transcript/synthetic_move_plan: preserve ALLOW, never authorize execution
+ok 43 - transcript/synthetic_move_plan: preserve ALLOW, never authorize execution
+  ---
+  duration_ms: 1.518491
+  type: 'test'
+  ...
+# Subtest: transcript/approval_replay_candidate: preserve ALLOW, never authorize execution
+ok 44 - transcript/approval_replay_candidate: preserve ALLOW, never authorize execution
+  ---
+  duration_ms: 1.404521
+  type: 'test'
+  ...
+# Subtest: transcript/unknown_identity: preserve DENY, never authorize execution
+ok 45 - transcript/unknown_identity: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.9694
+  type: 'test'
+  ...
+# Subtest: transcript/expired_lease: preserve DENY, never authorize execution
+ok 46 - transcript/expired_lease: preserve DENY, never authorize execution
+  ---
+  duration_ms: 1.214877
+  type: 'test'
+  ...
+# Subtest: transcript/revoked_lease: preserve DENY, never authorize execution
+ok 47 - transcript/revoked_lease: preserve DENY, never authorize execution
+  ---
+  duration_ms: 1.177451
+  type: 'test'
+  ...
+# Subtest: transcript/lease_target_mismatch: preserve DENY, never authorize execution
+ok 48 - transcript/lease_target_mismatch: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.847168
+  type: 'test'
+  ...
+# Subtest: transcript/over_budget: preserve DENY, never authorize execution
+ok 49 - transcript/over_budget: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.816561
+  type: 'test'
+  ...
+# Subtest: transcript/expired_request: preserve DENY, never authorize execution
+ok 50 - transcript/expired_request: preserve DENY, never authorize execution
+  ---
+  duration_ms: 1.252414
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_profile: preserve DENY, never authorize execution
+ok 51 - transcript/wrong_profile: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.880938
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_session: preserve DENY, never authorize execution
+ok 52 - transcript/wrong_session: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.733287
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_mandate: preserve DENY, never authorize execution
+ok 53 - transcript/wrong_mandate: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.629011
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_epoch: preserve DENY, never authorize execution
+ok 54 - transcript/wrong_epoch: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.830092
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_policy: preserve DENY, never authorize execution
+ok 55 - transcript/wrong_policy: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.736922
+  type: 'test'
+  ...
+# Subtest: transcript/approval_required: preserve ASK, never authorize execution
+ok 56 - transcript/approval_required: preserve ASK, never authorize execution
+  ---
+  duration_ms: 0.671585
+  type: 'test'
+  ...
+# Subtest: document result is bounded synthetic data with no host path
+ok 57 - document result is bounded synthetic data with no host path
+  ---
+  duration_ms: 1.312713
+  type: 'test'
+  ...
+# Subtest: file plan is an immutable preview; request and fixture catalog remain unchanged
+ok 58 - file plan is an immutable preview; request and fixture catalog remain unchanged
+  ---
+  duration_ms: 1.570249
+  type: 'test'
+  ...
+# Subtest: ASK remains non-executing and emits a denial receipt
+ok 59 - ASK remains non-executing and emits a denial receipt
+  ---
+  duration_ms: 1.025103
+  type: 'test'
+  ...
+# Subtest: action alteration without digest update is denied
+ok 60 - action alteration without digest update is denied
+  ---
+  duration_ms: 1.327416
+  type: 'test'
+  ...
+# Subtest: action alteration with recomputed digest cannot create a fixture grant
+ok 61 - action alteration with recomputed digest cannot create a fixture grant
+  ---
+  duration_ms: 0.823642
+  type: 'test'
+  ...
+# Subtest: root target cannot differ from exact action target
+ok 62 - root target cannot differ from exact action target
+  ---
+  duration_ms: 0.606517
+  type: 'test'
+  ...
+# Subtest: binding/principal: any unregistered change denies
+ok 63 - binding/principal: any unregistered change denies
+  ---
+  duration_ms: 0.517855
+  type: 'test'
+  ...
+# Subtest: binding/profile: any unregistered change denies
+ok 64 - binding/profile: any unregistered change denies
+  ---
+  duration_ms: 0.820537
+  type: 'test'
+  ...
+# Subtest: binding/session: any unregistered change denies
+ok 65 - binding/session: any unregistered change denies
+  ---
+  duration_ms: 0.582491
+  type: 'test'
+  ...
+# Subtest: binding/mandate: any unregistered change denies
+ok 66 - binding/mandate: any unregistered change denies
+  ---
+  duration_ms: 0.515361
+  type: 'test'
+  ...
+# Subtest: binding/capability_epoch: any unregistered change denies
+ok 67 - binding/capability_epoch: any unregistered change denies
+  ---
+  duration_ms: 0.497494
+  type: 'test'
+  ...
+# Subtest: binding/occurrence_id: any unregistered change denies
+ok 68 - binding/occurrence_id: any unregistered change denies
+  ---
+  duration_ms: 0.683172
+  type: 'test'
+  ...
+# Subtest: binding/lease: omission denies
+ok 69 - binding/lease: omission denies
+  ---
+  duration_ms: 0.59514
+  type: 'test'
+  ...
+# Subtest: binding/budget: omission denies
+ok 70 - binding/budget: omission denies
+  ---
+  duration_ms: 0.485086
+  type: 'test'
+  ...
+# Subtest: binding/approval: omission denies
+ok 71 - binding/approval: omission denies
+  ---
+  duration_ms: 0.451135
+  type: 'test'
+  ...
+# Subtest: binding/policy_revision: omission denies
+ok 72 - binding/policy_revision: omission denies
+  ---
+  duration_ms: 0.444595
+  type: 'test'
+  ...
+# Subtest: binding/expires_at: omission denies
+ok 73 - binding/expires_at: omission denies
+  ---
+  duration_ms: 0.666517
+  type: 'test'
+  ...
+# Subtest: binding/action_digest: omission denies
+ok 74 - binding/action_digest: omission denies
+  ---
+  duration_ms: 0.490824
+  type: 'test'
+  ...
+# Subtest: lease/id: tampering never creates a grant
+ok 75 - lease/id: tampering never creates a grant
+  ---
+  duration_ms: 0.70924
+  type: 'test'
+  ...
+# Subtest: lease/subject: tampering never creates a grant
+ok 76 - lease/subject: tampering never creates a grant
+  ---
+  duration_ms: 0.614379
+  type: 'test'
+  ...
+# Subtest: lease/profile: tampering never creates a grant
+ok 77 - lease/profile: tampering never creates a grant
+  ---
+  duration_ms: 0.741699
+  type: 'test'
+  ...
+# Subtest: lease/session: tampering never creates a grant
+ok 78 - lease/session: tampering never creates a grant
+  ---
+  duration_ms: 0.464805
+  type: 'test'
+  ...
+# Subtest: lease/mandate: tampering never creates a grant
+ok 79 - lease/mandate: tampering never creates a grant
+  ---
+  duration_ms: 0.469712
+  type: 'test'
+  ...
+# Subtest: lease/capability: tampering never creates a grant
+ok 80 - lease/capability: tampering never creates a grant
+  ---
+  duration_ms: 0.443263
+  type: 'test'
+  ...
+# Subtest: lease/target: tampering never creates a grant
+ok 81 - lease/target: tampering never creates a grant
+  ---
+  duration_ms: 0.6619
+  type: 'test'
+  ...
+# Subtest: lease/policy_revision: tampering never creates a grant
+ok 82 - lease/policy_revision: tampering never creates a grant
+  ---
+  duration_ms: 0.443183
+  type: 'test'
+  ...
+# Subtest: lease/capability_epoch: tampering never creates a grant
+ok 83 - lease/capability_epoch: tampering never creates a grant
+  ---
+  duration_ms: 0.625245
+  type: 'test'
+  ...
+# Subtest: lease/status: tampering never creates a grant
+ok 84 - lease/status: tampering never creates a grant
+  ---
+  duration_ms: 0.451716
+  type: 'test'
+  ...
+# Subtest: lease/expires_at: tampering never creates a grant
+ok 85 - lease/expires_at: tampering never creates a grant
+  ---
+  duration_ms: 0.656972
+  type: 'test'
+  ...
+# Subtest: route/terminal: unavailable even with valid fixture action
+ok 86 - route/terminal: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.549402
+  type: 'test'
+  ...
+# Subtest: route/cli: unavailable even with valid fixture action
+ok 87 - route/cli: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.429273
+  type: 'test'
+  ...
+# Subtest: route/os: unavailable even with valid fixture action
+ok 88 - route/os: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.440138
+  type: 'test'
+  ...
+# Subtest: route/os-run: unavailable even with valid fixture action
+ok 89 - route/os-run: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.422172
+  type: 'test'
+  ...
+# Subtest: route/ui: unavailable even with valid fixture action
+ok 90 - route/ui: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.718665
+  type: 'test'
+  ...
+# Subtest: route/hook: unavailable even with valid fixture action
+ok 91 - route/hook: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.435811
+  type: 'test'
+  ...
+# Subtest: route/cron: unavailable even with valid fixture action
+ok 92 - route/cron: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.453608
+  type: 'test'
+  ...
+# Subtest: route/mcp: unavailable even with valid fixture action
+ok 93 - route/mcp: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.418676
+  type: 'test'
+  ...
+# Subtest: route/http: unavailable even with valid fixture action
+ok 94 - route/http: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.639116
+  type: 'test'
+  ...
+# Subtest: route/electron: unavailable even with valid fixture action
+ok 95 - route/electron: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.442732
+  type: 'test'
+  ...
+# Subtest: route/hermes: unavailable even with valid fixture action
+ok 96 - route/hermes: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.440058
+  type: 'test'
+  ...
+# Subtest: capability/system_files: deny
+ok 97 - capability/system_files: deny
+  ---
+  duration_ms: 0.464885
+  type: 'test'
+  ...
+# Subtest: capability/system_open: deny
+ok 98 - capability/system_open: deny
+  ---
+  duration_ms: 0.669291
+  type: 'test'
+  ...
+# Subtest: capability/terminal: deny
+ok 99 - capability/terminal: deny
+  ---
+  duration_ms: 0.457435
+  type: 'test'
+  ...
+# Subtest: capability/cron: deny
+ok 100 - capability/cron: deny
+  ---
+  duration_ms: 0.483984
+  type: 'test'
+  ...
+# Subtest: capability/wallet.sign: deny
+ok 101 - capability/wallet.sign: deny
+  ---
+  duration_ms: 0.42119
+  type: 'test'
+  ...
+# Subtest: capability/plugins.enable: deny
+ok 102 - capability/plugins.enable: deny
+  ---
+  duration_ms: 0.446588
+  type: 'test'
+  ...
+# Subtest: path//etc/passwd: no filesystem or URL interpretation
+ok 103 - path//etc/passwd: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.743953
+  type: 'test'
+  ...
+# Subtest: path/~/.hermes/auth.json: no filesystem or URL interpretation
+ok 104 - path/~/.hermes/auth.json: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.490213
+  type: 'test'
+  ...
+# Subtest: path/file:///tmp/x: no filesystem or URL interpretation
+ok 105 - path/file:///tmp/x: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.426508
+  type: 'test'
+  ...
+# Subtest: path/fixture://documents/../brief.txt: no filesystem or URL interpretation
+ok 106 - path/fixture://documents/../brief.txt: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.712656
+  type: 'test'
+  ...
+# Subtest: path/https://example.test/x: no filesystem or URL interpretation
+ok 107 - path/https://example.test/x: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.683102
+  type: 'test'
+  ...
+# Subtest: path/fixture://documents/brief.txt?x=1: no filesystem or URL interpretation
+ok 108 - path/fixture://documents/brief.txt?x=1: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.444675
+  type: 'test'
+  ...
+# Subtest: same occurrence cannot be replayed in one evidence scope
+ok 109 - same occurrence cannot be replayed in one evidence scope
+  ---
+  duration_ms: 0.784343
+  type: 'test'
+  ...
+# Subtest: approval cannot be replayed under another occurrence
+ok 110 - approval cannot be replayed under another occurrence
+  ---
+  duration_ms: 0.975499
+  type: 'test'
+  ...
+# Subtest: approval digest, expiry and status are bound to exact request
+ok 111 - approval digest, expiry and status are bound to exact request
+  ---
+  duration_ms: 2.495473
+  type: 'test'
+  ...
+# Subtest: evidence/missing: withhold preview and stop
+ok 112 - evidence/missing: withhold preview and stop
+  ---
+  duration_ms: 0.804633
+  type: 'test'
+  ...
+# Subtest: evidence/write_failure: withhold preview and stop
+ok 113 - evidence/write_failure: withhold preview and stop
+  ---
+  duration_ms: 0.567219
+  type: 'test'
+  ...
+# Subtest: evidence/readback_failure: withhold preview and stop
+ok 114 - evidence/readback_failure: withhold preview and stop
+  ---
+  duration_ms: 0.590163
+  type: 'test'
+  ...
+# Subtest: absent or arbitrary evidence callback/store fails closed
+ok 115 - absent or arbitrary evidence callback/store fails closed
+  ---
+  duration_ms: 1.567494
+  type: 'test'
+  ...
+# Subtest: evidence implementation cannot be overridden
+ok 116 - evidence implementation cannot be overridden
+  ---
+  duration_ms: 0.385447
+  type: 'test'
+  ...
+# Subtest: policy/catalog corruption has no permissive default
+ok 117 - policy/catalog corruption has no permissive default
+  ---
+  duration_ms: 1.232464
+  type: 'test'
+  ...
+# Subtest: contract and catalog canonical digests match reviewed lock
+ok 118 - contract and catalog canonical digests match reviewed lock
+  ---
+  duration_ms: 0.521029
+  type: 'test'
+  ...
+# Subtest: secrets/0: nested or encoded input never appears in output
+ok 119 - secrets/0: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.648239
+  type: 'test'
+  ...
+# Subtest: secrets/innocent: nested or encoded input never appears in output
+ok 120 - secrets/innocent: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.68228
+  type: 'test'
+  ...
+# Subtest: secrets/innocent: nested or encoded input never appears in output
+ok 121 - secrets/innocent: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.456433
+  type: 'test'
+  ...
+# Subtest: secrets/ｔｏｋｅｎ: nested or encoded input never appears in output
+ok 122 - secrets/ｔｏｋｅｎ: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.650443
+  type: 'test'
+  ...
+# Subtest: secrets/innocent: nested or encoded input never appears in output
+ok 123 - secrets/innocent: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.706217
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 4 bytes: deny without throwing
+ok 124 - malformed/bounded input 4 bytes: deny without throwing
+  ---
+  duration_ms: 0.442242
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 2 bytes: deny without throwing
+ok 125 - malformed/bounded input 2 bytes: deny without throwing
+  ---
+  duration_ms: 0.391486
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 1 bytes: deny without throwing
+ok 126 - malformed/bounded input 1 bytes: deny without throwing
+  ---
+  duration_ms: 0.555941
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 4 bytes: deny without throwing
+ok 127 - malformed/bounded input 4 bytes: deny without throwing
+  ---
+  duration_ms: 0.666567
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 1 bytes: deny without throwing
+ok 128 - malformed/bounded input 1 bytes: deny without throwing
+  ---
+  duration_ms: 0.402813
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 11 bytes: deny without throwing
+ok 129 - malformed/bounded input 11 bytes: deny without throwing
+  ---
+  duration_ms: 0.411245
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 13 bytes: deny without throwing
+ok 130 - malformed/bounded input 13 bytes: deny without throwing
+  ---
+  duration_ms: 0.542482
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 32769 bytes: deny without throwing
+ok 131 - malformed/bounded input 32769 bytes: deny without throwing
+  ---
+  duration_ms: 0.528981
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 158 bytes: deny without throwing
+ok 132 - malformed/bounded input 158 bytes: deny without throwing
+  ---
+  duration_ms: 0.732405
+  type: 'test'
+  ...
+# Subtest: duplicate request keys are rejected even if JSON.parse would accept them
+ok 133 - duplicate request keys are rejected even if JSON.parse would accept them
+  ---
+  duration_ms: 0.659537
+  type: 'test'
+  ...
+# Subtest: strict contracts reject authority claims and unknown fields
+ok 134 - strict contracts reject authority claims and unknown fields
+  ---
+  duration_ms: 0.875359
+  type: 'test'
+  ...
+# Subtest: denial receipts are correlated to exact submitted bytes and decision
+ok 135 - denial receipts are correlated to exact submitted bytes and decision
+  ---
+  duration_ms: 1.110982
+  type: 'test'
+  ...
+# Subtest: evidence snapshot mutation cannot change recorded packet
+ok 136 - evidence snapshot mutation cannot change recorded packet
+  ---
+  duration_ms: 1.319224
+  type: 'test'
+  ...
+# Subtest: adapter exposes review only, with no invocation/transport extension point
+ok 137 - adapter exposes review only, with no invocation/transport extension point
+  ---
+  duration_ms: 0.720137
+  type: 'test'
+  ...
+# Subtest: fixture modules import no host I/O, scheduler, authority engine or provider
+ok 138 - fixture modules import no host I/O, scheduler, authority engine or provider
+  ---
+  duration_ms: 0.492076
+  type: 'test'
+  ...
+# Subtest: unregistered innocently named credential-like values are not echoed
+ok 139 - unregistered innocently named credential-like values are not echoed
+  ---
+  duration_ms: 0.932936
+  type: 'test'
+  ...
+# Subtest: bounded evidence store fails closed at capacity
+ok 140 - bounded evidence store fails closed at capacity
+  ---
+  duration_ms: 20.224191
+  type: 'test'
+  ...
+# Subtest: committed catalog cannot be mutated after adapter creation
+ok 141 - committed catalog cannot be mutated after adapter creation
+  ---
+  duration_ms: 0.122664
+  type: 'test'
+  ...
+# Subtest: boundary denials are distinguished from authored authority transcripts
+ok 142 - boundary denials are distinguished from authored authority transcripts
+  ---
+  duration_ms: 1.396469
+  type: 'test'
+  ...
+# Subtest: normalizes only registered HERDR lifecycle states
+ok 143 - normalizes only registered HERDR lifecycle states
+  ---
+  duration_ms: 0.129564
+  type: 'test'
+  ...
+# Subtest: redacts secret-shaped material
+ok 144 - redacts secret-shaped material
+  ---
+  duration_ms: 0.243224
+  type: 'test'
+  ...
+# Subtest: read-only inspection works without approval
+ok 145 - read-only inspection works without approval
+  ---
+  duration_ms: 0.571715
+  type: 'test'
+  ...
+# Subtest: execution requires approval or allowing policy
+ok 146 - execution requires approval or allowing policy
+  ---
+  duration_ms: 0.426348
+  type: 'test'
+  ...
+# Subtest: dangerous pane commands are denied even after approval and emit denial receipts
+ok 147 - dangerous pane commands are denied even after approval and emit denial receipts
+  ---
+  duration_ms: 0.435101
+  type: 'test'
+  ...
+# Subtest: bounded terminal reads reject excessive line counts
+ok 148 - bounded terminal reads reject excessive line counts
+  ---
+  duration_ms: 0.150675
+  type: 'test'
+  ...
+# Subtest: receipt and WATCHTOWER event do not preserve raw secrets or correctness claims
+ok 149 - receipt and WATCHTOWER event do not preserve raw secrets or correctness claims
+  ---
+  duration_ms: 0.183785
+  type: 'test'
+  ...
+# Subtest: Workflow Genome projection is observation-only and never immediately promotable
+ok 150 - Workflow Genome projection is observation-only and never immediately promotable
+  ---
+  duration_ms: 0.060821
+  type: 'test'
+  ...
+# Subtest: invalid handles are rejected before command execution
+ok 151 - invalid handles are rejected before command execution
+  ---
+  duration_ms: 0.076584
+  type: 'test'
+  ...
+# Subtest: policy may authorize a bounded execution action without approval flag
+ok 152 - policy may authorize a bounded execution action without approval flag
+  ---
+  duration_ms: 0.248331
+  type: 'test'
+  ...
+# Subtest: restore readiness detects Hermes and Codex resumable identity without exposing ids
+ok 153 - restore readiness detects Hermes and Codex resumable identity without exposing ids
+  ---
+  duration_ms: 0.227279
+  type: 'test'
+  ...
+# Subtest: beta canary validates managed context, telemetry, and restore readiness
+ok 154 - beta canary validates managed context, telemetry, and restore readiness
+  ---
+  duration_ms: 0.393138
+  type: 'test'
+  ...
+# Subtest: beta canary refuses to run without a managed HERDR session
+ok 155 - beta canary refuses to run without a managed HERDR session
+  ---
+  duration_ms: 0.099399
+  type: 'test'
+  ...
+# Subtest: beta canary refuses unavailable HERDR
+ok 156 - beta canary refuses unavailable HERDR
+  ---
+  duration_ms: 0.071047
+  type: 'test'
+  ...
+# Subtest: governed runtime permits read-only diagnostics outside managed session
+ok 157 - governed runtime permits read-only diagnostics outside managed session
+  ---
+  duration_ms: 0.102283
+  type: 'test'
+  ...
+# Subtest: governed runtime blocks prompt mutation outside managed session
+ok 158 - governed runtime blocks prompt mutation outside managed session
+  ---
+  duration_ms: 0.058327
+  type: 'test'
+  ...
+# Subtest: governed runtime injects managed context into mutation
+ok 159 - governed runtime injects managed context into mutation
+  ---
+  duration_ms: 0.056685
+  type: 'test'
+  ...
+# Subtest: governed runtime can verify inherited pane against runtime pane
+ok 160 - governed runtime can verify inherited pane against runtime pane
+  ---
+  duration_ms: 0.051376
+  type: 'test'
+  ...
+# Subtest: reports unmanaged context without exposing socket data
+ok 161 - reports unmanaged context without exposing socket data
+  ---
+  duration_ms: 0.02684
+  type: 'test'
+  ...
+# Subtest: accepts complete managed HERDR context and fingerprints it
+ok 162 - accepts complete managed HERDR context and fingerprints it
+  ---
+  duration_ms: 0.026911
+  type: 'test'
+  ...
+# Subtest: rejects mutation context outside HERDR
+ok 163 - rejects mutation context outside HERDR
+  ---
+  duration_ms: 0.032799
+  type: 'test'
+  ...
+# Subtest: rejects incomplete managed identifiers
+ok 164 - rejects incomplete managed identifiers
+  ---
+  duration_ms: 0.03332
+  type: 'test'
+  ...
+# Subtest: runtime verification requires current pane to match inherited pane
+ok 165 - runtime verification requires current pane to match inherited pane
+  ---
+  duration_ms: 0.11986
+  type: 'test'
+  ...
+# Subtest: runtime verification rejects a mismatched pane
+ok 166 - runtime verification rejects a mismatched pane
+  ---
+  duration_ms: 0.066469
+  type: 'test'
+  ...
+# Subtest: accepts a verified HERMES dispatch but performs no invocation
+ok 167 - accepts a verified HERMES dispatch but performs no invocation
+  ---
+  duration_ms: 10.913144
+  type: 'test'
+  ...
+# Subtest: HERMES cannot self-authorize by injecting a decision or receipt
+ok 168 - HERMES cannot self-authorize by injecting a decision or receipt
+  ---
+  duration_ms: 0.132468
+  type: 'test'
+  ...
+# Subtest: district or app impersonation fails closed
+ok 169 - district or app impersonation fails closed
+  ---
+  duration_ms: 0.054561
+  type: 'test'
+  ...
+# Subtest: unverified dispatch identity fails closed before authorization
+ok 170 - unverified dispatch identity fails closed before authorization
+  ---
+  duration_ms: 0.166389
+  type: 'test'
+  ...
+# Subtest: corridor policy remains authoritative over a verified HERMES dispatch
+ok 171 - corridor policy remains authoritative over a verified HERMES dispatch
+  ---
+  duration_ms: 0.762851
+  type: 'test'
+  ...
+# Subtest: audit record exposes references and hashes but no execution payload or capability secret material
+ok 172 - audit record exposes references and hashes but no execution payload or capability secret material
+  ---
+  duration_ms: 0.6079
+  type: 'test'
+  ...
+# Subtest: JSpace Neural Fabric is mounted in the 3D mission-control surface
+ok 173 - JSpace Neural Fabric is mounted in the 3D mission-control surface
+  ---
+  duration_ms: 0.119398
+  type: 'test'
+  ...
+# Subtest: neural fabric prefers the governed record-level projection and remains read-only
+ok 174 - neural fabric prefers the governed record-level projection and remains read-only
+  ---
+  duration_ms: 0.138457
+  type: 'test'
+  ...
+# Subtest: neural fabric distinguishes live memory projection from architecture fallback
+ok 175 - neural fabric distinguishes live memory projection from architecture fallback
+  ---
+  duration_ms: 0.038608
+  type: 'test'
+  ...
+# Subtest: neural surface exposes verification, challenge, torque, and provenance semantics
+ok 176 - neural surface exposes verification, challenge, torque, and provenance semantics
+  ---
+  duration_ms: 0.062924
+  type: 'test'
+  ...
+# Subtest: projection validates bounded memory objects and relations
+ok 177 - projection validates bounded memory objects and relations
+  ---
+  duration_ms: 0.519447
+  type: 'test'
+  ...
+# Subtest: SECURITY_ONLY nodes and their orphaned edges never enter the public projection
+ok 178 - SECURITY_ONLY nodes and their orphaned edges never enter the public projection
+  ---
+  duration_ms: 0.075253
+  type: 'test'
+  ...
+# Subtest: projection rejects secret-like fields and invalid relation references
+ok 179 - projection rejects secret-like fields and invalid relation references
+  ---
+  duration_ms: 0.119519
+  type: 'test'
+  ...
+# Subtest: projection enforces confidence and torque bounds
+ok 180 - projection enforces confidence and torque bounds
+  ---
+  duration_ms: 0.111837
+  type: 'test'
+  ...
+# Subtest: projection freshness distinguishes fresh, stale, and unknown age without changing authority
+ok 181 - projection freshness distinguishes fresh, stale, and unknown age without changing authority
+  ---
+  duration_ms: 0.115783
+  type: 'test'
+  ...
+# Subtest: release gate preserves projection-only authority
+ok 182 - release gate preserves projection-only authority
+  ---
+  duration_ms: 0.063145
+  type: 'test'
+  ...
+# Subtest: release gate excludes sensitive retrieval scope and secret-like fields
+ok 183 - release gate excludes sensitive retrieval scope and secret-like fields
+  ---
+  duration_ms: 0.056535
+  type: 'test'
+  ...
+# Subtest: browser remains mutation-free and uses conditional refresh
+ok 184 - browser remains mutation-free and uses conditional refresh
+  ---
+  duration_ms: 0.03357
+  type: 'test'
+  ...
+# Subtest: production deploy is credential-gated and verifies live endpoints
+ok 185 - production deploy is credential-gated and verifies live endpoints
+  ---
+  duration_ms: 0.044287
+  type: 'test'
+  ...
+# Subtest: production ops exposes operator-only rollback and revision history
+ok 186 - production ops exposes operator-only rollback and revision history
+  ---
+  duration_ms: 0.056184
+  type: 'test'
+  ...
+# Subtest: public projection reports freshness without promoting truth or canon
+ok 187 - public projection reports freshness without promoting truth or canon
+  ---
+  duration_ms: 0.051177
+  type: 'test'
+  ...
+# Subtest: J-Space remains read-only infrastructure
+ok 188 - J-Space remains read-only infrastructure
+  ---
+  duration_ms: 0.07999
+  type: 'test'
+  ...
+# Subtest: WikiVault bridge preserves canonical storage and conflict visibility
+ok 189 - WikiVault bridge preserves canonical storage and conflict visibility
+  ---
+  duration_ms: 0.116324
+  type: 'test'
+  ...
+# Subtest: Mind Vault contract requires provenance and forbids impersonation
+ok 190 - Mind Vault contract requires provenance and forbids impersonation
+  ---
+  duration_ms: 0.086509
+  type: 'test'
+  ...
+# Subtest: cognitive council reserves Heretic slot and never grants authority
+ok 191 - cognitive council reserves Heretic slot and never grants authority
+  ---
+  duration_ms: 0.178336
+  type: 'test'
+  ...
+# Subtest: intercepts only valid Observatory and manifest MCP requests
+ok 192 - intercepts only valid Observatory and manifest MCP requests
+  ---
+  duration_ms: 0.098237
+  type: 'test'
+  ...
+# Subtest: returns one consistent fourteen-tool manifest across discovery paths
+ok 193 - returns one consistent fourteen-tool manifest across discovery paths
+  ---
+  duration_ms: 0.168151
+  type: 'test'
+  ...
+# Subtest: bounds receipt aggregation and marks truncated samples
+ok 194 - bounds receipt aggregation and marks truncated samples
+  ---
+  duration_ms: 0.227821
+  type: 'test'
+  ...
+# Subtest: registers five bounded read-only observatory tools
+ok 195 - registers five bounded read-only observatory tools
+  ---
+  duration_ms: 0.043305
+  type: 'test'
+  ...
+# Subtest: exposes the four canonical observatory views
+ok 196 - exposes the four canonical observatory views
+  ---
+  duration_ms: 0.031297
+  type: 'test'
+  ...
+# Subtest: marks reference output as non-live when no receipts exist
+ok 197 - marks reference output as non-live when no receipts exist
+  ---
+  duration_ms: 0.513138
+  type: 'test'
+  ...
+# Subtest: marks receipt-backed output as live observability
+ok 198 - marks receipt-backed output as live observability
+  ---
+  duration_ms: 0.224476
+  type: 'test'
+  ...
+# Subtest: preserves human-governed capability promotion
+ok 199 - preserves human-governed capability promotion
+  ---
+  duration_ms: 0.238106
+  type: 'test'
+  ...
+# Subtest: maps tool names and rejects unexpected arguments
+ok 200 - maps tool names and rejects unexpected arguments
+  ---
+  duration_ms: 0.18029
+  type: 'test'
+  ...
+# Subtest: exposes the bounded observation window and truncation flag in snapshots
+ok 201 - exposes the bounded observation window and truncation flag in snapshots
+  ---
+  duration_ms: 0.12719
+  type: 'test'
+  ...
+# Subtest: OPS supervision flag is opt-in
+ok 202 - OPS supervision flag is opt-in
+  ---
+  duration_ms: 0.035543
+  type: 'test'
+  ...
+# Subtest: OPS events persist with HERMES-CITY projection and can be read back
+ok 203 - OPS events persist with HERMES-CITY projection and can be read back
+  ---
+  duration_ms: 0.245458
+  type: 'test'
+  ...
+# Subtest: all external MCP lanes remain pending and non-invoking without evidence
+ok 204 - all external MCP lanes remain pending and non-invoking without evidence
+  ---
+  duration_ms: 0.162854
+  type: 'test'
+  ...
+# Subtest: provider registry is read-only and preserves provider/utility distinction
+ok 205 - provider registry is read-only and preserves provider/utility distinction
+  ---
+  duration_ms: 0.072858
+  type: 'test'
+  ...
+# Subtest: openart verification evidence records verified discovery but stays gated
+ok 206 - openart verification evidence records verified discovery but stays gated
+  ---
+  duration_ms: 0.090325
+  type: 'test'
+  ...
+# Subtest: openart evidence does not flip eligibility — readiness remains pending/conditional
+ok 207 - openart evidence does not flip eligibility — readiness remains pending/conditional
+  ---
+  duration_ms: 0.080371
+  type: 'test'
+  ...
+# Subtest: openart canary evidence records one bounded invocation with gate retained
+ok 208 - openart canary evidence records one bounded invocation with gate retained
+  ---
+  duration_ms: 0.084857
+  type: 'test'
+  ...
+# Subtest: openart canary evidence does NOT grant standing write authority
+ok 209 - openart canary evidence does NOT grant standing write authority
+  ---
+  duration_ms: 0.051747
+  type: 'test'
+  ...
+# Subtest: WikiVault evidence becomes provenance-preserving JSpace nodes
+ok 210 - WikiVault evidence becomes provenance-preserving JSpace nodes
+  ---
+  duration_ms: 1.208728
+  type: 'test'
+  ...
+# Subtest: open conflicts become challenge state instead of silent resolution
+ok 211 - open conflicts become challenge state instead of silent resolution
+  ---
+  duration_ms: 0.077015
+  type: 'test'
+  ...
+1..211
+# tests 211
+# suites 0
+# pass 211
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 213.027494

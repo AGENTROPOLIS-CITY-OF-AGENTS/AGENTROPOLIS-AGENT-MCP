@@ -1,0 +1,616 @@
+TAP version 13
+# Subtest: transcript/bounded_document_read: preserve ALLOW, never authorize execution
+ok 1 - transcript/bounded_document_read: preserve ALLOW, never authorize execution
+  ---
+  duration_ms: 4.571338
+  type: 'test'
+  ...
+# Subtest: transcript/synthetic_move_plan: preserve ALLOW, never authorize execution
+ok 2 - transcript/synthetic_move_plan: preserve ALLOW, never authorize execution
+  ---
+  duration_ms: 1.496128
+  type: 'test'
+  ...
+# Subtest: transcript/approval_replay_candidate: preserve ALLOW, never authorize execution
+ok 3 - transcript/approval_replay_candidate: preserve ALLOW, never authorize execution
+  ---
+  duration_ms: 0.806646
+  type: 'test'
+  ...
+# Subtest: transcript/unknown_identity: preserve DENY, never authorize execution
+ok 4 - transcript/unknown_identity: preserve DENY, never authorize execution
+  ---
+  duration_ms: 1.005724
+  type: 'test'
+  ...
+# Subtest: transcript/expired_lease: preserve DENY, never authorize execution
+ok 5 - transcript/expired_lease: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.747198
+  type: 'test'
+  ...
+# Subtest: transcript/revoked_lease: preserve DENY, never authorize execution
+ok 6 - transcript/revoked_lease: preserve DENY, never authorize execution
+  ---
+  duration_ms: 1.006495
+  type: 'test'
+  ...
+# Subtest: transcript/lease_target_mismatch: preserve DENY, never authorize execution
+ok 7 - transcript/lease_target_mismatch: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.910672
+  type: 'test'
+  ...
+# Subtest: transcript/over_budget: preserve DENY, never authorize execution
+ok 8 - transcript/over_budget: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.746586
+  type: 'test'
+  ...
+# Subtest: transcript/expired_request: preserve DENY, never authorize execution
+ok 9 - transcript/expired_request: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.873446
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_profile: preserve DENY, never authorize execution
+ok 10 - transcript/wrong_profile: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.809351
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_session: preserve DENY, never authorize execution
+ok 11 - transcript/wrong_session: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.869381
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_mandate: preserve DENY, never authorize execution
+ok 12 - transcript/wrong_mandate: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.809551
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_epoch: preserve DENY, never authorize execution
+ok 13 - transcript/wrong_epoch: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.739426
+  type: 'test'
+  ...
+# Subtest: transcript/wrong_policy: preserve DENY, never authorize execution
+ok 14 - transcript/wrong_policy: preserve DENY, never authorize execution
+  ---
+  duration_ms: 0.750192
+  type: 'test'
+  ...
+# Subtest: transcript/approval_required: preserve ASK, never authorize execution
+ok 15 - transcript/approval_required: preserve ASK, never authorize execution
+  ---
+  duration_ms: 0.639367
+  type: 'test'
+  ...
+# Subtest: document result is bounded synthetic data with no host path
+ok 16 - document result is bounded synthetic data with no host path
+  ---
+  duration_ms: 0.993055
+  type: 'test'
+  ...
+# Subtest: file plan is an immutable preview; request and fixture catalog remain unchanged
+ok 17 - file plan is an immutable preview; request and fixture catalog remain unchanged
+  ---
+  duration_ms: 1.520975
+  type: 'test'
+  ...
+# Subtest: ASK remains non-executing and emits a denial receipt
+ok 18 - ASK remains non-executing and emits a denial receipt
+  ---
+  duration_ms: 0.864864
+  type: 'test'
+  ...
+# Subtest: action alteration without digest update is denied
+ok 19 - action alteration without digest update is denied
+  ---
+  duration_ms: 0.663363
+  type: 'test'
+  ...
+# Subtest: action alteration with recomputed digest cannot create a fixture grant
+ok 20 - action alteration with recomputed digest cannot create a fixture grant
+  ---
+  duration_ms: 0.946636
+  type: 'test'
+  ...
+# Subtest: root target cannot differ from exact action target
+ok 21 - root target cannot differ from exact action target
+  ---
+  duration_ms: 0.806657
+  type: 'test'
+  ...
+# Subtest: binding/principal: any unregistered change denies
+ok 22 - binding/principal: any unregistered change denies
+  ---
+  duration_ms: 0.500418
+  type: 'test'
+  ...
+# Subtest: binding/profile: any unregistered change denies
+ok 23 - binding/profile: any unregistered change denies
+  ---
+  duration_ms: 0.638485
+  type: 'test'
+  ...
+# Subtest: binding/session: any unregistered change denies
+ok 24 - binding/session: any unregistered change denies
+  ---
+  duration_ms: 0.485817
+  type: 'test'
+  ...
+# Subtest: binding/mandate: any unregistered change denies
+ok 25 - binding/mandate: any unregistered change denies
+  ---
+  duration_ms: 0.590152
+  type: 'test'
+  ...
+# Subtest: binding/capability_epoch: any unregistered change denies
+ok 26 - binding/capability_epoch: any unregistered change denies
+  ---
+  duration_ms: 0.443683
+  type: 'test'
+  ...
+# Subtest: binding/occurrence_id: any unregistered change denies
+ok 27 - binding/occurrence_id: any unregistered change denies
+  ---
+  duration_ms: 0.625506
+  type: 'test'
+  ...
+# Subtest: binding/lease: omission denies
+ok 28 - binding/lease: omission denies
+  ---
+  duration_ms: 0.499488
+  type: 'test'
+  ...
+# Subtest: binding/budget: omission denies
+ok 29 - binding/budget: omission denies
+  ---
+  duration_ms: 0.642831
+  type: 'test'
+  ...
+# Subtest: binding/approval: omission denies
+ok 30 - binding/approval: omission denies
+  ---
+  duration_ms: 0.495822
+  type: 'test'
+  ...
+# Subtest: binding/policy_revision: omission denies
+ok 31 - binding/policy_revision: omission denies
+  ---
+  duration_ms: 0.558175
+  type: 'test'
+  ...
+# Subtest: binding/expires_at: omission denies
+ok 32 - binding/expires_at: omission denies
+  ---
+  duration_ms: 0.450063
+  type: 'test'
+  ...
+# Subtest: binding/action_digest: omission denies
+ok 33 - binding/action_digest: omission denies
+  ---
+  duration_ms: 0.538325
+  type: 'test'
+  ...
+# Subtest: lease/id: tampering never creates a grant
+ok 34 - lease/id: tampering never creates a grant
+  ---
+  duration_ms: 0.580318
+  type: 'test'
+  ...
+# Subtest: lease/subject: tampering never creates a grant
+ok 35 - lease/subject: tampering never creates a grant
+  ---
+  duration_ms: 0.58835
+  type: 'test'
+  ...
+# Subtest: lease/profile: tampering never creates a grant
+ok 36 - lease/profile: tampering never creates a grant
+  ---
+  duration_ms: 0.482191
+  type: 'test'
+  ...
+# Subtest: lease/session: tampering never creates a grant
+ok 37 - lease/session: tampering never creates a grant
+  ---
+  duration_ms: 0.432156
+  type: 'test'
+  ...
+# Subtest: lease/mandate: tampering never creates a grant
+ok 38 - lease/mandate: tampering never creates a grant
+  ---
+  duration_ms: 0.585515
+  type: 'test'
+  ...
+# Subtest: lease/capability: tampering never creates a grant
+ok 39 - lease/capability: tampering never creates a grant
+  ---
+  duration_ms: 0.431906
+  type: 'test'
+  ...
+# Subtest: lease/target: tampering never creates a grant
+ok 40 - lease/target: tampering never creates a grant
+  ---
+  duration_ms: 0.569722
+  type: 'test'
+  ...
+# Subtest: lease/policy_revision: tampering never creates a grant
+ok 41 - lease/policy_revision: tampering never creates a grant
+  ---
+  duration_ms: 0.420939
+  type: 'test'
+  ...
+# Subtest: lease/capability_epoch: tampering never creates a grant
+ok 42 - lease/capability_epoch: tampering never creates a grant
+  ---
+  duration_ms: 0.61513
+  type: 'test'
+  ...
+# Subtest: lease/status: tampering never creates a grant
+ok 43 - lease/status: tampering never creates a grant
+  ---
+  duration_ms: 0.456213
+  type: 'test'
+  ...
+# Subtest: lease/expires_at: tampering never creates a grant
+ok 44 - lease/expires_at: tampering never creates a grant
+  ---
+  duration_ms: 0.54167
+  type: 'test'
+  ...
+# Subtest: route/terminal: unavailable even with valid fixture action
+ok 45 - route/terminal: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.485987
+  type: 'test'
+  ...
+# Subtest: route/cli: unavailable even with valid fixture action
+ok 46 - route/cli: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.555131
+  type: 'test'
+  ...
+# Subtest: route/os: unavailable even with valid fixture action
+ok 47 - route/os: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.439287
+  type: 'test'
+  ...
+# Subtest: route/os-run: unavailable even with valid fixture action
+ok 48 - route/os-run: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.523723
+  type: 'test'
+  ...
+# Subtest: route/ui: unavailable even with valid fixture action
+ok 49 - route/ui: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.462261
+  type: 'test'
+  ...
+# Subtest: route/hook: unavailable even with valid fixture action
+ok 50 - route/hook: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.516753
+  type: 'test'
+  ...
+# Subtest: route/cron: unavailable even with valid fixture action
+ok 51 - route/cron: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.445456
+  type: 'test'
+  ...
+# Subtest: route/mcp: unavailable even with valid fixture action
+ok 52 - route/mcp: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.405487
+  type: 'test'
+  ...
+# Subtest: route/http: unavailable even with valid fixture action
+ok 53 - route/http: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.544064
+  type: 'test'
+  ...
+# Subtest: route/electron: unavailable even with valid fixture action
+ok 54 - route/electron: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.412237
+  type: 'test'
+  ...
+# Subtest: route/hermes: unavailable even with valid fixture action
+ok 55 - route/hermes: unavailable even with valid fixture action
+  ---
+  duration_ms: 0.804243
+  type: 'test'
+  ...
+# Subtest: capability/system_files: deny
+ok 56 - capability/system_files: deny
+  ---
+  duration_ms: 0.459528
+  type: 'test'
+  ...
+# Subtest: capability/system_open: deny
+ok 57 - capability/system_open: deny
+  ---
+  duration_ms: 0.565536
+  type: 'test'
+  ...
+# Subtest: capability/terminal: deny
+ok 58 - capability/terminal: deny
+  ---
+  duration_ms: 0.642992
+  type: 'test'
+  ...
+# Subtest: capability/cron: deny
+ok 59 - capability/cron: deny
+  ---
+  duration_ms: 0.705806
+  type: 'test'
+  ...
+# Subtest: capability/wallet.sign: deny
+ok 60 - capability/wallet.sign: deny
+  ---
+  duration_ms: 0.446488
+  type: 'test'
+  ...
+# Subtest: capability/plugins.enable: deny
+ok 61 - capability/plugins.enable: deny
+  ---
+  duration_ms: 0.50771
+  type: 'test'
+  ...
+# Subtest: path//etc/passwd: no filesystem or URL interpretation
+ok 62 - path//etc/passwd: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.65499
+  type: 'test'
+  ...
+# Subtest: path/~/.hermes/auth.json: no filesystem or URL interpretation
+ok 63 - path/~/.hermes/auth.json: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.855379
+  type: 'test'
+  ...
+# Subtest: path/file:///tmp/x: no filesystem or URL interpretation
+ok 64 - path/file:///tmp/x: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.489042
+  type: 'test'
+  ...
+# Subtest: path/fixture://documents/../brief.txt: no filesystem or URL interpretation
+ok 65 - path/fixture://documents/../brief.txt: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.478726
+  type: 'test'
+  ...
+# Subtest: path/https://example.test/x: no filesystem or URL interpretation
+ok 66 - path/https://example.test/x: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.422101
+  type: 'test'
+  ...
+# Subtest: path/fixture://documents/brief.txt?x=1: no filesystem or URL interpretation
+ok 67 - path/fixture://documents/brief.txt?x=1: no filesystem or URL interpretation
+  ---
+  duration_ms: 0.443804
+  type: 'test'
+  ...
+# Subtest: same occurrence cannot be replayed in one evidence scope
+ok 68 - same occurrence cannot be replayed in one evidence scope
+  ---
+  duration_ms: 0.947267
+  type: 'test'
+  ...
+# Subtest: approval cannot be replayed under another occurrence
+ok 69 - approval cannot be replayed under another occurrence
+  ---
+  duration_ms: 0.796021
+  type: 'test'
+  ...
+# Subtest: approval digest, expiry and status are bound to exact request
+ok 70 - approval digest, expiry and status are bound to exact request
+  ---
+  duration_ms: 2.177046
+  type: 'test'
+  ...
+# Subtest: evidence/missing: withhold preview and stop
+ok 71 - evidence/missing: withhold preview and stop
+  ---
+  duration_ms: 0.579117
+  type: 'test'
+  ...
+# Subtest: evidence/write_failure: withhold preview and stop
+ok 72 - evidence/write_failure: withhold preview and stop
+  ---
+  duration_ms: 0.700708
+  type: 'test'
+  ...
+# Subtest: evidence/readback_failure: withhold preview and stop
+ok 73 - evidence/readback_failure: withhold preview and stop
+  ---
+  duration_ms: 0.569993
+  type: 'test'
+  ...
+# Subtest: absent or arbitrary evidence callback/store fails closed
+ok 74 - absent or arbitrary evidence callback/store fails closed
+  ---
+  duration_ms: 1.490319
+  type: 'test'
+  ...
+# Subtest: evidence implementation cannot be overridden
+ok 75 - evidence implementation cannot be overridden
+  ---
+  duration_ms: 0.291757
+  type: 'test'
+  ...
+# Subtest: policy/catalog corruption has no permissive default
+ok 76 - policy/catalog corruption has no permissive default
+  ---
+  duration_ms: 1.192533
+  type: 'test'
+  ...
+# Subtest: contract and catalog canonical digests match reviewed lock
+ok 77 - contract and catalog canonical digests match reviewed lock
+  ---
+  duration_ms: 0.247911
+  type: 'test'
+  ...
+# Subtest: secrets/0: nested or encoded input never appears in output
+ok 78 - secrets/0: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.493949
+  type: 'test'
+  ...
+# Subtest: secrets/innocent: nested or encoded input never appears in output
+ok 79 - secrets/innocent: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.739967
+  type: 'test'
+  ...
+# Subtest: secrets/innocent: nested or encoded input never appears in output
+ok 80 - secrets/innocent: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.468501
+  type: 'test'
+  ...
+# Subtest: secrets/ｔｏｋｅｎ: nested or encoded input never appears in output
+ok 81 - secrets/ｔｏｋｅｎ: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.583683
+  type: 'test'
+  ...
+# Subtest: secrets/innocent: nested or encoded input never appears in output
+ok 82 - secrets/innocent: nested or encoded input never appears in output
+  ---
+  duration_ms: 0.473308
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 4 bytes: deny without throwing
+ok 83 - malformed/bounded input 4 bytes: deny without throwing
+  ---
+  duration_ms: 0.42099
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 2 bytes: deny without throwing
+ok 84 - malformed/bounded input 2 bytes: deny without throwing
+  ---
+  duration_ms: 0.600378
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 1 bytes: deny without throwing
+ok 85 - malformed/bounded input 1 bytes: deny without throwing
+  ---
+  duration_ms: 0.422482
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 4 bytes: deny without throwing
+ok 86 - malformed/bounded input 4 bytes: deny without throwing
+  ---
+  duration_ms: 0.451034
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 1 bytes: deny without throwing
+ok 87 - malformed/bounded input 1 bytes: deny without throwing
+  ---
+  duration_ms: 0.391716
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 11 bytes: deny without throwing
+ok 88 - malformed/bounded input 11 bytes: deny without throwing
+  ---
+  duration_ms: 0.602441
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 13 bytes: deny without throwing
+ok 89 - malformed/bounded input 13 bytes: deny without throwing
+  ---
+  duration_ms: 0.44117
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 32769 bytes: deny without throwing
+ok 90 - malformed/bounded input 32769 bytes: deny without throwing
+  ---
+  duration_ms: 0.460599
+  type: 'test'
+  ...
+# Subtest: malformed/bounded input 158 bytes: deny without throwing
+ok 91 - malformed/bounded input 158 bytes: deny without throwing
+  ---
+  duration_ms: 0.439147
+  type: 'test'
+  ...
+# Subtest: duplicate request keys are rejected even if JSON.parse would accept them
+ok 92 - duplicate request keys are rejected even if JSON.parse would accept them
+  ---
+  duration_ms: 0.547479
+  type: 'test'
+  ...
+# Subtest: strict contracts reject authority claims and unknown fields
+ok 93 - strict contracts reject authority claims and unknown fields
+  ---
+  duration_ms: 0.945694
+  type: 'test'
+  ...
+# Subtest: denial receipts are correlated to exact submitted bytes and decision
+ok 94 - denial receipts are correlated to exact submitted bytes and decision
+  ---
+  duration_ms: 0.607359
+  type: 'test'
+  ...
+# Subtest: evidence snapshot mutation cannot change recorded packet
+ok 95 - evidence snapshot mutation cannot change recorded packet
+  ---
+  duration_ms: 0.616081
+  type: 'test'
+  ...
+# Subtest: adapter exposes review only, with no invocation/transport extension point
+ok 96 - adapter exposes review only, with no invocation/transport extension point
+  ---
+  duration_ms: 0.560328
+  type: 'test'
+  ...
+# Subtest: fixture modules import no host I/O, scheduler, authority engine or provider
+ok 97 - fixture modules import no host I/O, scheduler, authority engine or provider
+  ---
+  duration_ms: 0.473258
+  type: 'test'
+  ...
+# Subtest: unregistered innocently named credential-like values are not echoed
+ok 98 - unregistered innocently named credential-like values are not echoed
+  ---
+  duration_ms: 0.553017
+  type: 'test'
+  ...
+# Subtest: bounded evidence store fails closed at capacity
+ok 99 - bounded evidence store fails closed at capacity
+  ---
+  duration_ms: 15.936327
+  type: 'test'
+  ...
+# Subtest: committed catalog cannot be mutated after adapter creation
+ok 100 - committed catalog cannot be mutated after adapter creation
+  ---
+  duration_ms: 0.172928
+  type: 'test'
+  ...
+# Subtest: boundary denials are distinguished from authored authority transcripts
+ok 101 - boundary denials are distinguished from authored authority transcripts
+  ---
+  duration_ms: 1.791209
+  type: 'test'
+  ...
+1..101
+# tests 101
+# suites 0
+# pass 101
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 111.440757

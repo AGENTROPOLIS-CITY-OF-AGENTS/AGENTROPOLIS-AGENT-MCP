@@ -1,0 +1,1036 @@
+{
+  "schema_version": "herald.fixture.samples.v1",
+  "classification": "synthetic-public",
+  "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+  "packets": [
+    {
+      "name": "bounded_document_read",
+      "result": {
+        "decision": {
+          "schema_version": "herald.fixture.decision.v1",
+          "verdict": "ALLOW",
+          "reason_code": "FIXTURE_MATCH",
+          "source": "committed-test-transcript",
+          "execution_authorized": false,
+          "invocation_performed": false,
+          "request_digest": "dfe16a67f08c62709943acc4c8789958f7a6635bc9a1d5595383c983134f4df8",
+          "binding_digest": "e84b1d56aa156190d423cd80dddf529d25a651b593dc3a5ba5a2c4b4022184b5",
+          "binding": {
+            "schema_version": "herald.fixture.request.v1",
+            "mode": "fixture-only",
+            "route": "fixture",
+            "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+            "evaluation_time": "2026-10-17T00:00:00Z",
+            "principal": "synthetic:operator",
+            "profile": "synthetic:research",
+            "session": "synthetic:session-1",
+            "mandate": "synthetic:fixture-review",
+            "capability": "herald.fixture.document.read",
+            "action": {
+              "operation": "read_document",
+              "target": "fixture://documents/brief.txt",
+              "destination": null,
+              "max_bytes": 4096
+            },
+            "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+            "target": "fixture://documents/brief.txt",
+            "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+            "capability_epoch": "synthetic:epoch-1",
+            "lease": {
+              "id": "synthetic:lease-1",
+              "subject": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "status": "active",
+              "expires_at": "2026-10-18T00:00:00Z"
+            },
+            "expires_at": "2026-10-18T00:00:00Z",
+            "budget": {
+              "limit_units": 2,
+              "requested_units": 1,
+              "unit": "fixture-units"
+            },
+            "occurrence_id": "synthetic:read",
+            "approval": null
+          },
+          "evidence_status": "memory-only"
+        },
+        "packet": {
+          "schema_version": "herald.fixture.review-packet.v1",
+          "classification": "synthetic-public",
+          "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+          "baseline": {
+            "HERMES-CITY": "25e727aad42ec01ec011ff1f4b0c6ff494b9d5b2",
+            "AGENTROPOLIS-AGENT-MCP": "254e2ed593e5e251533ff1f9a9f422b302223285",
+            "AGENTROPOLIS-AEGIS-ASSURANCE": "e89c9ee156f9bc6921c0a65896c602adedc6b239",
+            "AGENTROPOLIS-54T": "a92ac15c926288eb9b93b4d0eb9daae09772efb2"
+          },
+          "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+          "decision": {
+            "schema_version": "herald.fixture.decision.v1",
+            "verdict": "ALLOW",
+            "reason_code": "FIXTURE_MATCH",
+            "source": "committed-test-transcript",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "request_digest": "dfe16a67f08c62709943acc4c8789958f7a6635bc9a1d5595383c983134f4df8",
+            "binding_digest": "e84b1d56aa156190d423cd80dddf529d25a651b593dc3a5ba5a2c4b4022184b5",
+            "binding": {
+              "schema_version": "herald.fixture.request.v1",
+              "mode": "fixture-only",
+              "route": "fixture",
+              "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+              "evaluation_time": "2026-10-17T00:00:00Z",
+              "principal": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "action": {
+                "operation": "read_document",
+                "target": "fixture://documents/brief.txt",
+                "destination": null,
+                "max_bytes": 4096
+              },
+              "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "lease": {
+                "id": "synthetic:lease-1",
+                "subject": "synthetic:operator",
+                "profile": "synthetic:research",
+                "session": "synthetic:session-1",
+                "mandate": "synthetic:fixture-review",
+                "capability": "herald.fixture.document.read",
+                "target": "fixture://documents/brief.txt",
+                "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+                "capability_epoch": "synthetic:epoch-1",
+                "status": "active",
+                "expires_at": "2026-10-18T00:00:00Z"
+              },
+              "expires_at": "2026-10-18T00:00:00Z",
+              "budget": {
+                "limit_units": 2,
+                "requested_units": 1,
+                "unit": "fixture-units"
+              },
+              "occurrence_id": "synthetic:read",
+              "approval": null
+            },
+            "evidence_status": "memory-only"
+          },
+          "receipt": {
+            "schema_version": "herald.fixture.observation-receipt.v1",
+            "receipt_id": "4496c7353f9011147a16b6163adcf2cbb246e3d5bbf9cc692b19f3e789dd2af4",
+            "request_digest": "dfe16a67f08c62709943acc4c8789958f7a6635bc9a1d5595383c983134f4df8",
+            "decision_digest": "2cfaf9b7f960d3b64b63a8c3f46612fa4a13fc535d5052b7a9053aca0f1b1ba0",
+            "reason_code": "FIXTURE_MATCH",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "evidence_status": "memory-only"
+          },
+          "preview": {
+            "kind": "document",
+            "text": "Synthetic project brief. No real people, accounts, credentials or production data.\n",
+            "operations": []
+          },
+          "limitations": [
+            "FIXTURE_ONLY",
+            "NO_EXECUTION_AUTHORITY",
+            "MEMORY_ONLY_EVIDENCE",
+            "NO_OPERATIONAL_CERTIFICATION"
+          ]
+        }
+      }
+    },
+    {
+      "name": "synthetic_move_plan",
+      "result": {
+        "decision": {
+          "schema_version": "herald.fixture.decision.v1",
+          "verdict": "ALLOW",
+          "reason_code": "FIXTURE_MATCH",
+          "source": "committed-test-transcript",
+          "execution_authorized": false,
+          "invocation_performed": false,
+          "request_digest": "d83bd37f81af4cfd59a23fae1ad088fb429b5c1eaaedca0dec926f1ee87e03d9",
+          "binding_digest": "412c641a0ee9d78c7aae5dafbbd1c7f055e8b834d99e876c86bdac5c69fc48b2",
+          "binding": {
+            "schema_version": "herald.fixture.request.v1",
+            "mode": "fixture-only",
+            "route": "fixture",
+            "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+            "evaluation_time": "2026-10-17T00:00:00Z",
+            "principal": "synthetic:operator",
+            "profile": "synthetic:research",
+            "session": "synthetic:session-1",
+            "mandate": "synthetic:fixture-review",
+            "capability": "herald.fixture.files.plan",
+            "action": {
+              "operation": "plan_move",
+              "target": "fixture://workspace/source.txt",
+              "destination": "fixture://workspace/destination.txt",
+              "max_bytes": 0
+            },
+            "action_digest": "13da26c3041ced0600bd5b4486abaa43e281981eb81bf84d6eecf24dbd7f7dd7",
+            "target": "fixture://workspace/source.txt",
+            "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+            "capability_epoch": "synthetic:epoch-1",
+            "lease": {
+              "id": "synthetic:lease-1",
+              "subject": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.files.plan",
+              "target": "fixture://workspace/source.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "status": "active",
+              "expires_at": "2026-10-18T00:00:00Z"
+            },
+            "expires_at": "2026-10-18T00:00:00Z",
+            "budget": {
+              "limit_units": 2,
+              "requested_units": 1,
+              "unit": "fixture-units"
+            },
+            "occurrence_id": "synthetic:plan",
+            "approval": {
+              "id": "synthetic:approval-1",
+              "request_digest": "efbc7df11856f36046ffe2d947668dce7935234adee82d2cdd1c5d07d389537b",
+              "status": "approved",
+              "expires_at": "2026-10-18T00:00:00Z"
+            }
+          },
+          "evidence_status": "memory-only"
+        },
+        "packet": {
+          "schema_version": "herald.fixture.review-packet.v1",
+          "classification": "synthetic-public",
+          "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+          "baseline": {
+            "HERMES-CITY": "25e727aad42ec01ec011ff1f4b0c6ff494b9d5b2",
+            "AGENTROPOLIS-AGENT-MCP": "254e2ed593e5e251533ff1f9a9f422b302223285",
+            "AGENTROPOLIS-AEGIS-ASSURANCE": "e89c9ee156f9bc6921c0a65896c602adedc6b239",
+            "AGENTROPOLIS-54T": "a92ac15c926288eb9b93b4d0eb9daae09772efb2"
+          },
+          "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+          "decision": {
+            "schema_version": "herald.fixture.decision.v1",
+            "verdict": "ALLOW",
+            "reason_code": "FIXTURE_MATCH",
+            "source": "committed-test-transcript",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "request_digest": "d83bd37f81af4cfd59a23fae1ad088fb429b5c1eaaedca0dec926f1ee87e03d9",
+            "binding_digest": "412c641a0ee9d78c7aae5dafbbd1c7f055e8b834d99e876c86bdac5c69fc48b2",
+            "binding": {
+              "schema_version": "herald.fixture.request.v1",
+              "mode": "fixture-only",
+              "route": "fixture",
+              "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+              "evaluation_time": "2026-10-17T00:00:00Z",
+              "principal": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.files.plan",
+              "action": {
+                "operation": "plan_move",
+                "target": "fixture://workspace/source.txt",
+                "destination": "fixture://workspace/destination.txt",
+                "max_bytes": 0
+              },
+              "action_digest": "13da26c3041ced0600bd5b4486abaa43e281981eb81bf84d6eecf24dbd7f7dd7",
+              "target": "fixture://workspace/source.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "lease": {
+                "id": "synthetic:lease-1",
+                "subject": "synthetic:operator",
+                "profile": "synthetic:research",
+                "session": "synthetic:session-1",
+                "mandate": "synthetic:fixture-review",
+                "capability": "herald.fixture.files.plan",
+                "target": "fixture://workspace/source.txt",
+                "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+                "capability_epoch": "synthetic:epoch-1",
+                "status": "active",
+                "expires_at": "2026-10-18T00:00:00Z"
+              },
+              "expires_at": "2026-10-18T00:00:00Z",
+              "budget": {
+                "limit_units": 2,
+                "requested_units": 1,
+                "unit": "fixture-units"
+              },
+              "occurrence_id": "synthetic:plan",
+              "approval": {
+                "id": "synthetic:approval-1",
+                "request_digest": "efbc7df11856f36046ffe2d947668dce7935234adee82d2cdd1c5d07d389537b",
+                "status": "approved",
+                "expires_at": "2026-10-18T00:00:00Z"
+              }
+            },
+            "evidence_status": "memory-only"
+          },
+          "receipt": {
+            "schema_version": "herald.fixture.observation-receipt.v1",
+            "receipt_id": "416a435a8b336dfeee1466eff130dd8a9bd237c2011b696a57f90a0920d50ecc",
+            "request_digest": "d83bd37f81af4cfd59a23fae1ad088fb429b5c1eaaedca0dec926f1ee87e03d9",
+            "decision_digest": "9d2d7cd2b3c8d319ab8b7762f72293d8a5125de6d8b5549c882e80e5b25ebc11",
+            "reason_code": "FIXTURE_MATCH",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "evidence_status": "memory-only"
+          },
+          "preview": {
+            "kind": "file-plan",
+            "text": "Preview only. No file operation is performed.",
+            "operations": [
+              {
+                "operation": "plan_move",
+                "target": "fixture://workspace/source.txt",
+                "destination": "fixture://workspace/destination.txt",
+                "max_bytes": 0
+              }
+            ]
+          },
+          "limitations": [
+            "FIXTURE_ONLY",
+            "NO_EXECUTION_AUTHORITY",
+            "MEMORY_ONLY_EVIDENCE",
+            "NO_OPERATIONAL_CERTIFICATION"
+          ]
+        }
+      }
+    },
+    {
+      "name": "approval_required",
+      "result": {
+        "decision": {
+          "schema_version": "herald.fixture.decision.v1",
+          "verdict": "ASK",
+          "reason_code": "APPROVAL_REQUIRED",
+          "source": "committed-test-transcript",
+          "execution_authorized": false,
+          "invocation_performed": false,
+          "request_digest": "5c65c2e79129e2b0177b3e843cfdfbf6fafaebd757db2507017d5a111ca72c92",
+          "binding_digest": "ac461cf15028d798add3eb498d7089368222eb7a407f99d60fa1eef1ebc21c20",
+          "binding": {
+            "schema_version": "herald.fixture.request.v1",
+            "mode": "fixture-only",
+            "route": "fixture",
+            "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+            "evaluation_time": "2026-10-17T00:00:00Z",
+            "principal": "synthetic:operator",
+            "profile": "synthetic:research",
+            "session": "synthetic:session-1",
+            "mandate": "synthetic:fixture-review",
+            "capability": "herald.fixture.files.plan",
+            "action": {
+              "operation": "plan_move",
+              "target": "fixture://workspace/source.txt",
+              "destination": "fixture://workspace/destination.txt",
+              "max_bytes": 0
+            },
+            "action_digest": "13da26c3041ced0600bd5b4486abaa43e281981eb81bf84d6eecf24dbd7f7dd7",
+            "target": "fixture://workspace/source.txt",
+            "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+            "capability_epoch": "synthetic:epoch-1",
+            "lease": {
+              "id": "synthetic:lease-1",
+              "subject": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.files.plan",
+              "target": "fixture://workspace/source.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "status": "active",
+              "expires_at": "2026-10-18T00:00:00Z"
+            },
+            "expires_at": "2026-10-18T00:00:00Z",
+            "budget": {
+              "limit_units": 2,
+              "requested_units": 1,
+              "unit": "fixture-units"
+            },
+            "occurrence_id": "synthetic:ask",
+            "approval": {
+              "id": "synthetic:pending-approval",
+              "request_digest": "b77fe0adf3e5161beebeaa442a0cd93793aea90eb51f0ea5c8a93390c4312219",
+              "status": "pending",
+              "expires_at": "2026-10-18T00:00:00Z"
+            }
+          },
+          "evidence_status": "memory-only"
+        },
+        "packet": {
+          "schema_version": "herald.fixture.review-packet.v1",
+          "classification": "synthetic-public",
+          "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+          "baseline": {
+            "HERMES-CITY": "25e727aad42ec01ec011ff1f4b0c6ff494b9d5b2",
+            "AGENTROPOLIS-AGENT-MCP": "254e2ed593e5e251533ff1f9a9f422b302223285",
+            "AGENTROPOLIS-AEGIS-ASSURANCE": "e89c9ee156f9bc6921c0a65896c602adedc6b239",
+            "AGENTROPOLIS-54T": "a92ac15c926288eb9b93b4d0eb9daae09772efb2"
+          },
+          "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+          "decision": {
+            "schema_version": "herald.fixture.decision.v1",
+            "verdict": "ASK",
+            "reason_code": "APPROVAL_REQUIRED",
+            "source": "committed-test-transcript",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "request_digest": "5c65c2e79129e2b0177b3e843cfdfbf6fafaebd757db2507017d5a111ca72c92",
+            "binding_digest": "ac461cf15028d798add3eb498d7089368222eb7a407f99d60fa1eef1ebc21c20",
+            "binding": {
+              "schema_version": "herald.fixture.request.v1",
+              "mode": "fixture-only",
+              "route": "fixture",
+              "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+              "evaluation_time": "2026-10-17T00:00:00Z",
+              "principal": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.files.plan",
+              "action": {
+                "operation": "plan_move",
+                "target": "fixture://workspace/source.txt",
+                "destination": "fixture://workspace/destination.txt",
+                "max_bytes": 0
+              },
+              "action_digest": "13da26c3041ced0600bd5b4486abaa43e281981eb81bf84d6eecf24dbd7f7dd7",
+              "target": "fixture://workspace/source.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "lease": {
+                "id": "synthetic:lease-1",
+                "subject": "synthetic:operator",
+                "profile": "synthetic:research",
+                "session": "synthetic:session-1",
+                "mandate": "synthetic:fixture-review",
+                "capability": "herald.fixture.files.plan",
+                "target": "fixture://workspace/source.txt",
+                "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+                "capability_epoch": "synthetic:epoch-1",
+                "status": "active",
+                "expires_at": "2026-10-18T00:00:00Z"
+              },
+              "expires_at": "2026-10-18T00:00:00Z",
+              "budget": {
+                "limit_units": 2,
+                "requested_units": 1,
+                "unit": "fixture-units"
+              },
+              "occurrence_id": "synthetic:ask",
+              "approval": {
+                "id": "synthetic:pending-approval",
+                "request_digest": "b77fe0adf3e5161beebeaa442a0cd93793aea90eb51f0ea5c8a93390c4312219",
+                "status": "pending",
+                "expires_at": "2026-10-18T00:00:00Z"
+              }
+            },
+            "evidence_status": "memory-only"
+          },
+          "receipt": {
+            "schema_version": "herald.fixture.denial-receipt.v1",
+            "receipt_id": "e9e1ebf93b6d26e2b0949246b1e14147d897383a98614a83d8c50d85e248ffda",
+            "request_digest": "5c65c2e79129e2b0177b3e843cfdfbf6fafaebd757db2507017d5a111ca72c92",
+            "decision_digest": "41b83956c35c27e224b4a18a3e39e90ea87803d8af75ab3f4e94ade531ed0e46",
+            "reason_code": "APPROVAL_REQUIRED",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "evidence_status": "memory-only"
+          },
+          "preview": null,
+          "limitations": [
+            "FIXTURE_ONLY",
+            "NO_EXECUTION_AUTHORITY",
+            "MEMORY_ONLY_EVIDENCE",
+            "NO_OPERATIONAL_CERTIFICATION"
+          ]
+        }
+      }
+    },
+    {
+      "name": "unknown_identity",
+      "result": {
+        "decision": {
+          "schema_version": "herald.fixture.decision.v1",
+          "verdict": "DENY",
+          "reason_code": "UNKNOWN_IDENTITY",
+          "source": "committed-test-transcript",
+          "execution_authorized": false,
+          "invocation_performed": false,
+          "request_digest": "6132bc5ae18010f2dae2a4641db637571ef6caa554b98a13c67430c947c0ea5f",
+          "binding_digest": "5d8106ae2862f496a243fd156038b2f2aaa487ede5fb9028e94d2ef9a8f85307",
+          "binding": {
+            "schema_version": "herald.fixture.request.v1",
+            "mode": "fixture-only",
+            "route": "fixture",
+            "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+            "evaluation_time": "2026-10-17T00:00:00Z",
+            "principal": "synthetic:unknown",
+            "profile": "synthetic:research",
+            "session": "synthetic:session-1",
+            "mandate": "synthetic:fixture-review",
+            "capability": "herald.fixture.document.read",
+            "action": {
+              "operation": "read_document",
+              "target": "fixture://documents/brief.txt",
+              "destination": null,
+              "max_bytes": 4096
+            },
+            "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+            "target": "fixture://documents/brief.txt",
+            "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+            "capability_epoch": "synthetic:epoch-1",
+            "lease": {
+              "id": "synthetic:lease-1",
+              "subject": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "status": "active",
+              "expires_at": "2026-10-18T00:00:00Z"
+            },
+            "expires_at": "2026-10-18T00:00:00Z",
+            "budget": {
+              "limit_units": 2,
+              "requested_units": 1,
+              "unit": "fixture-units"
+            },
+            "occurrence_id": "synthetic:unknown_identity",
+            "approval": null
+          },
+          "evidence_status": "memory-only"
+        },
+        "packet": {
+          "schema_version": "herald.fixture.review-packet.v1",
+          "classification": "synthetic-public",
+          "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+          "baseline": {
+            "HERMES-CITY": "25e727aad42ec01ec011ff1f4b0c6ff494b9d5b2",
+            "AGENTROPOLIS-AGENT-MCP": "254e2ed593e5e251533ff1f9a9f422b302223285",
+            "AGENTROPOLIS-AEGIS-ASSURANCE": "e89c9ee156f9bc6921c0a65896c602adedc6b239",
+            "AGENTROPOLIS-54T": "a92ac15c926288eb9b93b4d0eb9daae09772efb2"
+          },
+          "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+          "decision": {
+            "schema_version": "herald.fixture.decision.v1",
+            "verdict": "DENY",
+            "reason_code": "UNKNOWN_IDENTITY",
+            "source": "committed-test-transcript",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "request_digest": "6132bc5ae18010f2dae2a4641db637571ef6caa554b98a13c67430c947c0ea5f",
+            "binding_digest": "5d8106ae2862f496a243fd156038b2f2aaa487ede5fb9028e94d2ef9a8f85307",
+            "binding": {
+              "schema_version": "herald.fixture.request.v1",
+              "mode": "fixture-only",
+              "route": "fixture",
+              "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+              "evaluation_time": "2026-10-17T00:00:00Z",
+              "principal": "synthetic:unknown",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "action": {
+                "operation": "read_document",
+                "target": "fixture://documents/brief.txt",
+                "destination": null,
+                "max_bytes": 4096
+              },
+              "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "lease": {
+                "id": "synthetic:lease-1",
+                "subject": "synthetic:operator",
+                "profile": "synthetic:research",
+                "session": "synthetic:session-1",
+                "mandate": "synthetic:fixture-review",
+                "capability": "herald.fixture.document.read",
+                "target": "fixture://documents/brief.txt",
+                "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+                "capability_epoch": "synthetic:epoch-1",
+                "status": "active",
+                "expires_at": "2026-10-18T00:00:00Z"
+              },
+              "expires_at": "2026-10-18T00:00:00Z",
+              "budget": {
+                "limit_units": 2,
+                "requested_units": 1,
+                "unit": "fixture-units"
+              },
+              "occurrence_id": "synthetic:unknown_identity",
+              "approval": null
+            },
+            "evidence_status": "memory-only"
+          },
+          "receipt": {
+            "schema_version": "herald.fixture.denial-receipt.v1",
+            "receipt_id": "f817ffe4fde6ded27898c35baa02e6db3942feea28a6a8de8aff6407e604ee59",
+            "request_digest": "6132bc5ae18010f2dae2a4641db637571ef6caa554b98a13c67430c947c0ea5f",
+            "decision_digest": "95fcdfdae29413c5aaf92c2a2bd10a20fb7f3594e11016e66facd54da3ef9ac9",
+            "reason_code": "UNKNOWN_IDENTITY",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "evidence_status": "memory-only"
+          },
+          "preview": null,
+          "limitations": [
+            "FIXTURE_ONLY",
+            "NO_EXECUTION_AUTHORITY",
+            "MEMORY_ONLY_EVIDENCE",
+            "NO_OPERATIONAL_CERTIFICATION"
+          ]
+        }
+      }
+    },
+    {
+      "name": "expired_lease",
+      "result": {
+        "decision": {
+          "schema_version": "herald.fixture.decision.v1",
+          "verdict": "DENY",
+          "reason_code": "LEASE_EXPIRED",
+          "source": "committed-test-transcript",
+          "execution_authorized": false,
+          "invocation_performed": false,
+          "request_digest": "abb292161ec6357d7aa2abef057e9368525462c773f2f32e60d9bb416c3d936b",
+          "binding_digest": "2863e7bece81f648579c04d5da1b7ad78a04bddc24517b1e36db35467a6109cf",
+          "binding": {
+            "schema_version": "herald.fixture.request.v1",
+            "mode": "fixture-only",
+            "route": "fixture",
+            "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+            "evaluation_time": "2026-10-17T00:00:00Z",
+            "principal": "synthetic:operator",
+            "profile": "synthetic:research",
+            "session": "synthetic:session-1",
+            "mandate": "synthetic:fixture-review",
+            "capability": "herald.fixture.document.read",
+            "action": {
+              "operation": "read_document",
+              "target": "fixture://documents/brief.txt",
+              "destination": null,
+              "max_bytes": 4096
+            },
+            "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+            "target": "fixture://documents/brief.txt",
+            "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+            "capability_epoch": "synthetic:epoch-1",
+            "lease": {
+              "id": "synthetic:lease-1",
+              "subject": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "status": "expired",
+              "expires_at": "2026-10-16T00:00:00Z"
+            },
+            "expires_at": "2026-10-18T00:00:00Z",
+            "budget": {
+              "limit_units": 2,
+              "requested_units": 1,
+              "unit": "fixture-units"
+            },
+            "occurrence_id": "synthetic:expired_lease",
+            "approval": null
+          },
+          "evidence_status": "memory-only"
+        },
+        "packet": {
+          "schema_version": "herald.fixture.review-packet.v1",
+          "classification": "synthetic-public",
+          "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+          "baseline": {
+            "HERMES-CITY": "25e727aad42ec01ec011ff1f4b0c6ff494b9d5b2",
+            "AGENTROPOLIS-AGENT-MCP": "254e2ed593e5e251533ff1f9a9f422b302223285",
+            "AGENTROPOLIS-AEGIS-ASSURANCE": "e89c9ee156f9bc6921c0a65896c602adedc6b239",
+            "AGENTROPOLIS-54T": "a92ac15c926288eb9b93b4d0eb9daae09772efb2"
+          },
+          "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+          "decision": {
+            "schema_version": "herald.fixture.decision.v1",
+            "verdict": "DENY",
+            "reason_code": "LEASE_EXPIRED",
+            "source": "committed-test-transcript",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "request_digest": "abb292161ec6357d7aa2abef057e9368525462c773f2f32e60d9bb416c3d936b",
+            "binding_digest": "2863e7bece81f648579c04d5da1b7ad78a04bddc24517b1e36db35467a6109cf",
+            "binding": {
+              "schema_version": "herald.fixture.request.v1",
+              "mode": "fixture-only",
+              "route": "fixture",
+              "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+              "evaluation_time": "2026-10-17T00:00:00Z",
+              "principal": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "action": {
+                "operation": "read_document",
+                "target": "fixture://documents/brief.txt",
+                "destination": null,
+                "max_bytes": 4096
+              },
+              "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "lease": {
+                "id": "synthetic:lease-1",
+                "subject": "synthetic:operator",
+                "profile": "synthetic:research",
+                "session": "synthetic:session-1",
+                "mandate": "synthetic:fixture-review",
+                "capability": "herald.fixture.document.read",
+                "target": "fixture://documents/brief.txt",
+                "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+                "capability_epoch": "synthetic:epoch-1",
+                "status": "expired",
+                "expires_at": "2026-10-16T00:00:00Z"
+              },
+              "expires_at": "2026-10-18T00:00:00Z",
+              "budget": {
+                "limit_units": 2,
+                "requested_units": 1,
+                "unit": "fixture-units"
+              },
+              "occurrence_id": "synthetic:expired_lease",
+              "approval": null
+            },
+            "evidence_status": "memory-only"
+          },
+          "receipt": {
+            "schema_version": "herald.fixture.denial-receipt.v1",
+            "receipt_id": "7748bc21133d215cbbc0518f6e38e7368caa9d9a82957d299877d7007bfd043e",
+            "request_digest": "abb292161ec6357d7aa2abef057e9368525462c773f2f32e60d9bb416c3d936b",
+            "decision_digest": "f4adcb9628f242ad194f323eeebdadc5b58f7a4f892a58933c2584d5757c771f",
+            "reason_code": "LEASE_EXPIRED",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "evidence_status": "memory-only"
+          },
+          "preview": null,
+          "limitations": [
+            "FIXTURE_ONLY",
+            "NO_EXECUTION_AUTHORITY",
+            "MEMORY_ONLY_EVIDENCE",
+            "NO_OPERATIONAL_CERTIFICATION"
+          ]
+        }
+      }
+    },
+    {
+      "name": "revoked_lease",
+      "result": {
+        "decision": {
+          "schema_version": "herald.fixture.decision.v1",
+          "verdict": "DENY",
+          "reason_code": "LEASE_REVOKED",
+          "source": "committed-test-transcript",
+          "execution_authorized": false,
+          "invocation_performed": false,
+          "request_digest": "af2983e0b088b2deb0e3ff5e3757d7e4b8295bb5cc9e309342227fbd3c1a785f",
+          "binding_digest": "8cd13c274b3a727de0fce01f74a85b2b046f09f5b062db7d5e953268d02e473a",
+          "binding": {
+            "schema_version": "herald.fixture.request.v1",
+            "mode": "fixture-only",
+            "route": "fixture",
+            "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+            "evaluation_time": "2026-10-17T00:00:00Z",
+            "principal": "synthetic:operator",
+            "profile": "synthetic:research",
+            "session": "synthetic:session-1",
+            "mandate": "synthetic:fixture-review",
+            "capability": "herald.fixture.document.read",
+            "action": {
+              "operation": "read_document",
+              "target": "fixture://documents/brief.txt",
+              "destination": null,
+              "max_bytes": 4096
+            },
+            "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+            "target": "fixture://documents/brief.txt",
+            "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+            "capability_epoch": "synthetic:epoch-1",
+            "lease": {
+              "id": "synthetic:lease-1",
+              "subject": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "status": "revoked",
+              "expires_at": "2026-10-18T00:00:00Z"
+            },
+            "expires_at": "2026-10-18T00:00:00Z",
+            "budget": {
+              "limit_units": 2,
+              "requested_units": 1,
+              "unit": "fixture-units"
+            },
+            "occurrence_id": "synthetic:revoked_lease",
+            "approval": null
+          },
+          "evidence_status": "memory-only"
+        },
+        "packet": {
+          "schema_version": "herald.fixture.review-packet.v1",
+          "classification": "synthetic-public",
+          "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+          "baseline": {
+            "HERMES-CITY": "25e727aad42ec01ec011ff1f4b0c6ff494b9d5b2",
+            "AGENTROPOLIS-AGENT-MCP": "254e2ed593e5e251533ff1f9a9f422b302223285",
+            "AGENTROPOLIS-AEGIS-ASSURANCE": "e89c9ee156f9bc6921c0a65896c602adedc6b239",
+            "AGENTROPOLIS-54T": "a92ac15c926288eb9b93b4d0eb9daae09772efb2"
+          },
+          "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+          "decision": {
+            "schema_version": "herald.fixture.decision.v1",
+            "verdict": "DENY",
+            "reason_code": "LEASE_REVOKED",
+            "source": "committed-test-transcript",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "request_digest": "af2983e0b088b2deb0e3ff5e3757d7e4b8295bb5cc9e309342227fbd3c1a785f",
+            "binding_digest": "8cd13c274b3a727de0fce01f74a85b2b046f09f5b062db7d5e953268d02e473a",
+            "binding": {
+              "schema_version": "herald.fixture.request.v1",
+              "mode": "fixture-only",
+              "route": "fixture",
+              "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+              "evaluation_time": "2026-10-17T00:00:00Z",
+              "principal": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "action": {
+                "operation": "read_document",
+                "target": "fixture://documents/brief.txt",
+                "destination": null,
+                "max_bytes": 4096
+              },
+              "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "lease": {
+                "id": "synthetic:lease-1",
+                "subject": "synthetic:operator",
+                "profile": "synthetic:research",
+                "session": "synthetic:session-1",
+                "mandate": "synthetic:fixture-review",
+                "capability": "herald.fixture.document.read",
+                "target": "fixture://documents/brief.txt",
+                "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+                "capability_epoch": "synthetic:epoch-1",
+                "status": "revoked",
+                "expires_at": "2026-10-18T00:00:00Z"
+              },
+              "expires_at": "2026-10-18T00:00:00Z",
+              "budget": {
+                "limit_units": 2,
+                "requested_units": 1,
+                "unit": "fixture-units"
+              },
+              "occurrence_id": "synthetic:revoked_lease",
+              "approval": null
+            },
+            "evidence_status": "memory-only"
+          },
+          "receipt": {
+            "schema_version": "herald.fixture.denial-receipt.v1",
+            "receipt_id": "25cd09b34142c5c9f76a0c0747e171bdb2fd87099346ec8ec4691238da093365",
+            "request_digest": "af2983e0b088b2deb0e3ff5e3757d7e4b8295bb5cc9e309342227fbd3c1a785f",
+            "decision_digest": "45e36e3c50b67ea9d2f74faa83f0cc68dd0983fd6ff967907e623bc57225ee49",
+            "reason_code": "LEASE_REVOKED",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "evidence_status": "memory-only"
+          },
+          "preview": null,
+          "limitations": [
+            "FIXTURE_ONLY",
+            "NO_EXECUTION_AUTHORITY",
+            "MEMORY_ONLY_EVIDENCE",
+            "NO_OPERATIONAL_CERTIFICATION"
+          ]
+        }
+      }
+    },
+    {
+      "name": "over_budget",
+      "result": {
+        "decision": {
+          "schema_version": "herald.fixture.decision.v1",
+          "verdict": "DENY",
+          "reason_code": "BUDGET_EXCEEDED",
+          "source": "committed-test-transcript",
+          "execution_authorized": false,
+          "invocation_performed": false,
+          "request_digest": "5ed9d727477a3319d32c230e53b478f8c4ab1b56367bb92d73dc35c212d4e150",
+          "binding_digest": "ecba3641e6fc9580cb8af62bccd27ded753b5d870cf51b689054bfc28ac2c3ac",
+          "binding": {
+            "schema_version": "herald.fixture.request.v1",
+            "mode": "fixture-only",
+            "route": "fixture",
+            "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+            "evaluation_time": "2026-10-17T00:00:00Z",
+            "principal": "synthetic:operator",
+            "profile": "synthetic:research",
+            "session": "synthetic:session-1",
+            "mandate": "synthetic:fixture-review",
+            "capability": "herald.fixture.document.read",
+            "action": {
+              "operation": "read_document",
+              "target": "fixture://documents/brief.txt",
+              "destination": null,
+              "max_bytes": 4096
+            },
+            "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+            "target": "fixture://documents/brief.txt",
+            "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+            "capability_epoch": "synthetic:epoch-1",
+            "lease": {
+              "id": "synthetic:lease-1",
+              "subject": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "status": "active",
+              "expires_at": "2026-10-18T00:00:00Z"
+            },
+            "expires_at": "2026-10-18T00:00:00Z",
+            "budget": {
+              "limit_units": 2,
+              "requested_units": 3,
+              "unit": "fixture-units"
+            },
+            "occurrence_id": "synthetic:over_budget",
+            "approval": null
+          },
+          "evidence_status": "memory-only"
+        },
+        "packet": {
+          "schema_version": "herald.fixture.review-packet.v1",
+          "classification": "synthetic-public",
+          "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+          "baseline": {
+            "HERMES-CITY": "25e727aad42ec01ec011ff1f4b0c6ff494b9d5b2",
+            "AGENTROPOLIS-AGENT-MCP": "254e2ed593e5e251533ff1f9a9f422b302223285",
+            "AGENTROPOLIS-AEGIS-ASSURANCE": "e89c9ee156f9bc6921c0a65896c602adedc6b239",
+            "AGENTROPOLIS-54T": "a92ac15c926288eb9b93b4d0eb9daae09772efb2"
+          },
+          "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+          "decision": {
+            "schema_version": "herald.fixture.decision.v1",
+            "verdict": "DENY",
+            "reason_code": "BUDGET_EXCEEDED",
+            "source": "committed-test-transcript",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "request_digest": "5ed9d727477a3319d32c230e53b478f8c4ab1b56367bb92d73dc35c212d4e150",
+            "binding_digest": "ecba3641e6fc9580cb8af62bccd27ded753b5d870cf51b689054bfc28ac2c3ac",
+            "binding": {
+              "schema_version": "herald.fixture.request.v1",
+              "mode": "fixture-only",
+              "route": "fixture",
+              "herald_commit": "04fba92585165d7407bc639efc8408b15217cd37",
+              "evaluation_time": "2026-10-17T00:00:00Z",
+              "principal": "synthetic:operator",
+              "profile": "synthetic:research",
+              "session": "synthetic:session-1",
+              "mandate": "synthetic:fixture-review",
+              "capability": "herald.fixture.document.read",
+              "action": {
+                "operation": "read_document",
+                "target": "fixture://documents/brief.txt",
+                "destination": null,
+                "max_bytes": 4096
+              },
+              "action_digest": "360d9f3140cd14278a8f02f5fda992ca86ae919f6f89d0694ac62c9bbe05df49",
+              "target": "fixture://documents/brief.txt",
+              "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+              "capability_epoch": "synthetic:epoch-1",
+              "lease": {
+                "id": "synthetic:lease-1",
+                "subject": "synthetic:operator",
+                "profile": "synthetic:research",
+                "session": "synthetic:session-1",
+                "mandate": "synthetic:fixture-review",
+                "capability": "herald.fixture.document.read",
+                "target": "fixture://documents/brief.txt",
+                "policy_revision": "a92ac15c926288eb9b93b4d0eb9daae09772efb2",
+                "capability_epoch": "synthetic:epoch-1",
+                "status": "active",
+                "expires_at": "2026-10-18T00:00:00Z"
+              },
+              "expires_at": "2026-10-18T00:00:00Z",
+              "budget": {
+                "limit_units": 2,
+                "requested_units": 3,
+                "unit": "fixture-units"
+              },
+              "occurrence_id": "synthetic:over_budget",
+              "approval": null
+            },
+            "evidence_status": "memory-only"
+          },
+          "receipt": {
+            "schema_version": "herald.fixture.denial-receipt.v1",
+            "receipt_id": "7400388f390254154487d32f8c8bb86e5532f384ea8bcd1e73727048d528fe36",
+            "request_digest": "5ed9d727477a3319d32c230e53b478f8c4ab1b56367bb92d73dc35c212d4e150",
+            "decision_digest": "4d297ee76bb13e2fd70615eca5fee11aee3713c61c46c09878b52fad2798e3cc",
+            "reason_code": "BUDGET_EXCEEDED",
+            "execution_authorized": false,
+            "invocation_performed": false,
+            "evidence_status": "memory-only"
+          },
+          "preview": null,
+          "limitations": [
+            "FIXTURE_ONLY",
+            "NO_EXECUTION_AUTHORITY",
+            "MEMORY_ONLY_EVIDENCE",
+            "NO_OPERATIONAL_CERTIFICATION"
+          ]
+        }
+      }
+    }
+  ]
+}

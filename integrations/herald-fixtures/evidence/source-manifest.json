@@ -1,0 +1,72 @@
+{
+  "schema_version": "herald.fixture.source-manifest.v1",
+  "owner_base_commit": "254e2ed593e5e251533ff1f9a9f422b302223285",
+  "scope": "source files only; evidence directory excluded to avoid circular hashes",
+  "files": [
+    {
+      "path": "integrations/herald-fixtures/CLAIMS.md",
+      "sha256": "de0b0e1cacb5297cb5c151029766760f9efd06a27f6fad97278fd92a495f91da",
+      "bytes": 2875
+    },
+    {
+      "path": "integrations/herald-fixtures/DEPENDENCIES-LICENSES.md",
+      "sha256": "3a9a255a74908b9119fd7470d826afb08222f4c77b35763c9b514c53e7e58433",
+      "bytes": 1518
+    },
+    {
+      "path": "integrations/herald-fixtures/GOVERNANCE.md",
+      "sha256": "2f7b9c15718edd16c42a809bdcbf5cac0a331092384be6c740fb72ca5747678e",
+      "bytes": 3374
+    },
+    {
+      "path": "integrations/herald-fixtures/README.md",
+      "sha256": "8e4c165fac4f572654bff59bdc946095619889a259c96296484710c151e52fc9",
+      "bytes": 5502
+    },
+    {
+      "path": "integrations/herald-fixtures/RFP.md",
+      "sha256": "2bf8a493362b50be37fe93d0ec7fe634f827a41ff6081b1560ee9e20b8e24a9d",
+      "bytes": 2945
+    },
+    {
+      "path": "integrations/herald-fixtures/THREAT-MODEL.md",
+      "sha256": "b4e055e2ef09e51cd03bd619cc20aa18577689503f78f92596ef3b9d6977e5ef",
+      "bytes": 4561
+    },
+    {
+      "path": "integrations/herald-fixtures/VERITY-REVIEW.md",
+      "sha256": "4c57698a24f75519b2fd205304929f496e4f2a04d48f914283f76fdadd177326",
+      "bytes": 4278
+    },
+    {
+      "path": "integrations/herald-fixtures/adapter.mjs",
+      "sha256": "0228d8aa0ae35cbdb8c58fabf6892ef5f30db4e878c402b94013d61f6431b83c",
+      "bytes": 8881
+    },
+    {
+      "path": "integrations/herald-fixtures/baseline.lock.json",
+      "sha256": "36e2ea24903e464edf93d8f8a1c90f5ac3d675f4358ac8a2662681b2a2c71340",
+      "bytes": 766
+    },
+    {
+      "path": "integrations/herald-fixtures/contracts/v1.json",
+      "sha256": "22894f6878e8b4cc574a89eca8913561aa4e3b8e80d6a33b55f05c7a2d605665",
+      "bytes": 16234
+    },
+    {
+      "path": "integrations/herald-fixtures/contracts.mjs",
+      "sha256": "c2d97a5f21cce492959b07f6469e260191d87b02902b07e5319c9ce9644d1ecf",
+      "bytes": 3243
+    },
+    {
+      "path": "integrations/herald-fixtures/fixtures/catalog.v1.json",
+      "sha256": "c82cf6bb868763cc358d4975074b29920febc77a523b80ab52932f8d24e14e9d",
+      "bytes": 29929
+    },
+    {
+      "path": "tests/herald-fixtures.test.mjs",
+      "sha256": "01a591d5bbe90cd17814875254783e812c6ed19014085cabcb76e4545bf608b5",
+      "bytes": 13344
+    }
+  ]
+}
