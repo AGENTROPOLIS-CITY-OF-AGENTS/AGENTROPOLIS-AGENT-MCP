@@ -16,6 +16,8 @@
   "vars": {
     "ENVIRONMENT": "production",
     "SERVICE_VERSION": "1.2.0-jspace-projection-beta",
+    "BUILD_SHA": "unknown",
+    "BUILD_ID": "unknown",
     "MCP_AUTH_MODE": "public-read",
     "PUBLIC_MCP_ENABLED": "true",
     "ALLOWED_ORIGINS": "https://playground.ai.cloudflare.com,https://wiredchaos.github.io,https://agentropolis.gitlawb.app,http://localhost:5173,http://127.0.0.1:5173",

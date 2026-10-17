@@ -1,3 +1,4 @@
+import { buildInfo } from "./build-info.js";
 import { DISTRICTS, PROTOCOL_VERSION, TOOLS, assessRisk, capabilityMap, deploymentManifest, routeFrontDesk, validateArguments } from "./core.js";
 
 const MCP_PATHS = new Set(["/mcp", "/mcp/"]);
@@ -103,8 +104,8 @@ async function riskApi(request, env, requestId) {
 }
 
 async function health(env, requestId) {
-  try { await ensureSchema(env.DB); await env.DB.prepare("SELECT 1 AS ok").first(); return json({ status: "ok", service: "agentropolis-agent-mcp", version: env.SERVICE_VERSION, environment: env.ENVIRONMENT, requestId, checks: { worker: "ok", assets: "bound", d1: "ok" }, timestamp: new Date().toISOString() }); }
-  catch { return json({ status: "degraded", service: "agentropolis-agent-mcp", requestId, checks: { worker: "ok", assets: "bound", d1: "degraded" }, timestamp: new Date().toISOString() }, 503); }
+  try { await ensureSchema(env.DB); await env.DB.prepare("SELECT 1 AS ok").first(); return json({ status: "ok", service: "agentropolis-agent-mcp", version: env.SERVICE_VERSION, environment: env.ENVIRONMENT, build: buildInfo(env), requestId, checks: { worker: "ok", assets: "bound", d1: "ok" }, timestamp: new Date().toISOString() }); }
+  catch { return json({ status: "degraded", service: "agentropolis-agent-mcp", build: buildInfo(env), requestId, checks: { worker: "ok", assets: "bound", d1: "degraded" }, timestamp: new Date().toISOString() }, 503); }
 }
 
 async function listReceipts(request, env) {
