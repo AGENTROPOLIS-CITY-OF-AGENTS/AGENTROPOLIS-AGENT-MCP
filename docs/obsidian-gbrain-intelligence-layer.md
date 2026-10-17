@@ -1,114 +1,56 @@
-# Obsidian + gbrain Intelligence Layer
+<!--
+Reference copy. Canonical edition (PROPOSED, NEURO decision 2026-10):
+  AGENTROPOLIS-CITY-OF-AGENTS/PUBLIC-PORT-DISTRIBUTION-MEMBRANE:docs/obsidian-gbrain-intelligence-layer.md
+Provenance: this file previously held a tailored full copy (blob 11cd069e, commit 2c07f0a2, 2026-07-05 PT; never edited
+since). Its core sections conflicted with current law in this repo (src/jspace.js: "Obsidian is human-editable memory, not
+automatic proof"; docs/JSPACE_PRODUCTION_BETA_RUNBOOK.md: "No JSpace path may ... write directly to gBRAIN"), and it
+recommended a direct `gbrain` upsert write surface. Core text is replaced by the reference below; the MCP-specific overlay is
+kept and rewritten to the governed staging/projection contract. Prior text is recoverable from git history.
+Guarded by tests/knowledge-doc-drift.test.mjs. Prepared by Grok Bot (bounded implementation); not independently verified by VERITY.
+-->
 
-## Purpose
+# Obsidian + gBRAIN Intelligence Layer (AGENTROPOLIS-AGENT-MCP reference)
 
-AGENTROPOLIS-AGENT-MCP treats Obsidian as the human-editable canon vault and gbrain as the machine-readable intelligence graph.
-
-This locks the current direction for the Hermes / llm-wiki / gbrain / Obsidian stack:
-
-```text
-Obsidian Vault
-  -> llm-wiki indexing
-  -> gbrain structured claims
-  -> Hermes agents act on attributed knowledge
-```
-
-## Layer Roles
+The canonical edition of this document lives in
+`AGENTROPOLIS-CITY-OF-AGENTS/PUBLIC-PORT-DISTRIBUTION-MEMBRANE` at `docs/obsidian-gbrain-intelligence-layer.md`.
+This repository keeps this reference plus the MCP overlay below. Overlays may add detail; they may not contradict the
+canonical Layer Roles or the Governed Write Contract.
 
 | Layer | Role |
 | --- | --- |
-| Obsidian | Source-of-truth workspace for canon, doctrine, meeting notes, repo decisions, project memory, and human review. |
-| llm-wiki | Searchable knowledge base over the vault and related project docs. |
-| gbrain | Structured graph for attributed claims, facts, takes, bets, hunches, decisions, and relationships. |
-| Hermes | Agent operator that searches, reasons, drafts, routes, and executes from the graph. |
-| MCP | Tool boundary that exposes approved graph, vault, search, and action surfaces to agents. |
+| WikiVault | Owns governed evidence and canon (promotion-gated). |
+| Obsidian | Human-readable / human-editable knowledge; not canon until promoted. |
+| gBRAIN | Derived, rebuildable claims graph; written only by the projection job. |
+| J-Space | Contextual reasoning; derived and read-only. |
+| MCP | Tool boundary that exposes approved read surfaces and governed staging surfaces to agents. |
 
-## Take Model
+## AGENTROPOLIS-AGENT-MCP overlay: MCP Exposure Rules
 
-A Take is not just an opinion. It is a broader attributed claim.
+Expose knowledge to agents as bounded tools, not unrestricted memory soup. **No MCP tool may write directly to gBRAIN.**
 
-Supported claim kinds:
-
-- fact
-- take
-- doctrine
-- decision
-- bet
-- hunch
-- relationship
-- evidence
-- confidence
-
-Every claim should preserve attribution. The agent must know who or what holds the claim.
-
-Example holders:
-
-- `brain`
-- `self`
-- `world`
-- `people/<slug>`
-- `companies/<slug>`
-- `projects/<slug>`
-- `agents/<slug>`
-
-## Anti-Moloch Rule
-
-Agents must not collapse all claims into one fake truth.
-
-The system should distinguish:
-
-- what Agentropolis believes
-- what a person believes
-- what a company believes
-- what the current public world-state says
-- what is only a hunch
-- what is a bet awaiting resolution
-- what is canon locked
-- what needs verification
-
-## MCP Exposure Rules
-
-Expose the graph to agents as bounded tools, not unrestricted memory soup.
-
-Recommended MCP surfaces:
+Read surfaces:
 
 - `vault.search`
 - `vault.fetch_note`
 - `gbrain.search_claims`
-- `gbrain.upsert_claim`
-- `gbrain.link_entities`
-- `gbrain.resolve_bet`
 - `gbrain.list_entity_context`
 
-Write operations should preserve:
+Governed staging surfaces (proposals only; never served as fact):
+
+- `claims.stage_proposal` (new claim, entity link, or bet resolution proposal)
+- `claims.get_proposal_status`
+
+Every staged proposal must carry:
 
 - holder
 - kind
-- source note or source URL
+- statement
+- source (WikiVault id, note path, or URL) and source content hash
 - confidence
+- proposed_by (agent id)
 - created date
-- updated date
-- resolution status for bets
+- resolution status and criteria for bets
 
-## Obsidian Canon Vault Responsibilities
-
-Use Obsidian for:
-
-- canon locks
-- project doctrine
-- people and company profiles
-- investor notes
-- repo strategy
-- decisions
-- bets and predictions
-- meeting notes
-- source links
-- why-we-decided-this context
-
-Obsidian is the writable brain. gbrain is the structured intelligence graph. Hermes is the operator.
-
-## Operating Principle
-
-Do not build memory as a pile of text.
-
-Build memory as attributed knowledge that can be searched, reviewed, corrected, versioned, and acted on.
+Promotion is performed by a non-producing reviewer (VERITY or delegated reviewer; NEURO for canon locks) into
+WikiVault/Obsidian with a promotion receipt. gBRAIN is then updated only by the deterministic projection job, which stamps
+`projected_from` and `projection_run_id` on every claim, so gBRAIN can always be rebuilt from governed sources.
