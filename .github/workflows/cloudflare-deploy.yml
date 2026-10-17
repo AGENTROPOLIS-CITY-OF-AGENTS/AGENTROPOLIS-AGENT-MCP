@@ -47,7 +47,7 @@ jobs:
       - name: Apply D1 migrations
         run: npx --yes wrangler@4.114.0 d1 migrations apply DB --remote
       - name: Deploy Worker
-        run: npx --yes wrangler@4.114.0 deploy
+        run: npx --yes wrangler@4.114.0 deploy --var "BUILD_SHA:${GITHUB_SHA}" --var "BUILD_ID:${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
       - name: Verify public health
         shell: bash
         run: |
