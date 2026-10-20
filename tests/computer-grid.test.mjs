@@ -1,0 +1,10 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { routeComputerTask, PROVIDERS } from "../integrations/computer-grid/router.mjs";
+test("all candidates default deny",()=>{ for (const provider of PROVIDERS) assert.equal(routeComputerTask({provider,mandateId:"M-1"}).allowed,false); });
+test("missing mandate denies",()=>assert.equal(routeComputerTask({provider:"e2b",approved:true}).reason,"missing_mandate"));
+test("unknown provider denies",()=>assert.equal(routeComputerTask({provider:"unknown",mandateId:"M-1",approved:true}).reason,"unknown_provider"));
+test("critical local compute denied",()=>assert.equal(routeComputerTask({provider:"daytona",mandateId:"M-1",approved:true,thermalState:"critical"}).reason,"thermal_local_compute_blocked"));
+test("hot local compute denied",()=>assert.equal(routeComputerTask({provider:"e2b",mandateId:"M-1",approved:true,thermalState:"hot"}).reason,"thermal_local_compute_blocked"));
+test("mobile local compute denied",()=>assert.equal(routeComputerTask({provider:"e2b",mandateId:"M-1",approved:true,deviceClass:"mobile"}).reason,"mobile_heavy_compute_requires_offload"));
+test("approved remote request only eligible for further review",()=>assert.deepEqual(routeComputerTask({provider:"e2b",mandateId:"M-1",approved:true,executionLane:"cloud",thermalState:"hot"}),{allowed:true,reason:"eligible_for_54t_review",provider:"e2b",mandateId:"M-1",executionLane:"cloud",thermalState:"hot",authority:"planning_only"}));
