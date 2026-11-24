@@ -13,7 +13,26 @@ const LOCAL_SCRIPT = './agentropolis-loop-baseline.js';
 const SKIP_DIRS = new Set(['node_modules', '.git', '.wrangler']);
 
 function gitBlobSha1(bytes) {
-  return createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
+  return createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex')
+}
+
+/**
+ * Normalize CRLF -> LF before hashing or pattern-matching.
+ *
+ * The committed blobs are LF, but `core.autocrlf=true` on Windows checks them
+ * out with CRLF. Hashing the raw worktree bytes therefore fails on Windows
+ * only (passes on ubuntu CI), hiding a host-dependent break. Compare the
+ * committed content by normalizing line endings first; this keeps the pinned
+ * blob/sha256 meaningful without weakening what is asserted.
+ */
+function toLf(bytes) {
+  var text = bytes.toString('utf8');
+  var out = '';
+  for (var i = 0; i < text.length; i++) {
+    if (text.charCodeAt(i) === 13 && text.charCodeAt(i + 1) === 10) continue;
+    out += text.charAt(i);
+  }
+  return Buffer.from(out, 'utf8');
 }
 
 function isRemoteScriptSrc(value) {
@@ -61,7 +80,7 @@ async function* walkSourceFiles(dir) {
 }
 
 test('github-pages loop baseline is the pinned git blob and sha256', async () => {
-  const bytes = await readFile(PAGES_BASELINE);
+  const bytes = toLf(await readFile(PAGES_BASELINE));
   assert.equal(gitBlobSha1(bytes), EXPECTED_GIT_BLOB);
   assert.equal(createHash('sha256').update(bytes).digest('hex'), EXPECTED_SHA256);
 });
@@ -73,7 +92,7 @@ test('every loop-baseline script copy matches that same blob', async () => {
   }
   assert.ok(copies.some((file) => file === PAGES_BASELINE));
   for (const file of copies) {
-    const bytes = await readFile(file);
+    const bytes = toLf(await readFile(file));
     const label = relative(root, file);
     assert.equal(gitBlobSha1(bytes), EXPECTED_GIT_BLOB, label);
     assert.equal(createHash('sha256').update(bytes).digest('hex'), EXPECTED_SHA256, label);
@@ -119,7 +138,7 @@ test('script-src detector flags remote baseline and design-system sources', () =
 });
 
 test('required validate workflow runs this no-network regression', async () => {
-  const workflow = await readFile(join(root, '.github', 'workflows', 'cloudflare-ci.yml'), 'utf8');
+  const workflow = toLf(await readFile(join(root, '.github', 'workflows', 'cloudflare-ci.yml'))).toString('utf8');
   const pkg = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
   assert.match(workflow, /^jobs:\n {2}validate:/m);
   assert.match(workflow, /node --test tests\/loop-baseline-vendor\.test\.mjs/);
